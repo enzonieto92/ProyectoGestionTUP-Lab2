@@ -1,7 +1,7 @@
 #include <iostream>
 #include "persona.h"
 #include "Cuadro.h"
-#include "Menus.h"
+#include "Menu.h"
 #include "funciones.h"
 using namespace std;
 
@@ -9,7 +9,8 @@ using namespace std;
 int main()
 {
 rlutil::setColor(12);
-menu_principal();
+Menu Menu;
+Menu.Principal();
 
     return 0;
 }
