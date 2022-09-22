@@ -21,12 +21,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Menus.h" />
 		<Unit filename="include/Cuadro.h" />
+		<Unit filename="include/Menus.h" />
+		<Unit filename="include/Texto.h" />
 		<Unit filename="include/funciones.h" />
 		<Unit filename="include/persona.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Cuadro.cpp" />
+		<Unit filename="src/Texto.cpp" />
 		<Unit filename="src/persona.cpp" />
 		<Extensions />
 	</Project>
