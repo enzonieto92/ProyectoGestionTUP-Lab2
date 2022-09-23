@@ -22,12 +22,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Cuadro.h" />
-		<Unit filename="include/Menus.h" />
+		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/funciones.h" />
 		<Unit filename="include/persona.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Cuadro.cpp" />
+		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Texto.cpp" />
 		<Unit filename="src/persona.cpp" />
 		<Extensions />

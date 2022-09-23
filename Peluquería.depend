@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1663867273 source:c:\users\enzon\desktop\proyectogestiontup-lab2\main.cpp
+1663896894 source:c:\users\enzon\desktop\proyectogestiontup-lab2\main.cpp
 	<iostream>
 	"persona.h"
 	"Cuadro.h"
@@ -10,8 +10,7 @@
 	<iostream>
 	<string.h>
 
-1663868396 c:\users\enzon\desktop\proyectogestiontup-lab2\include\cuadro.h
-	"funciones.h"
+1663946788 c:\users\enzon\desktop\proyectogestiontup-lab2\include\cuadro.h
 	"Texto.h"
 
 1663760810 c:\users\enzon\desktop\proyectogestiontup-lab2\include\funciones.h
@@ -33,7 +32,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1663868396 c:\users\enzon\desktop\proyectogestiontup-lab2\include\texto.h
+1663946632 c:\users\enzon\desktop\proyectogestiontup-lab2\include\texto.h
 	"funciones.h"
 
 1663761624 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menus.h
@@ -42,22 +41,18 @@
 1663639756 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\persona.cpp
 	"persona.h"
 
-1663868161 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\cuadro.cpp
+1663946669 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\cuadro.cpp
 	"Cuadro.h"
 	<iostream>
-	"funciones.h"
-	"Texto.h"
 
-1663724180 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\texto.cpp
+1663946632 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\texto.cpp
 	"Texto.h"
 	<iostream>
-	"funciones.h"
 
-1663868161 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\menu.cpp
+1663879810 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
 	<iostream>
 
-1663867360 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
-	"funciones.h"
+1663946834 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
 	"Cuadro.h"
 

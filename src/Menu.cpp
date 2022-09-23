@@ -9,7 +9,7 @@ Menu::Menu()
 }
 
 
-void Menu::Principal()
+int Menu::Principal()
 {
     rlutil::hidecursor();
     coor  = {40,10};
@@ -39,14 +39,10 @@ void Menu::Principal()
             case 1:
                 switch(opc){
                     case 1:
-                        system("cls");
-                        cout <<"estás en el menu turnos";
-                        getch();
+                        return opc;
                         break;
                     case 2:
-                        system("cls");
-                        cout <<"estas en menu 2";
-                        getch();
+                        return opc;
                         break;
                     case 3:
                         opc = 0;
@@ -54,5 +50,19 @@ void Menu::Principal()
             }
 
     }
+
+}
+
+void Menu::Turnos()
+{
+    system("cls");
+    cout <<"estas en el menu turnos";
+
+}
+
+void Menu::Contactos()
+{
+       system("cls");
+    cout <<"estas en el menu Contactos";
 
 }
