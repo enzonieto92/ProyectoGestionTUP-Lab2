@@ -1,6 +1,5 @@
 #ifndef CUADRO_H
 #define CUADRO_H
-#include "funciones.h"
 #include "Texto.h"
 class Cuadro
 {

@@ -1,6 +1,5 @@
 #ifndef MENU_H
 #define MENU_H
-#include "funciones.h"
 #include "Cuadro.h"
 class Menu
 {
@@ -10,7 +9,7 @@ class Menu
         origen coor;
     public:
         Menu();
-        void Principal();
+        int Principal();
         void Turnos();
         void Contactos();
     protected:

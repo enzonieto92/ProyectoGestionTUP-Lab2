@@ -1,20 +1,15 @@
 #include "Texto.h"
 #include <iostream>
-#include "funciones.h"
 using namespace std;
 
-Texto::Texto()
-{
-    coor = {1,1};
 
-}
 Texto::Texto(origen _coor)
 {
     coor = _coor;
 
 }
 void Texto::mostrar_texto1(){
-    gotoxy(coor.x-6, coor.y-7);
+    gotoxy(coor.x-4, coor.y-7);
     cout <<"Peluqueria Erica Martinez";
     gotoxy(coor.x+5, coor.y+1);
     cout <<"TURNOS";

@@ -1,13 +1,10 @@
 #include "Cuadro.h"
 #include <iostream>
-#include "funciones.h"
-#include "Texto.h"
 using namespace std;
-Cuadro::Cuadro(origen _coor, int _largo, int _alto, int _opc){
+Cuadro::Cuadro(origen _coor, int _largo, int _alto, int _opc): _txt(_coor){
     coor = _coor;
     largo = _largo;
     alto = _alto;
-    _txt = Texto(_coor);
     opc = _opc;
 
 }

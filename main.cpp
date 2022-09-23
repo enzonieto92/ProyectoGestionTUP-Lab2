@@ -1,6 +1,4 @@
 #include <iostream>
-#include "persona.h"
-#include "Cuadro.h"
 #include "Menu.h"
 #include "funciones.h"
 using namespace std;
@@ -10,7 +8,15 @@ int main()
 {
 rlutil::setColor(12);
 Menu Menu;
-Menu.Principal();
+int opc = Menu.Principal();
+switch (opc){
+case 1:
+    Menu.Turnos();
+    break;
+case 2:
+    Menu.Contactos();
+    break;
+}
 
     return 0;
 }
