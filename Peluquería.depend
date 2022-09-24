@@ -56,3 +56,55 @@
 1663946834 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
 	"Cuadro.h"
 
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\main.cpp
+	<iostream>
+	"Menu.h"
+	"funciones.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\menu.h
+	"Cuadro.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuadro.h
+	"Texto.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
+	"funciones.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
+	"rlutil.h"
+	<cstdio>
+	<ctime>
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cuadro.cpp
+	"Cuadro.h"
+	<iostream>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+	"Menu.h"
+	<iostream>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\persona.cpp
+	"persona.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\persona.h
+	<iostream>
+	<string.h>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\texto.cpp
+	"Texto.h"
+	<iostream>
+
