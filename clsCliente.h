@@ -28,7 +28,7 @@ class Cliente{
 
         ///SETS
         bool setDNI(int nD){
-            if(DNI > 0){
+            if(nD > 0){
                 DNI = nD;
                 return true;
             }

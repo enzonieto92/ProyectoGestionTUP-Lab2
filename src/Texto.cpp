@@ -14,7 +14,7 @@ void Texto::mostrar_texto1(){
     gotoxy(coor.x+5, coor.y+1);
     cout <<"TURNOS";
     gotoxy(coor.x+4, coor.y+3);
-    cout <<"CLIENTES";
+    cout <<"CONTACTOS";
     gotoxy(coor.x+5, coor.y+5);
     cout <<"SALIR";
 }
