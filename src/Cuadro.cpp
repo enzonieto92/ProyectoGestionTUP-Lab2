@@ -1,7 +1,7 @@
 #include "Cuadro.h"
 #include <iostream>
 using namespace std;
-Cuadro::Cuadro(origen _coor, int _largo, int _alto, int _opc): _txt(_coor){
+Cuadro::Cuadro(origen _coor, int _largo, int _alto, int &_opc): _txt(_coor){
     coor = _coor;
     largo = _largo;
     alto = _alto;
@@ -58,6 +58,22 @@ esquina_inf();
 void Cuadro::mostrar_texto1(){
 _txt.mostrar_texto1();
 }
+void Cuadro::mostrar_texto2(){
+_txt.mostrar_texto2();
+}
+void Cuadro::mostrar_texto3(){
+_txt.mostrar_texto3();
+}
+void Cuadro::mostrar_texto4(){
+_txt.mostrar_texto4();
+}
 void Cuadro::Resaltar1(){
-_txt.resaltar(opc);
+_txt.resaltar1(opc);
+}
+void Cuadro::Resaltar2(){
+_txt.resaltar2(opc);
+}
+
+void Cuadro::setOpc(int &_opc){
+opc = _opc;
 }

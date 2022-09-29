@@ -56,3 +56,203 @@
 1663946834 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
 	"Cuadro.h"
 
+1663983462 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\main.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<ctime>
+	"Menu.h"
+	"funciones.h"
+	"funcionesGlobales.h"
+	"clsFecha.h"
+	"clsTurno.h"
+	"clsCliente.h"
+	"funcionesGlobalesTurno.h"
+	"funcionesGlobalesCliente.h"
+	"opcionesGlobalesMenu.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\menu.h
+	"Cuadro.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuadro.h
+	"Texto.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
+	"funciones.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
+	"rlutil.h"
+	<cstdio>
+	<ctime>
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cuadro.cpp
+	"Cuadro.h"
+	<iostream>
+
+1663983454 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+	"Menu.h"
+	<iostream>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\persona.cpp
+	"persona.h"
+
+1663982051 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\persona.h
+	<iostream>
+	<string.h>
+
+1663982051 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\texto.cpp
+	"Texto.h"
+	<iostream>
+
+1663941600 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\funcionesglobales.h
+
+1663952720 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\clsfecha.h
+
+1663915330 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\clsturno.h
+
+1663981549 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\clscliente.h
+
+1663952720 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\funcionesglobalesturno.h
+
+1663980237 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\funcionesglobalescliente.h
+
+1663980624 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\opcionesglobalesmenu.h
+
+1664456151 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\cuadro.cpp
+	"Cuadro.h"
+	<iostream>
+
+1664456151 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\cuadro.h
+	"Texto.h"
+
+1664456151 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\texto.h
+	"Funciones.h"
+
+1664454157 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\funciones.h
+	"rlutil.h"
+
+1664074765 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1664298977 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\menu.cpp
+	"Menu.h"
+
+1664300010 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\menu.h
+	"Cuadro.h"
+
+1664074765 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\persona.cpp
+	"persona.h"
+
+1664074765 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\persona.h
+	<iostream>
+	<string.h>
+
+1664456151 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\texto.cpp
+	"Texto.h"
+	<iostream>
+
+1664453956 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\main.cpp
+	<cstring>
+	<cstdlib>
+	<ctime>
+	"Inicio.h"
+	"Funciones.h"
+	"Turnos.h"
+	"Clientes.h"
+	"Contactos.h"
+
+1664120958 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\funcionesglobales.h
+	<iostream>
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\clsfecha.h
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\clsturno.h
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\clscliente.h
+
+1664121400 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\funcionesglobalesturno.h
+	"../clsTurno.h"
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\funcionesglobalescliente.h
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\opcionesglobalesmenu.h
+
+1664120958 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\funcionesglobales.h
+	<iostream>
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\clsfecha.h
+
+1664124330 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\clsturno.h
+	"clsFecha.h"
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\clscliente.h
+
+1664124330 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\funcionesglobalesturno.h
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\funcionesglobalescliente.h
+
+1664074764 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\opcionesglobalesmenu.h
+
+1664124189 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\turno.cpp
+	"Turno.h"
+
+1664124178 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\turno.h
+
+1664212434 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\turnos.h
+	"Cuadro.h"
+
+1664452354 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\turnos.cpp
+	"Turnos.h"
+
+1664452422 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\clientes.cpp
+	"Clientes.h"
+	<iostream>
+
+1664452056 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\clientes.h
+	"Cuadro.h"
+
+1664300548 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\inicio.h
+	"Cuadro.h"
+
+1664453764 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\inicio.cpp
+	"Inicio.h"
+
+1664454139 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\funciones.cpp
+	<cstdio>
+	<ctime>
+	<windows.h>
+	<iostream>
+
+1664470069 source:c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\src\contactos.cpp
+	"Contactos.h"
+	<iostream>
+	<cstdio>
+
+1664470069 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\contactos.h
+	"Cuadro.h"
+

@@ -1,11 +1,9 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 #include "rlutil.h"
-#include <cstdio>
-#include <ctime>
-struct origen{
-int x = 0;
-int y = 0;
-};
+
+struct origen{int x = 0;int y = 0;};
+void mostrar_fecha();
+
 
 #endif // FUNCIONES_H_INCLUDED
