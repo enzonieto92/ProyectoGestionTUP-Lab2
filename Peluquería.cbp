@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Peluquería" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Peluquería" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Archivo.h" />
+		<Unit filename="include/Clientes.h" />
+		<Unit filename="include/Contactos.h" />
+		<Unit filename="include/Cuadro.h" />
+		<Unit filename="include/Funciones.h" />
+		<Unit filename="include/Menu.h" />
+		<Unit filename="include/Texto.h" />
+		<Unit filename="include/Turnos.h" />
+		<Unit filename="include/persona.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Archivo.cpp" />
+		<Unit filename="src/Clientes.cpp" />
+		<Unit filename="src/Contactos.cpp" />
+		<Unit filename="src/Cuadro.cpp" />
+		<Unit filename="src/Funciones.cpp" />
+		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/Texto.cpp" />
+		<Unit filename="src/Turnos.cpp" />
+		<Unit filename="src/persona.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
