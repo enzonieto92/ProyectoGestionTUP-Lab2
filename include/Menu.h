@@ -3,16 +3,19 @@
 #include "Cuadro.h"
 class Menu
 {
-
     private:
         int opc;
-        origen coor;
+        origen _coor;
+        Cuadro Cuadro, Lista;
     public:
         Menu();
-        int Principal();
+        void setCuadro(origen, int, int, int);
+        void setLista (origen, int, int);
+        int principal();
         void Turnos();
+        void Clientes();
         void Contactos();
-    protected:
+
 };
 
 #endif // MENU_H
