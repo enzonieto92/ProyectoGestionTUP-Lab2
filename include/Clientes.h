@@ -9,7 +9,6 @@ class Clientes
         origen coor;
     public:
         Clientes();
-        void Menu();
 
 };
 

@@ -6,20 +6,15 @@ class Contactos
 {
     public:
         Contactos();
-        void Menu();
-        void Agregar();
         void Cargar();
-        void Modificar();
         void Mostrar(int);
-        void Mostrar_reg();
-        bool LeerDeDisco(int);
     protected:
 
     private:
         origen coor;
         int opc;
         char Nombre[30];
-        int Telefono;
+        char Telefono[30];
 };
 
 #endif // CONTACTOS_H

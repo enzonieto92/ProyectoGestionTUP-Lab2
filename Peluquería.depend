@@ -1,24 +1,25 @@
 # depslib dependency file v1.0
-1663896894 source:c:\users\enzon\desktop\proyectogestiontup-lab2\main.cpp
-	<iostream>
-	"persona.h"
-	"Cuadro.h"
+1666040476 source:c:\users\enzon\desktop\proyectogestiontup-lab2\main.cpp
+	<cstring>
+	<cstdlib>
+	<ctime>
+	"Funciones.h"
+	"Turnos.h"
+	"Clientes.h"
+	"Contactos.h"
 	"Menu.h"
-	"funciones.h"
 
-1663639756 c:\users\enzon\desktop\proyectogestiontup-lab2\include\persona.h
+1664074765 c:\users\enzon\desktop\proyectogestiontup-lab2\include\persona.h
 	<iostream>
 	<string.h>
 
-1663946788 c:\users\enzon\desktop\proyectogestiontup-lab2\include\cuadro.h
+1666045327 c:\users\enzon\desktop\proyectogestiontup-lab2\include\cuadro.h
 	"Texto.h"
 
-1663760810 c:\users\enzon\desktop\proyectogestiontup-lab2\include\funciones.h
+1664454157 c:\users\enzon\desktop\proyectogestiontup-lab2\include\funciones.h
 	"rlutil.h"
-	<cstdio>
-	<ctime>
 
-1663639756 c:\users\enzon\desktop\proyectogestiontup-lab2\include\rlutil.h
+1664074765 c:\users\enzon\desktop\proyectogestiontup-lab2\include\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -32,28 +33,27 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1663946632 c:\users\enzon\desktop\proyectogestiontup-lab2\include\texto.h
-	"funciones.h"
+1666038081 c:\users\enzon\desktop\proyectogestiontup-lab2\include\texto.h
+	"Funciones.h"
 
 1663761624 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menus.h
 	"Cuadro.h"
 
-1663639756 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\persona.cpp
+1664074765 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\persona.cpp
 	"persona.h"
 
-1663946669 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\cuadro.cpp
+1666046107 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\cuadro.cpp
 	"Cuadro.h"
 	<iostream>
 
-1663946632 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\texto.cpp
+1666038081 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\texto.cpp
 	"Texto.h"
 	<iostream>
 
-1663879810 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\menu.cpp
+1666046640 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
-	<iostream>
 
-1663946834 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
+1666040234 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
 	"Cuadro.h"
 
 1663983462 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\main.cpp
@@ -255,4 +255,51 @@
 
 1664470069 c:\users\enzon\desktop\joselo\proyectogestiontup-lab2-desarrolladorjeorellano\include\contactos.h
 	"Cuadro.h"
+
+1664300548 c:\users\enzon\desktop\proyectogestiontup-lab2\include\inicio.h
+	"Cuadro.h"
+
+1666031224 c:\users\enzon\desktop\proyectogestiontup-lab2\include\turnos.h
+	"Cuadro.h"
+
+1666030046 c:\users\enzon\desktop\proyectogestiontup-lab2\include\clientes.h
+	"Cuadro.h"
+
+1666030046 c:\users\enzon\desktop\proyectogestiontup-lab2\include\contactos.h
+	"Cuadro.h"
+
+1666033820 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\clientes.cpp
+	"Clientes.h"
+	<iostream>
+
+1666030401 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\contactos.cpp
+	"Contactos.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1664454139 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\funciones.cpp
+	<cstdio>
+	<ctime>
+	<windows.h>
+	<iostream>
+
+1664453764 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\inicio.cpp
+	"Inicio.h"
+
+1666031224 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\turnos.cpp
+	"Turnos.h"
+
+1664735808 c:\users\enzon\desktop\proyectogestiontup-lab2\include\archivos.h
+	"Contactos.h"
+
+1664734852 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\archivos.cpp
+	"Archivos.h"
+
+1666030215 c:\users\enzon\desktop\proyectogestiontup-lab2\include\archivo.h
+	"Contactos.h"
+
+1666030097 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\archivo.cpp
+	"Archivo.h"
+	<iostream>
 

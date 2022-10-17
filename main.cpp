@@ -1,11 +1,11 @@
 #include <cstring>
 #include <cstdlib>
 #include <ctime>
-#include "Inicio.h"
 #include "Funciones.h"
 #include "Turnos.h"
 #include "Clientes.h"
 #include "Contactos.h"
+#include "Menu.h"
 using namespace std;
 
 
@@ -13,28 +13,27 @@ using namespace std;
 int main()
 {
 rlutil::setColor(12);
-Inicio Inicio;
+Menu Menu;
 Turnos Turnos;
 Clientes Clientes;
 Contactos Contactos;
-
 int opc = 1;
 do{
-opc = Inicio.Menu();
+opc = Menu.principal();
 
 switch (opc){
 case 1:
-    Turnos.Menu();
+    Menu.Turnos();
     break;
 case 2:
-    Clientes.Menu();
+    Menu.Clientes();
     break;
 case 3:
-    Contactos.Menu();
+
     break;
     }
 }
 while (opc != 4);
-
+cout <<endl;
 return 0;
 }

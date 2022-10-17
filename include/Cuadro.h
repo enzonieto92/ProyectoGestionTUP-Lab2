@@ -12,13 +12,19 @@ class Cuadro
         int alto;
         int opc;
     public:
+        Cuadro();
         Cuadro(origen, int, int, int&);
+        void setalto(int);
+        void setlargo(int);
+        void setCoor(origen);
         void linea_hor();
         void linea_ver();
+        void linea_ver(int);
         void esquina_inf();
         void esquina_sup();
         void div();
         void dibujar();
+        void dibujarLista();
         void mostrar_texto1();
         void mostrar_texto2();
         void mostrar_texto3();

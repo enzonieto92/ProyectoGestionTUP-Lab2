@@ -7,6 +7,7 @@ class Turnos
         int opc;
         origen coor;
 
+
     public:
         Turnos();
         void Menu();
