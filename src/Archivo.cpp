@@ -4,39 +4,28 @@
 using namespace std;
 Archivo::Archivo()
 {
- a = 1;
+ ///obj
 }
 
+bool Archivo::leerDeDisco(int pos, Cliente obj){
+    pCliente = fopen(CLIENTES, "ab");
+    if(pCliente == NULL){
+        return false;
+    }
+    fseek(pCliente, sizeof(Cliente) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Cliente), 1, pCliente);
+    fclose(pCliente);
+    return leyo;
 
-void Archivo::Guardar(Contactos obj)
+}
+
+bool Archivo::grabarEnDisco(Cliente obj)
 {
-    FILE *p = fopen ("Contactos.dat", "ab");
-    if (p == NULL){
-        cout <<"no se pudo abrir el archivo";
-            system("pause");
+    pCliente = fopen(CLIENTES, "ab");
+    if(pCliente == NULL){
+        return false;
     }
-    bool ok = fwrite(&obj, sizeof (Contactos), 1, p);
-    if (ok == false){
-            cout <<"no se pudo escribir";
-            system("pause");
-    }
-    fclose(p);
-
-
+    bool escribio = fwrite(&obj, sizeof(Cliente), 1, pCliente);
+    fclose(pCliente);
+    return escribio;
 }
-
-void Archivo::Mostrar(Contactos obj)
-{
-    int pos = 1;
-    FILE *p = fopen ("Contactos.dat", "rb");
-    if (p == NULL){
-        cout <<"no se pudo abrir el archivo";
-            system ("pause");
-    }
-    while(fread (&obj, sizeof (Contactos), 1, p)){
-    obj.Mostrar(pos);
-    pos+= 2;
-    }
-    fclose(p);
-}
-

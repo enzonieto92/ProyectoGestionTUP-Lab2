@@ -129,6 +129,7 @@ void Menu::Turnos()
 
 void Menu::Clientes()
 {
+    ///int valorAgregarCliente;
             rlutil::hidecursor();
             while (opc != 0)
             {
@@ -179,11 +180,15 @@ void Menu::Clientes()
 
                                 switch (opc){
                                 ///AGREGAR///
-                            case 1:
+                            case 1: system("cls");
+                                agregarRegistroCliente();
+                                    break;
                                 ///MODIFICAR///
                             case 2:
                                 ///MOSTRAR///
-                            case 3:
+                            case 3: system("cls");
+                                mostrarCliente();
+                                system("pause");
                                 ///ELIMINAR///
                             case 4:
                                 ///BUSCAR///

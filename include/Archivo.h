@@ -1,15 +1,22 @@
 #ifndef ARCHIVO_H
 #define ARCHIVO_H
 #include "Contactos.h"
+#include "Cliente.h"
 
 class Archivo
 {
+    private:
+        const char *CLIENTES = "Clientes.dat";
+
+        FILE *pCliente;
     public:
         Archivo();
-        void Guardar(Contactos);
-        void Mostrar(Contactos);
+        bool leerDeDisco(int, Cliente);
+        ///bool leerDeDisco(Turno);
+        bool grabarEnDisco(Cliente);
+        bool modificarEnDisco(int, Cliente);
 
-    private:
-        int a;
+
+
 };
 #endif // ARCHIVO_H
