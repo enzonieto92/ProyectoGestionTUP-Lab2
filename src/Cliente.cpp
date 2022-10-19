@@ -29,8 +29,6 @@ bool Cliente::Cargar(int nD){
     cout << "TELEFONO: ";
     cargarCadena(telefono, 39);
     setTelefono(telefono);
-
-
     estado = 1;
     setEstado(estado);
     return true;

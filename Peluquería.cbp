@@ -21,6 +21,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="controller/funcionesTurnos.h" />
 		<Unit filename="include/Archivo.h" />
 		<Unit filename="include/Cliente.h" />
 		<Unit filename="include/Contactos.h" />

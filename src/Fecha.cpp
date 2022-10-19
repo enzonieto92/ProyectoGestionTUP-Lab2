@@ -13,6 +13,7 @@ Fecha::Fecha(){
     dia = hoy -> tm_mday;
     mes = hoy -> tm_mon + 1;
     anio = 1900 + hoy -> tm_year;
+
 }
 
 bool Fecha::Cargar(){
@@ -39,6 +40,9 @@ bool Fecha::Cargar(){
 
 void Fecha::Mostrar(){
     cout << getDia() << "/" << getMes() << "/" << getAnio() << endl;
+}
+void Fecha::Mostrar_hora(){
+
 }
 
 /// SETS

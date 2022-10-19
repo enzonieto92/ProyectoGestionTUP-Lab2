@@ -13,6 +13,7 @@ class Fecha{
         /// METODOS
         bool Cargar();
         void Mostrar();
+        void Mostrar_hora();
         /// METODOS VALIDACION
         bool validarFechaTurno(Fecha);
         bool validarFechaNacimiento(Fecha);

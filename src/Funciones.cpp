@@ -42,28 +42,13 @@ void agregarRegistroCliente(){
 }
 
 /// 2 MOSTRAR CLIENTES
-void mostrarCliente(){
-    Cliente usuario;
+void mostrarClientes(){
     Archivo archi;
+    Cliente usuario;
     int pos = 0;
-    cout << "ENTRO FUNCION" << endl;
-
     while(archi.leerDeDisco(pos, usuario)){
-        cout << "ENTRO WHILE" << endl;
         usuario.Mostrar();
         cout << endl;
         pos++;
     }
-    /*FILE *p;
-    p = fopen("Clientes.dat", "ab");
-    if(p == NULL) {
-        cout << "ENTRO NULL" << endl;
-        return;
-    }
-    fread(&usuario, sizeof(Cliente), 1, p);
-    fclose(p);
-    usuario.Mostrar();
-    cout << endl;*/
 }
-
-

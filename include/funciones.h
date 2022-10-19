@@ -11,6 +11,6 @@ void cargarCadena(char *pal, int tam);  /// CARGA CADENAS DE CARACTERES
 
 void agregarRegistroCliente();
 
-void mostrarCliente();
+void mostrarClientes();
 
 #endif // FUNCIONES_H_INCLUDED
