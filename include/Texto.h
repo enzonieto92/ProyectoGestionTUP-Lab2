@@ -8,8 +8,7 @@ class Texto
         origen coor;
         int opc;
     public:
-        Texto();
-        Texto(origen);
+        Texto(origen&);
         void mostrar_texto1();
         void mostrar_texto2();
         void mostrar_texto3();

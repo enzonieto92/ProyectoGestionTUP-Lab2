@@ -1,7 +1,7 @@
 #include "Cuadro.h"
 #include <iostream>
 using namespace std;
-Cuadro::Cuadro(): _txt(){
+Cuadro::Cuadro(): _txt(coor){
 
 }
 Cuadro::Cuadro(origen _coor, int _largo, int _alto, int &_opc): _txt(_coor){
@@ -13,6 +13,7 @@ Cuadro::Cuadro(origen _coor, int _largo, int _alto, int &_opc): _txt(_coor){
 
 void Cuadro::setCoor(origen _coor){
 coor = _coor;
+
 }
 void Cuadro::setlargo(int _largo){
 largo = _largo;
@@ -36,6 +37,13 @@ for (int i = 0; i < (alto-1); i++){
     cout <<char(179);
 
 }
+}
+}
+void Cuadro::linea_punteada_ver (int _coor){
+for (int i = 0; i < (alto-1); i+=2){
+    gotoxy (coor.x+_coor, 1+coor.y+i);
+    cout <<char(179);
+
 }
 }
 void Cuadro::linea_ver(int _coor){
@@ -84,7 +92,7 @@ for (int i = 2; i < alto; i+=2){
     linea_hor();
 }
 
-linea_ver(largo/2);
+linea_punteada_ver(largo/2);
 esquina_inf();
 }
 void Cuadro::mostrar_texto1(){

@@ -20,6 +20,7 @@ class Cuadro
         void linea_hor();
         void linea_ver();
         void linea_ver(int);
+        void linea_punteada_ver(int);
         void esquina_inf();
         void esquina_sup();
         void div();

@@ -1,42 +1,47 @@
 #include "Archivo.h"
-#include <iostream>
-
-using namespace std;
 Archivo::Archivo()
 {
- a = 1;
+ ///obj
 }
 
-
-void Archivo::Guardar(Contactos obj)
-{
-    FILE *p = fopen ("Contactos.dat", "ab");
-    if (p == NULL){
-        cout <<"no se pudo abrir el archivo";
-            system("pause");
+bool Archivo::leerDeDisco(int pos, Cliente &obj){
+    pCliente = fopen(CLIENTES, "rb");
+    if(pCliente == NULL){
+        return false;
     }
-    bool ok = fwrite(&obj, sizeof (Contactos), 1, p);
-    if (ok == false){
-            cout <<"no se pudo escribir";
-            system("pause");
-    }
-    fclose(p);
-
+    fseek(pCliente, sizeof(Cliente) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Cliente), 1, pCliente);
+    fclose(pCliente);
+    return leyo;
 
 }
+bool Archivo::leerDeDisco(int pos, Turno &obj){
+    pTurno = fopen(TURNOS, "rb");
+    if(pTurno == NULL){
+        return false;
+    }
+    fseek(pTurno, sizeof(Turno) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Turno), 1, pTurno);
+    fclose(pTurno);
+    return leyo;
 
-void Archivo::Mostrar(Contactos obj)
-{
-    int pos = 1;
-    FILE *p = fopen ("Contactos.dat", "rb");
-    if (p == NULL){
-        cout <<"no se pudo abrir el archivo";
-            system ("pause");
+}
+bool Archivo::grabarEnDisco(Turno &obj){
+    pTurno = fopen(TURNOS, "ab");
+    if(pTurno == NULL){
+        return false;
     }
-    while(fread (&obj, sizeof (Contactos), 1, p)){
-    obj.Mostrar(pos);
-    pos+= 2;
-    }
-    fclose(p);
+    bool escribio = fwrite(&obj, sizeof(Turno), 1, pTurno);
+    fclose(pTurno);
+    return escribio;
 }
 
+bool Archivo::grabarEnDisco(Cliente &obj){
+    pCliente = fopen(CLIENTES, "ab");
+    if(pCliente == NULL){
+        return false;
+    }
+    bool escribio = fwrite(&obj, sizeof(Cliente), 1, pCliente);
+    fclose(pCliente);
+    return escribio;
+}
