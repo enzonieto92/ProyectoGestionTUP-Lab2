@@ -8,7 +8,7 @@ Archivo::Archivo()
 }
 
 bool Archivo::leerDeDisco(int pos, Cliente obj){
-    pCliente = fopen(CLIENTES, "ab");
+    pCliente = fopen(CLIENTES, "rb");
     if(pCliente == NULL){
         return false;
     }

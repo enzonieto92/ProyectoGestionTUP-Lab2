@@ -11,12 +11,6 @@ Cliente::Cliente()
     estado = false;
 }
 
-/// DESTRUCTOR
-Cliente::~Cliente()
-{
-    //dtor
-}
-
 /// CARGAR
 bool Cliente::Cargar(int nD){
     if(!setDNI(nD)){
@@ -44,12 +38,12 @@ bool Cliente::Cargar(int nD){
 
 void Cliente::Mostrar()
 {
-    if(estado){
+    //if(estado){
         cout << "DNI: " << DNI << endl;
         cout << "NOMBRE: " << nombre << endl;
         cout << "APELLIDO: " << apellido << endl;
         cout << "TELEFONO: " << telefono << endl;
-    }
+    //}
 }
 
 /// SETS
@@ -72,3 +66,9 @@ const char *Cliente::getNombre(){return nombre;}
 const char *Cliente::getApellido(){return apellido;}
 const char *Cliente::getTelefono(){return telefono;}
 bool Cliente::getEstado(){return estado;}
+
+/// DESTRUCTOR
+Cliente::~Cliente()
+{
+    //dtor
+}
