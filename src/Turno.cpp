@@ -2,30 +2,56 @@
 #include <iostream>
 #include "Funciones.h"
 using namespace std;
+
+// CONSTRUCTOR
 Turno::Turno()
 {
-    //ctor
+    idTurno = 0;
+    DNI = 0;
+    tipoServicio = 0;
+    estado = false;
+}
+Turno::Turno(int id = 0, int d = 0, int ts = 0, bool e = false)
+{
+    idTurno = id;
+    DNI = d;
+    tipoServicio = ts;
+    estado = e;
+}
+// DESTRUCTOR
+Turno::~Turno(){
+    // dtor
 }
 
-void Turno::Cargar(){
-
-    cout << "NOMBRE: ";
-    cargarCadena(nombre, 29);
-    setNombre(nombre);
-
-    cout << "APELLIDO: ";
-    cargarCadena(apellido, 29);
-    setApellido(apellido);
-
-    _fecha.Cargar();
-
-
+// METODOS
+bool Turno::Cargar(int idT, Fecha _fecha, int nD, int ts){
+    setIdTurno(idT);
+    setFechaServicio(_fecha);
+    setDNI(nD);
+    setTipoServicio(ts);
+    estado = 1;
+    setEstado(estado);
+    return true;
 }
 
 void Turno::Mostrar(){
-        cout << nombre<<" ";
-        cout << apellido <<"   ";
-        _fecha.Mostrar();
+        cout << "ID TURNO: " << idTurno << endl;;
+        cout << "FECHA DE TURNO: ";
+        fechaServicio.Mostrar();
+        cout << "DNI: " << DNI << endl;
+        cout << "TIPO DE SERVICIO: " << tipoServicio << endl;
 }
-void Turno::setNombre(const char *nom){strcpy(nombre, nom);}
-void Turno::setApellido(const char *ape){strcpy(apellido, ape);}
+
+// SETS
+void Turno::setIdTurno(int t){idTurno = t;}
+void Turno::setFechaServicio(Fecha f){fechaServicio = f;}
+void Turno::setDNI(int d){DNI = d;}
+void Turno::setTipoServicio(int s){tipoServicio = s;}
+void Turno::setEstado(bool e){estado = e;}
+
+// GETS
+int Turno::getIdTurno(){return idTurno;}
+Fecha Turno::getFechaServicio(){return fechaServicio;}
+int Turno::getDNI(){return DNI;}
+int Turno::getTipoServicio(){return tipoServicio;}
+bool Turno::getEstado(){return estado;}

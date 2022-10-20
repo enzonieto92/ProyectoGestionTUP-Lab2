@@ -14,7 +14,6 @@ class Cliente
         /// CONSTRUCTOR
         Cliente();
         /// METODOS
-        void Menu();
         bool Cargar(int nD);
         void Mostrar();
         ///SETS

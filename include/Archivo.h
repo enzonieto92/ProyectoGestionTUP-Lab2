@@ -14,11 +14,12 @@ class Archivo
         Archivo();
         bool leerDeDisco(int, Cliente&);
         bool leerDeDisco(int, Turno&);
-        ///bool leerDeDisco(Turno);
         bool grabarEnDisco(Cliente&);
         bool grabarEnDisco(Turno&);
         bool modificarEnDisco(int, Cliente&);
+        bool modificarEnDisco(int, Turno&);
         int contarRegistro(Cliente&);
+        int contarRegistro(Turno&);
 
 
 

@@ -11,12 +11,13 @@ int agregarRegistroCliente();
     Cliente cargarCliente();
         bool validarCliente(int nD);
 
-void mostrarClientes();
-
-bool mostrarClientePorDNI();
+bool modificarTelefonoCliente();
     int buscarDNICliente(int nD);
 
-bool modificarTelefonoCliente();
+bool mostrarClientePorDNI();
+
+
+void mostrarClientes(); // ESPERANDO SER USADA
 
 /// DEFINICIONES FUNCIONES GLOBALES CLIENTE
 
@@ -95,26 +96,6 @@ bool modificarTelefonoCliente(){
     return archi.modificarEnDisco(pos, usuario);
 }
 
-// 3 MUESTRAR POR DNI LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
-bool mostrarClientePorDNI(){
-    Archivo archi;
-    Cliente usuario;
-    int nD, pos;
-    /// buscar el cliente a mostrar
-    cout << "INGRESE EL NUMERO DE DNI DEL REGISTRO A MOSTRAR: ";
-    cin >> nD;
-    /// leer si existe el cliente
-    pos = buscarDNICliente(nD);
-    if(pos == -1){
-        cout << "NO EXISTE EL DNI DE CLIENTE EN EL ARCHIVO" << endl;
-        return false;
-    }
-    archi.leerDeDisco(pos, usuario);
-    /// LISTAR EL CLIENTE FILTRADO
-    usuario.Mostrar();
-    return true;
-}
-
 int buscarDNICliente(int nD){
     Archivo archi;
     Cliente usuario;
@@ -129,6 +110,27 @@ int buscarDNICliente(int nD){
     }
     return -1;
 }
+
+// 3 MUESTRAR POR DNI LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
+bool mostrarClientePorDNI(){
+    Archivo archi;
+    Cliente usuario;
+    int nD, pos;
+    /// buscar el cliente a mostrar
+    cout << "INGRESE EL NUMERO DE DNI DEL CLIENTE A MOSTRAR: ";
+    cin >> nD;
+    /// leer si existe el cliente
+    pos = buscarDNICliente(nD);
+    if(pos == -1){
+        cout << "NO EXISTE EL DNI DE CLIENTE EN EL ARCHIVO" << endl;
+        return false;
+    }
+    archi.leerDeDisco(pos, usuario);
+    /// LISTAR EL CLIENTE FILTRADO
+    usuario.Mostrar();
+    return true;
+}
+
 
 // - MUESTRA LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
 void mostrarClientes(){

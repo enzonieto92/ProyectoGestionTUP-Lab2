@@ -5,16 +5,32 @@
 class Turno
 {
     private:
-        Fecha _fecha;
-        char nombre[30];
-        char apellido[30];
-
+        int idTurno;
+        Fecha fechaServicio;
+        int DNI;
+        int tipoServicio;
+        bool estado;
     public:
+        // CONSTRUCOR
         Turno();
-        void setNombre(const char *nom);
-        void setApellido(const char *ape);
-        void Cargar();
+        Turno(int, int, int, bool);
+        // METODOS
+        bool Cargar(int, Fecha, int, int);
         void Mostrar();
+        // SETS
+        void setIdTurno(int);
+        void setFechaServicio(Fecha);
+        void setDNI(int);
+        void setTipoServicio(int);
+        void setEstado(bool);
+        // GETS
+        int getIdTurno();
+        Fecha getFechaServicio();
+        int getDNI();
+        int getTipoServicio();
+        bool getEstado();
+        // DESTRUCTOR
+        ~Turno();
 };
 
 #endif // TURNO_H

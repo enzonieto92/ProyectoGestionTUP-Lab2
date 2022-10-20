@@ -1,6 +1,6 @@
 #include "Menu.h"
-#include "../controller/funcionesTurnos.h"
 #include "../controller/funcionesClientes.h"
+#include "../controller/funcionesTurnos.h"
 Menu::Menu()
 {
     opc = 1;
@@ -58,9 +58,7 @@ void Menu::Turnos()
 {
         Archivo reg;
         Turno _turno;
-        system("cls");
-        mostrart();
-        getch();
+        int valorAgregarTurno;
             rlutil::hidecursor();
             while (opc != 0)
             {
@@ -117,18 +115,53 @@ void Menu::Turnos()
 
                                 switch (opc){
                                 ///AGREGAR///
-                            case 1:
-                                system("cls");
-                                        _turno.Cargar();
-                                        reg.grabarEnDisco(_turno);
-                                system("cls");
+                            case 1: system("cls");
+                                    valorAgregarTurno = agregarRegistroTurno();
+                                    if(valorAgregarTurno == 0){
+                                        cout << "\nTURNO CARGADO" << endl;
+                                        system("pause");
+                                        system("cls");
                                         break;
+                                    }
+                                    else if(valorAgregarTurno == -2){
+                                        cout << "\nFALLO AL GRABAR EN EL DISCO" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        break;
+                                    }
+                                    cout << "\nDATOS INVALIDOS" << endl;
+                                    system("pause");
+                                    system("cls");
+                                break;
                                 ///MODIFICAR///
-                            case 2:
+                            case 2: system("cls");
+                                    if(modificarFechaServicioTurno() == false){
+                                        cout << "\nERROR EN LA MODIFICACION DEL TURNO" << endl;
+                                    }
+                                    else{
+                                        cout << "\nTURNO MODIFICADO" << endl;
+                                    }
+                                    system("pause");
+                                    system("cls");
+                                break;
                                 ///MOSTRAR///
-                            case 3:
+                            case 3: system("cls");
+                                    if(mostrarTurnoPorId() == false){
+                                        cout << "\nERROR EN LA BUSQUEDA DEL TURNO" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        break;
+                                    }
+                                    cout << "\nTURNO LISTADO" << endl;
+                                    system("pause");
+                                    system("cls");
+                                break;
                                 ///ELIMINAR///
-                            case 4:
+                            case 4: cout << "opcion 4" << endl;
+                                    system("pause");
+                                    system("cls");
+                                    opc = 1;
+                                return;
                                 ///BUSCAR///
                             case 5:
                                 ///VOLVER///
@@ -232,8 +265,8 @@ void Menu::Clientes()
                                     else{
                                         cout << "\nCLIENTE MODIFICADO" << endl;
                                     }
-                                system("pause");
-                                system("cls");
+                                    system("pause");
+                                    system("cls");
                                 break;
                                 ///BUSCAR///
                             case 3: system("cls");
@@ -249,10 +282,10 @@ void Menu::Clientes()
                                 break;
                                 ///VOLVER///
                             case 4:
-                                cout << "opcion 4" << endl;
-                                system("pause");
-                                system("cls");
-                                opc = 1;
+                                    cout << "opcion 4" << endl;
+                                    system("pause");
+                                    system("cls");
+                                    opc = 1;
                                 return;
                                 }
                             break;
