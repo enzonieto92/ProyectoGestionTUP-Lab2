@@ -18,6 +18,7 @@ class Archivo
         bool grabarEnDisco(Cliente&);
         bool grabarEnDisco(Turno&);
         bool modificarEnDisco(int, Cliente&);
+        int contarRegistro(Cliente&);
 
 
 

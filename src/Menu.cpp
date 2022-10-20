@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "../controller/funcionesTurnos.h"
+#include "../controller/funcionesClientes.h"
 Menu::Menu()
 {
     opc = 1;
@@ -148,7 +149,7 @@ void Menu::Clientes()
     Archivo reg;
     Cliente _cliente;
     int pos = 0;
-    ///int valorAgregarCliente;
+    int valorAgregarCliente;
             rlutil::hidecursor();
             while (opc != 0)
             {
@@ -206,15 +207,51 @@ void Menu::Clientes()
                                 switch (opc){
                                 ///AGREGAR///
                             case 1: system("cls");
-                                agregarRegistroCliente();
-                                    break;
+                                    valorAgregarCliente = agregarRegistroCliente();
+                                    if(valorAgregarCliente == 0){
+                                        cout << "\nCLIENTE CARGADO" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        break;
+                                    }
+                                    else if(valorAgregarCliente == -2){
+                                        cout << "\nFALLO AL GRABAR EN EL DISCO" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        break;
+                                    }
+                                    cout << "\nDATOS INVALIDOS" << endl;
+                                    system("pause");
+                                    system("cls");
+                                break;
                                 ///MODIFICAR///
-                            case 2:
+                            case 2: system("cls");
+                                    if(modificarTelefonoCliente() == false){
+                                        cout << "\nERROR EN LA MODIFICACION DEL CLIENTE" << endl;
+                                    }
+                                    else{
+                                        cout << "\nCLIENTE MODIFICADO" << endl;
+                                    }
+                                system("pause");
+                                system("cls");
+                                break;
                                 ///BUSCAR///
-                            case 3:
-                                ///ELIMINAR///
-                            case 4:
+                            case 3: system("cls");
+                                    if(mostrarClientePorDNI() == false){
+                                        cout << "\nERROR EN LA BUSQUEDA DEL CLIENTE" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        break;
+                                    }
+                                    cout << "\nCLIENTE LISTADO" << endl;
+                                    system("pause");
+                                    system("cls");
+                                break;
                                 ///VOLVER///
+                            case 4:
+                                cout << "opcion 4" << endl;
+                                system("pause");
+                                system("cls");
                                 opc = 1;
                                 return;
                                 }

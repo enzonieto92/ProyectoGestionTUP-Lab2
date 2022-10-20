@@ -9,8 +9,4 @@ void mostrar_fecha();
 
 void cargarCadena(char *pal, int tam);  /// CARGA CADENAS DE CARACTERES
 
-void agregarRegistroCliente();
-
-void mostrarClientes();
-
 #endif // FUNCIONES_H_INCLUDED

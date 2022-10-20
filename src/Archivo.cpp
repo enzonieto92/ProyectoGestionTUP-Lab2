@@ -45,3 +45,24 @@ bool Archivo::grabarEnDisco(Cliente &obj){
     fclose(pCliente);
     return escribio;
 }
+
+bool Archivo::modificarEnDisco(int pos, Cliente &obj){
+    pCliente = fopen(CLIENTES, "rb+");
+    if(pCliente == NULL) return false;
+    fseek(pCliente, sizeof(Cliente) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Cliente), 1, pCliente);
+    fclose(pCliente);
+    return escribio;
+}
+
+int Archivo::contarRegistro(Cliente &obj){
+    int cant;
+    pCliente = fopen(CLIENTES, "ab");
+    if(pCliente == NULL){
+        return -1;
+    }
+    fseek(pCliente, 0, 2);
+    cant = ftell(pCliente)/sizeof(Cliente);
+    fclose(pCliente);
+    return cant;
+}

@@ -36,17 +36,16 @@ bool Cliente::Cargar(int nD){
 
 void Cliente::Mostrar()
 {
-    //if(estado){
+    if(estado){
         cout << "DNI: " << DNI << endl;
         cout << "NOMBRE: " << nombre << endl;
         cout << "APELLIDO: " << apellido << endl;
         cout << "TELEFONO: " << telefono << endl;
-    //}
+    }
 }
 
 /// SETS
-bool Cliente::setDNI(int nD)
-{
+bool Cliente::setDNI(int nD){
     if(nD > 0){
         DNI = nD;
         return true;

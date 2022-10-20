@@ -83,7 +83,7 @@
 1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
 	"Funciones.h"
 
-1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
+1666219318 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
 	"rlutil.h"
 
 1666047039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\rlutil.h
@@ -104,9 +104,10 @@
 	"Cuadro.h"
 	<iostream>
 
-1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+1666239615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
 	"../controller/funcionesTurnos.h"
+	"../controller/funcionesClientes.h"
 
 1666047039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\persona.cpp
 	"persona.h"
@@ -316,10 +317,10 @@
 1666180177 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\contactos.h
 	"Cuadro.h"
 
-1666218310 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\archivo.cpp
+1666239381 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\archivo.cpp
 	"Archivo.h"
 
-1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\archivo.h
+1666228649 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\archivo.h
 	"Contactos.h"
 	"Cliente.h"
 	"Turno.h"
@@ -334,7 +335,7 @@
 	<iostream>
 	<cstdio>
 
-1666218605 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\funciones.cpp
+1666219318 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\funciones.cpp
 	<cstdio>
 	<ctime>
 	<windows.h>
@@ -353,7 +354,7 @@
 	<iostream>
 	"Funciones.h"
 
-1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
+1666227988 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
 	"Cliente.h"
 	<iostream>
 
@@ -394,6 +395,9 @@
 1666206870 c:\users\enzon\desktop\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
 
-1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+1666220012 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+	<iostream>
+
+1666239997 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
 	<iostream>
 

@@ -32,23 +32,3 @@ void cargarCadena(char *pal, int tam){  /// CARGA CADENAS DE CARACTERES
   pal[i] = '\0';
   fflush(stdin);
 }
-
-void agregarRegistroCliente(){
-    Cliente usuario;
-    Archivo archi;
-    int dn = 33333;
-    usuario.Cargar(dn);
-    archi.grabarEnDisco(usuario);
-}
-
-/// 2 MOSTRAR CLIENTES
-void mostrarClientes(){
-    Archivo archi;
-    Cliente usuario;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, usuario)){
-        usuario.Mostrar();
-        cout << endl;
-        pos++;
-    }
-}
