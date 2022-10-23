@@ -4,6 +4,7 @@
 #include <iostream>
 
 using namespace std;
+//#include "Servicio.h"
 
 /// PROTOTIPOS FUNCIONES GLOBALES TURNO
 
@@ -48,8 +49,8 @@ Turno cargarTurno(){
         return cita;
     }
     cout << "TIPO SERVICIO: ";
-    cin >> tS;/* ESPERANDO Clase TipoServicio
-    if(validarTipoServicio(tS) == false){
+    cin >> tS;// ESPERANDO Clase TipoServicio
+    /*if(validarTipoServicio(tS) == false){
         cout << "EL SERVICIO INGERSADO ES INVALIDO. NO ESTA REGISTRADO O FUE BORRADO" << endl;
         cita.setEstado(false);
         return cita;
@@ -66,11 +67,7 @@ Turno cargarTurno(){
         cita.setEstado(false);
         return cita;
     }
-    cout << "LINEA 69 ANTES DE CONTAR REGISTRO" << endl;
-    system("pause");
     idT = archi.contarRegistro(cita); // ESTE SERIA PK AUTOINCREMENTAL DE CLIENTE
-    cout << "LINEA 72 DESPUES DE CONTAR REGISTRO" << endl;
-    system("pause");
     if(idT == -1){
         cout << "FALLO APERTURA DEL ARCHIVO" << endl;
         cita.setEstado(false);
@@ -95,18 +92,18 @@ bool validarCliente(int nD){
 }*/
 /*
 bool validarTipoServicio(int tS){
-    TipoServicio servicio;
+    Servicio servicio;
     Archivo archi;
     int pos = 0;
     while(archi.leerDeDisco(pos, servicio)){
-        if(tS == servicio.getTipoServicio()){
+        if(tS == servicio.getCodigo()){
             return servicio.getEstado();
         }
         pos++;
     }
     return false;
-}*/
-
+}
+*/
 // 2 MODIFICA POR ID LOS REGISTROS DE TURNOS EN ARCHIVO Turnos.dat
 bool modificarFechaServicioTurno(){
     Archivo archi;
@@ -186,4 +183,27 @@ void mostrarTurnos(){
         pos++;
     }
 }
+
+// MOSTRAR TURNOS DEL DIA
+/*
+void mostrarTunoDelDia(){
+    gotoxy(22, 17+(pos*2));
+    Archivo archi;
+    Turno _turno;
+    Cliente usuario;
+    int pos = 0;
+    while(archi.leerDeDisco(pos, _turno)){
+        if(fechaHoy(_turno.getFechaServicio()) == true){
+            while(archi.leerDeDisco(pos, usuario)){
+                gotoxy(22, 17+(pos*2));
+                cout << _turno.getFechaServicio() << "\t\t" << usuario.getNombre();
+            }
+        }
+        pos++;
+    }
+
+}
+bool fechaHoy(Fecha f){
+}*/
+
 #endif // FUNCIONESTURNOS_H_INCLUDED

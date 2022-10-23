@@ -60,6 +60,7 @@ void Menu::Turnos()
         Turno _turno;
         int valorAgregarTurno;
             rlutil::hidecursor();
+            system("cls");
             while (opc != 0)
             {
                 setLista({20, 16}, 60, 40);
