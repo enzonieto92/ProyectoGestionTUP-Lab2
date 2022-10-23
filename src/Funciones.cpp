@@ -6,7 +6,6 @@
 #include "Archivo.h"
 using namespace std;
 
-
 void mostrar_fecha(){
   time_t tiempo;
   char cad[80];

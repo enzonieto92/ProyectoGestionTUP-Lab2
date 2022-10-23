@@ -13,7 +13,6 @@ Fecha::Fecha(){
     dia = hoy -> tm_mday;
     mes = hoy -> tm_mon + 1;
     anio = 1900 + hoy -> tm_year;
-
 }
 
 bool Fecha::Cargar(){

@@ -15,8 +15,9 @@ class Menu
         int principal();
         void Turnos();
         void Clientes();
-        void Contactos();
-
+        void Persona();
+        void Servicio();
+        void Cuentas();
 };
 
 #endif // MENU_H

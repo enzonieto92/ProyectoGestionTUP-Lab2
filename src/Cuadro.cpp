@@ -107,11 +107,20 @@ _txt.mostrar_texto3();
 void Cuadro::mostrar_texto4(){
 _txt.mostrar_texto4();
 }
+void Cuadro::mostrar_texto5(){
+_txt.mostrar_texto5();
+}
+void Cuadro::mostrar_texto6(){
+_txt.mostrar_texto6();
+}
 void Cuadro::Resaltar1(){
 _txt.resaltar1(opc);
 }
 void Cuadro::Resaltar2(){
 _txt.resaltar2(opc);
+}
+void Cuadro::Resaltar3(){
+_txt.resaltar3(opc);
 }
 void Cuadro::setOpc(int &_opc){
 opc = _opc;

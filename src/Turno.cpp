@@ -4,20 +4,20 @@
 using namespace std;
 
 // CONSTRUCTOR
-Turno::Turno()
-{
+Turno::Turno(){
     idTurno = 0;
     DNI = 0;
     tipoServicio = 0;
     estado = false;
 }
-Turno::Turno(int id = 0, int d = 0, int ts = 0, bool e = false)
-{
+
+Turno::Turno(int id = 0, int d = 0, int ts = 0, bool e = false){
     idTurno = id;
     DNI = d;
     tipoServicio = ts;
     estado = e;
 }
+
 // DESTRUCTOR
 Turno::~Turno(){
     // dtor

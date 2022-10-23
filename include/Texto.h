@@ -13,8 +13,11 @@ class Texto
         void mostrar_texto2();
         void mostrar_texto3();
         void mostrar_texto4();
+        void mostrar_texto5();
+        void mostrar_texto6();
         void resaltar1(int);
         void resaltar2(int);
+        void resaltar3(int);
 };
 
 #endif // TEXTO_H

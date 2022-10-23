@@ -16,7 +16,6 @@ bool modificarTelefonoCliente();
 
 bool mostrarClientePorDNI();
 
-
 void mostrarClientes(); // ESPERANDO SER USADA
 
 /// DEFINICIONES FUNCIONES GLOBALES CLIENTE
@@ -70,7 +69,6 @@ bool validarCliente(int nD){
     }
     return false;
 }
-
 
 // 2 MODIFICA POR DNI LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
 bool modificarTelefonoCliente(){
@@ -130,7 +128,6 @@ bool mostrarClientePorDNI(){
     usuario.Mostrar();
     return true;
 }
-
 
 // - MUESTRA LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
 void mostrarClientes(){

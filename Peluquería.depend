@@ -60,7 +60,7 @@
 	"Cuadro.h"
 	"Archivo.h"
 
-1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\main.cpp
+1666558847 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\main.cpp
 	<iostream>
 	<cstring>
 	<cstdlib>
@@ -68,23 +68,36 @@
 	<ctime>
 	"Funciones.h"
 	"Fecha.h"
+	"Persona.h"
 	"Cliente.h"
 	"Turno.h"
-	"Contactos.h"
+	"Cuentas.h"
 	"Menu.h"
 
-1666291226 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\menu.h
+1666206870 D
+
+1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\menu.h
 	"Cuadro.h"
 	"Archivo.h"
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuadro.h
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuadro.h
 	"Texto.h"
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
 	"Funciones.h"
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
 	"rlutil.h"
+
+1666573863 545b4c42a989b842ddf4279293dff3faa5b35
+	"rlutil.h"
+	"Contactos.h"
+	"Cliente.h"
+	"Turno.h"
+	"Turno.h"
+	<iostream>
+	"Funciones.h"
+	<iostream>
 
 1666047039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\rlutil.h
 	<iostream>
@@ -100,23 +113,29 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cuadro.cpp
+1666553880 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cuadro.cpp
 	"Cuadro.h"
 	<iostream>
 
-1666546057 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+1666562892 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
+	"../controller/funcionesServicios.h"
+	"../controller/funcionesCuentas.h"
+	"../controller/funcionesPersona.h"
 	"../controller/funcionesClientes.h"
 	"../controller/funcionesTurnos.h"
 
-1666047039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\persona.cpp
-	"persona.h"
+1666546057 ller/funcionesTurnos.h"
 
-1666047039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\persona.h
+1666553880 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\persona.cpp
+	"Persona.h"
+	"Archivo.h"
 	<iostream>
-	<string.h>
+	<cstdio>
 
-1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\texto.cpp
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\persona.h
+
+1666562615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\texto.cpp
 	"Texto.h"
 	<iostream>
 
@@ -314,16 +333,19 @@
 1666047039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\clientes.h
 	"Cuadro.h"
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\contactos.h
+1666180177 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\contactos.h
+	"Cuadro.h"
 	"Cuadro.h"
 
-1666301432 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\archivo.cpp
+1666558705 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\archivo.cpp
 	"Archivo.h"
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\archivo.h
-	"Contactos.h"
+1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\archivo.h
+	"Persona.h"
 	"Cliente.h"
 	"Turno.h"
+	"Servicio.h"
+	"Cuentas.h"
 
 1666047039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\clientes.cpp
 	"Clientes.h"
@@ -335,7 +357,7 @@
 	<iostream>
 	<cstdio>
 
-1666219318 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\funciones.cpp
+1666562615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\funciones.cpp
 	<cstdio>
 	<ctime>
 	<windows.h>
@@ -346,10 +368,10 @@
 1666047039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turnos.cpp
 	"Turnos.h"
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\turno.h
+1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\turno.h
 	"Fecha.h"
 
-1666291655 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turno.cpp
+1666562615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turno.cpp
 	"Turno.h"
 	<iostream>
 	"Funciones.h"
@@ -358,12 +380,12 @@
 	"Cliente.h"
 	<iostream>
 
-1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cliente.h
+1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cliente.h
 	"Funciones.h"
 
 1666553447 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
 
-1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
+1666562615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
 	"Fecha.h"
 	<iostream>
 	<cstdio>
@@ -395,9 +417,181 @@
 1666206870 c:\users\enzon\desktop\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
 
-1666553093 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
 
-1666300644 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
+1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
+	<iostream>
+
+1666480964 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\archivo.cpp
+	"Archivo.h"
+
+1666480741 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\archivo.h
+	"Persona.h"
+	"Cliente.h"
+	"Turno.h"
+	"Servicio.h"
+	"Cuentas.h"
+
+1666240698 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\contactos.h
+	"Cuadro.h"
+
+1666480256 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\cuadro.h
+	"Texto.h"
+
+1666480194 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\texto.h
+	"Funciones.h"
+
+1666477064 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\funciones.h
+	"rlutil.h"
+
+1666240698 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1666240698 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\cliente.h
+	"Funciones.h"
+
+1666240698 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\turno.h
+	"Fecha.h"
+
+1666568652 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\fecha.h
+
+1666240698 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\cliente.cpp
+	"Cliente.h"
+	<iostream>
+
+1666240698 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\contactos.cpp
+	"Contactos.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1666480256 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\cuadro.cpp
+	"Cuadro.h"
+	<iostream>
+
+1666568652 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\fecha.cpp
+	"Fecha.h"
+	<iostream>
+	<cstdio>
+	<ctime>
+
+1666477064 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\funciones.cpp
+	<cstdio>
+	<ctime>
+	<windows.h>
+	<iostream>
+	"Cliente.h"
+	"Archivo.h"
+
+1666573530 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\menu.cpp
+	"Menu.h"
+	"../controller/funcionesTurnos.h"
+	"../controller/funcionesClientes.h"
+	"../controller/funcionesPersona.h"
+	"../controller/funcionesServicios.h"
+	"../controller/funcionesCuentas.h"
+
+1666479792 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\menu.h
+	"Cuadro.h"
+	"Archivo.h"
+
+1666240698 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\controller\funcionesturnos.h
+	<iostream>
+
+1666240698 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\controller\funcionesclientes.h
+	<iostream>
+
+1666385594 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\controller\funcionespersona.h
+	<iostream>
+
+1666477747 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\persona.cpp
+	"Persona.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1666477108 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\persona.h
+
+1666480194 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\texto.cpp
+	"Texto.h"
+	<iostream>
+
+1666240698 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\turno.cpp
+	"Turno.h"
+	<iostream>
+	"Funciones.h"
+
+1666480309 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\main.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<windows.h>
+	<ctime>
+	"Funciones.h"
+	"Fecha.h"
+	"Persona.h"
+	"Cliente.h"
+	"Turno.h"
+	"Cuentas.h"
+	"Menu.h"
+
+1666476636 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\servicio.cpp
+	"Servicio.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1666393769 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\servicio.h
+
+1666572283 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\controller\funcionesservicios.h
+	<iostream>
+
+1666572892 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\cuentas.cpp
+	"Cuentas.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1666570492 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\include\cuentas.h
+	"Fecha.h"
+
+1666573863 c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\controller\funcionescuentas.h
+
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\servicio.h
+
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuentas.h
+	"Fecha.h"
+
+1666553880 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cuentas.cpp
+	"Cuentas.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1666553880 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\servicio.cpp
+	"Servicio.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesservicios.h
+	<iostream>
+
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionescuentas.h
+	<iostream>
+
+1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionespersona.h
 	<iostream>
 

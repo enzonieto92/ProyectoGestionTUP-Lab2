@@ -1,10 +1,9 @@
 #ifndef CUADRO_H
 #define CUADRO_H
 #include "Texto.h"
+
 class Cuadro
 {
-
-
     private:
         origen coor;
         Texto _txt;
@@ -30,8 +29,11 @@ class Cuadro
         void mostrar_texto2();
         void mostrar_texto3();
         void mostrar_texto4();
+        void mostrar_texto5();
+        void mostrar_texto6();
         void Resaltar1();
         void Resaltar2();
+        void Resaltar3();
         void setOpc(int&);
 };
 
