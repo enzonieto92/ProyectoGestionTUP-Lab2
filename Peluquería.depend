@@ -77,13 +77,13 @@
 	"Cuadro.h"
 	"Archivo.h"
 
-1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuadro.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cuadro.h
 	"Texto.h"
 
-1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\texto.h
 	"Funciones.h"
 
-1666219318 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\funciones.h
 	"rlutil.h"
 
 1666047039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\rlutil.h
@@ -314,13 +314,13 @@
 1666047039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\clientes.h
 	"Cuadro.h"
 
-1666180177 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\contactos.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\contactos.h
 	"Cuadro.h"
 
 1666301432 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\archivo.cpp
 	"Archivo.h"
 
-1666293395 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\archivo.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\archivo.h
 	"Contactos.h"
 	"Cliente.h"
 	"Turno.h"
@@ -346,7 +346,7 @@
 1666047039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turnos.cpp
 	"Turnos.h"
 
-1666291630 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\turno.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\turno.h
 	"Fecha.h"
 
 1666291655 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turno.cpp
@@ -354,14 +354,14 @@
 	<iostream>
 	"Funciones.h"
 
-1666227988 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
+1666553447 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
 	"Cliente.h"
 	<iostream>
 
-1666277684 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cliente.h
+1666553599 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cliente.h
 	"Funciones.h"
 
-1666218039 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
+1666553447 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
 
 1666218039 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
 	"Fecha.h"
