@@ -1,7 +1,7 @@
 #include "Menu.h"
+#include "../controller/funcionesPersona.h"
 #include "../controller/funcionesServicios.h"
 #include "../controller/funcionesCuentas.h"
-#include "../controller/funcionesPersona.h"
 #include "../controller/funcionesClientes.h"
 #include "../controller/funcionesTurnos.h"
 
@@ -70,6 +70,7 @@ void Menu::Turnos(){
         _cuadro.dibujar();
         _cuadro.mostrar_texto2();
         _cuadro.Resaltar2();
+        mostrarTunoDelDia();
         switch (rlutil::getkey()){
             case 14:
                     if (opc < 3){

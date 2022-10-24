@@ -117,11 +117,11 @@
 	"Cuadro.h"
 	<iostream>
 
-1666562892 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+1666567121 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
+	"../controller/funcionesPersona.h"
 	"../controller/funcionesServicios.h"
 	"../controller/funcionesCuentas.h"
-	"../controller/funcionesPersona.h"
 	"../controller/funcionesClientes.h"
 	"../controller/funcionesTurnos.h"
 
@@ -135,7 +135,7 @@
 
 1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\persona.h
 
-1666562615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\texto.cpp
+1666565385 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\texto.cpp
 	"Texto.h"
 	<iostream>
 
@@ -383,9 +383,9 @@
 1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cliente.h
 	"Funciones.h"
 
-1666553447 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
+1666572027 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
 
-1666562615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
+1666574007 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
 	"Fecha.h"
 	<iostream>
 	<cstdio>
@@ -417,8 +417,9 @@
 1666206870 c:\users\enzon\desktop\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
 
-1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+1666573454 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
+	<ctime>
 
 1666558705 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
 	<iostream>

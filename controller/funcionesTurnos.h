@@ -2,6 +2,7 @@
 #define FUNCIONESTURNOS_H_INCLUDED
 
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 //#include "Servicio.h"
@@ -11,7 +12,7 @@ using namespace std;
 int agregarRegistroTurno();
     Turno cargarTurno();
         //bool validarCliente(int nD){
-        //bool validarTipoServicio(int tS);
+        bool validarTipoServicio(int tS);
 
 bool modificarFechaServicioTurno();
     int buscarIdTurno(int idT);
@@ -19,6 +20,9 @@ bool modificarFechaServicioTurno();
 bool mostrarTurnoPorId();
 
 void mostrarTurnos(); // ESPERANDO SER USADA
+
+void mostrarTunoDelDia();
+    bool turnoHoy(Fecha f);
 
 /// DEFINICIONES FUNCIONES GLOBALES TURNO
 
@@ -49,12 +53,12 @@ Turno cargarTurno(){
         return cita;
     }
     cout << "TIPO SERVICIO: ";
-    cin >> tS;// ESPERANDO Clase TipoServicio
-    /*if(validarTipoServicio(tS) == false){
+    cin >> tS;
+    if(validarTipoServicio(tS) == false){
         cout << "EL SERVICIO INGERSADO ES INVALIDO. NO ESTA REGISTRADO O FUE BORRADO" << endl;
         cita.setEstado(false);
         return cita;
-    }*/
+    }
     cout << "INGRESE FECHA DE SERVICIO: " << endl;
     if(_fecha.Cargar() == false){
         cout << "FALLO CARGAR FECHA" << endl;
@@ -90,7 +94,7 @@ bool validarCliente(int nD){
     }
     return false;
 }*/
-/*
+
 bool validarTipoServicio(int tS){
     Servicio servicio;
     Archivo archi;
@@ -103,7 +107,7 @@ bool validarTipoServicio(int tS){
     }
     return false;
 }
-*/
+
 // 2 MODIFICA POR ID LOS REGISTROS DE TURNOS EN ARCHIVO Turnos.dat
 bool modificarFechaServicioTurno(){
     Archivo archi;
@@ -185,25 +189,66 @@ void mostrarTurnos(){
 }
 
 // MOSTRAR TURNOS DEL DIA
-/*
+
 void mostrarTunoDelDia(){
-    gotoxy(22, 17+(pos*2));
     Archivo archi;
     Turno _turno;
     Cliente usuario;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, _turno)){
-        if(fechaHoy(_turno.getFechaServicio()) == true){
-            while(archi.leerDeDisco(pos, usuario)){
-                gotoxy(22, 17+(pos*2));
-                cout << _turno.getFechaServicio() << "\t\t" << usuario.getNombre();
+    Servicio servicio;
+    int posT = 0, posC, posS, posY = 0;
+    while(archi.leerDeDisco(posT, _turno)){
+        if(turnoHoy(_turno.getFechaServicio()) == true){
+            posC = buscarDNICliente(_turno.getDNI());
+            archi.leerDeDisco(posC, usuario);
+            if(_turno.getDNI() == usuario.getDNI() && usuario.getEstado()){
+                posS = buscarCodigoServicio(_turno.getTipoServicio(), servicio);
+                archi.leerDeDisco(posS, servicio);
+                gotoxy(22, 17+(posY*2));
+                _turno.getFechaServicio().Mostrar();
+                gotoxy(42, 17+(posY*2));
+                cout << usuario.getNombre();
+                gotoxy(52, 17+(posY*2));
+                cout << servicio.getDescripcion();
+                gotoxy(72, 17+(posY*2));
+                cout << "$ " << servicio.getPrecio();
+                posY++;
             }
         }
-        pos++;
+        posT++;
     }
-
 }
-bool fechaHoy(Fecha f){
-}*/
+
+bool turnoHoy(Fecha f){
+    time_t tiempo;
+    struct tm *hoy;
+
+    tiempo = time(NULL);
+    hoy = localtime(&tiempo);
+    if(f.getAnio() < (1900 + hoy -> tm_year)){
+        return false;
+    }
+    else{
+        if(f.getMes() < (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
+
+        return false;
+        }
+        else{
+            if(f.getDia() < hoy -> tm_mday && f.getMes() == (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
+                return false;
+            }
+            else{
+                if(f.getHora() < hoy -> tm_hour && f.getDia() == hoy -> tm_mday && f.getMes() == (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
+                    return false;
+                }
+                else{
+                    if(f.getMinuto() < hoy -> tm_min && f.getHora() == hoy -> tm_hour && f.getDia() == hoy -> tm_mday && f.getMes() == (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+    return true;
+}
 
 #endif // FUNCIONESTURNOS_H_INCLUDED
