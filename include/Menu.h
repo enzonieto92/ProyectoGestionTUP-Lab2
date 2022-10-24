@@ -1,12 +1,14 @@
 #ifndef MENU_H
 #define MENU_H
 #include "Cuadro.h"
+#include "Archivo.h"
+
 class Menu
 {
     private:
         int opc;
         origen _coor;
-        Cuadro Cuadro, Lista;
+        Cuadro _cuadro, _lista;
     public:
         Menu();
         void setCuadro(origen, int, int, int);
@@ -14,8 +16,9 @@ class Menu
         int principal();
         void Turnos();
         void Clientes();
-        void Contactos();
-
+        void Persona();
+        void Servicio();
+        void Cuentas();
 };
 
 #endif // MENU_H
