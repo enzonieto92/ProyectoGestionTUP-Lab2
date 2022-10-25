@@ -11,12 +11,6 @@ Cliente::Cliente()
     estado = false;
 }
 
-/// DESTRUCTOR
-Cliente::~Cliente()
-{
-    //dtor
-}
-
 /// CARGAR
 bool Cliente::Cargar(int nD){
     if(!setDNI(nD)){
@@ -51,8 +45,7 @@ void Cliente::Mostrar()
 }
 
 /// SETS
-bool Cliente::setDNI(int nD)
-{
+bool Cliente::setDNI(int nD){
     if(nD > 0){
         DNI = nD;
         return true;
@@ -70,3 +63,9 @@ const char *Cliente::getNombre(){return nombre;}
 const char *Cliente::getApellido(){return apellido;}
 const char *Cliente::getTelefono(){return telefono;}
 bool Cliente::getEstado(){return estado;}
+
+/// DESTRUCTOR
+Cliente::~Cliente()
+{
+    //dtor
+}

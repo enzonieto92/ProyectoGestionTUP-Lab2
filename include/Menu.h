@@ -2,6 +2,7 @@
 #define MENU_H
 #include "Cuadro.h"
 #include "Archivo.h"
+
 class Menu
 {
     private:
@@ -15,8 +16,9 @@ class Menu
         int principal();
         void Turnos();
         void Clientes();
-        void Contactos();
-
+        void Persona();
+        void Servicio();
+        void Cuentas();
 };
 
 #endif // MENU_H
