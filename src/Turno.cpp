@@ -35,11 +35,16 @@ bool Turno::Cargar(int idT, Fecha _fecha, int nD, int ts){
 }
 
 void Turno::Mostrar(){
-        cout << "ID TURNO: " << idTurno << endl;;
-        cout << "FECHA DE TURNO: ";
-        fechaServicio.Mostrar();
-        cout << "DNI: " << DNI << endl;
-        cout << "TIPO DE SERVICIO: " << tipoServicio << endl;
+    gotoxy(42, 20);
+    cout << "ID TURNO: " << idTurno << endl;
+    gotoxy(42, 21);
+    cout << "FECHA DE TURNO: ";
+    gotoxy(42, 22);
+    fechaServicio.Mostrar();
+    gotoxy(42, 23);
+    cout << "DNI: " << DNI << endl;
+    gotoxy(42, 24);
+    cout << "TIPO DE SERVICIO: " << tipoServicio << endl;
 }
 
 // SETS

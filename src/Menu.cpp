@@ -60,16 +60,16 @@ int Menu::principal(){
 }
 
 void Menu::Turnos(){
-    int valorAgregarTurno;
     rlutil::hidecursor();
     system("cls");
     while (opc != 0){
         setLista({20, 16}, 60, 40);
-        setCuadro({42, 10}, 25, 4, opc);
+        setCuadro({36, 10}, 25, 4, opc);
         _lista.dibujarLista();
         _cuadro.dibujar();
         _cuadro.mostrar_texto2();
         _cuadro.Resaltar2();
+        bajaFisicaTurnoAuto();
         mostrarTunoDelDia();
         switch (rlutil::getkey()){
             case 14:
@@ -110,106 +110,67 @@ void Menu::Turnos(){
                 ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
                 switch (opc){
                     ///AGREGAR///
-                    case 1: system("cls");
-                            valorAgregarTurno = agregarRegistroTurno();
-                            if(valorAgregarTurno == 0){
-                                cout << "\nTURNO CARGADO" << endl;
-                                system("pause");
-                                system("cls");
-                                break;
-                            }
-                            else if(valorAgregarTurno == -2){
-                                cout << "\nFALLO AL GRABAR EN EL DISCO" << endl;
-                                system("pause");
-                                system("cls");
-                                break;
-                            }
-                            cout << "\nDATOS INVALIDOS" << endl;
-                            system("pause");
-                            system("cls");
+                    case 1:
+                            agregarRegistroTurno();
                         break;
                         ///MODIFICAR///
-                    case 2: system("cls");
-                            if(modificarFechaServicioTurno() == false){
-                                cout << "\nERROR EN LA MODIFICACION DEL TURNO" << endl;
-                            }
-                            else{
-                                cout << "\nTURNO MODIFICADO" << endl;
-                            }
-                            system("pause");
-                            system("cls");
+                    case 2:
+                            modificarFechaServicioTurno();
                         break;
                         ///MOSTRAR///
-                    case 3: system("cls");
-                            if(mostrarTurnoPorId() == false){
-                                cout << "\nERROR EN LA BUSQUEDA DEL TURNO" << endl;
-                                system("pause");
-                                system("cls");
-                                break;
-                            }
-                            cout << "\nTURNO LISTADO" << endl;
-                            system("pause");
-                            system("cls");
+                    case 3:
+                            mostrarTurnoPorId();
                         break;
-                        ///ELIMINAR///
-                    case 4: cout << "opcion 4" << endl;
-                            system("pause");
-                            system("cls");
-                            opc = 1;
-                        return;
-                        ///BUSCAR///
-                    case 5:
                         ///VOLVER///
-                    case 6:
-                        opc = 1;
-                        return;
+                    case 4:
+                            opc = 1;
+                            return;
+                        break;
                 }
-                break;
-            case 0:
-                break;
+            getch();
+            system("cls");
         }
     }
 }
 
 void Menu::Clientes(){
-    int valorAgregarCliente;
     rlutil::hidecursor();
     system("cls");
     while (opc != 0){
-        setCuadro({42, 10}, 25, 4, opc);
+        setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto3();
-        _cuadro.Resaltar2();
+        _cuadro.Resaltar3();
         switch (rlutil::getkey()){
             case 14:
-                    if (opc < 3){
-                        opc += 2;
+                    if (opc < 4){
+                        opc += 3;
                     }
                     else{
 
-                    opc -=2;
+                    opc -=3;
                     }
                     break;
             case 15:
-                    if (opc > 2){
-                        opc -= 2;
+                    if (opc > 3){
+                        opc -= 3;
                     }
                     else{
 
-                    opc +=2;
+                    opc +=3;
                     }
                     break;
             case 16:
-                    if (opc == 1 || opc == 3){
-                        opc += 1;
+                    if (opc == 1 || opc == 4){
+                        opc += 2;
                     }
                     else{
                     opc --;
                     }
                     break;
             case 17:
-                    if (opc == 2 || opc == 4){
-                        opc -= 1;
+                    if (opc == 3 || opc == 6){
+                        opc -= 2;
                     }
                     else{
                     opc ++;
@@ -219,60 +180,35 @@ void Menu::Clientes(){
                 ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
                 switch (opc){
                     ///AGREGAR///
-                    case 1: system("cls");
-                            valorAgregarCliente = agregarRegistroCliente();
-                            if(valorAgregarCliente == 0){
-                                cout << "\nCLIENTE CARGADO" << endl;
-                                system("pause");
-                                system("cls");
-                                break;
-                            }
-                            else if(valorAgregarCliente == -2){
-                                cout << "\nFALLO AL GRABAR EN EL DISCO" << endl;
-                                system("pause");
-                                system("cls");
-                                break;
-                            }
-                            cout << "\nDATOS INVALIDOS" << endl;
-                            system("pause");
-                            system("cls");
+                    case 1:
+                            agregarRegistroCliente();
+
                         break;
                         ///MODIFICAR///
-                    case 2: system("cls");
-                            if(modificarTelefonoCliente() == false){
-                                cout << "\nERROR EN LA MODIFICACION DEL CLIENTE" << endl;
-                            }
-                            else{
-                                cout << "\nCLIENTE MODIFICADO" << endl;
-                            }
-                            system("pause");
-                            system("cls");
-                        break;
-                        ///BUSCAR///
-                    case 3: system("cls");
-                            if(mostrarClientePorDNI() == false){
-                                cout << "\nERROR EN LA BUSQUEDA DEL CLIENTE" << endl;
-                                system("pause");
-                                system("cls");
-                                break;
-                            }
-                            cout << "\nCLIENTE LISTADO" << endl;
-                            system("pause");
-                            system("cls");
-                        break;
-                        ///VOLVER///
-                    case 4:
-                            cout << "opcion 4" << endl;
-                            system("pause");
-                            system("cls");
-                            opc = 1;
-                        return;
-                }
-                break;
+                    case 2:
+                            modificarTelefonoCliente();
 
-            case 0:
-                return;
-                system("pause");
+                        break;
+                        ///MOSTRAR///
+                    case 3:
+                            mostrarClientes();
+                        break;
+                        ///ELIMINAR///
+                    case 4: system("cls");
+                            cout << "opcion 4 ELIMINAR" << endl;
+                        break;
+                        ///BUSCAR//
+                    case 5:
+                            mostrarClientePorDNI();
+                        break;
+                    case 6:
+                            cout << "opcion 6" << endl;
+                            opc = 1;
+                            return;
+                        break;
+                }
+            getch();
+            system("cls");
         }
     }
 }

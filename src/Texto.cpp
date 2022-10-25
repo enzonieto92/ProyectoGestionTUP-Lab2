@@ -30,13 +30,13 @@ void Texto::mostrar_texto2(){
     cout <<"Peluqueria Erica Martinez";
     gotoxy(coor.x+2, coor.y-5);
     cout << "MENU TURNOS";
-    gotoxy(coor.x+3, coor.y+1);
+    gotoxy(coor.x-3, coor.y+1);
     cout <<"AGREGAR";
-    gotoxy(coor.x+14, coor.y+1);
+    gotoxy(coor.x+8, coor.y+1);
     cout <<"MODIFICAR";
-    gotoxy(coor.x+3, coor.y+3);
+    gotoxy(coor.x-3, coor.y+3);
     cout <<"BUSCAR";
-    gotoxy(coor.x+15, coor.y+3);
+    gotoxy(coor.x+9, coor.y+3);
     cout <<"VOLVER";
 }
 
@@ -45,13 +45,17 @@ void Texto::mostrar_texto3(){
     cout <<"Peluqueria Erica Martinez";
     gotoxy(coor.x+2, coor.y-5);
     cout << "MENU CLIENTES";
-    gotoxy(coor.x+3, coor.y+1);
+    gotoxy(coor.x-7, coor.y+1);
     cout <<"AGREGAR";
-    gotoxy(coor.x+14, coor.y+1);
+    gotoxy(coor.x+5, coor.y+1);
     cout <<"MODIFICAR";
-    gotoxy(coor.x+3, coor.y+3);
+    gotoxy(coor.x+18, coor.y+1);
+    cout <<"MOSTRAR";
+    gotoxy(coor.x-7, coor.y+3);
+    cout <<"ELIMINAR";
+    gotoxy(coor.x+6, coor.y+3);
     cout <<"BUSCAR";
-    gotoxy(coor.x+15, coor.y+3);
+    gotoxy(coor.x+18, coor.y+3);
     cout <<"VOLVER";
 }
 
@@ -156,25 +160,25 @@ void Texto::resaltar1(int opc){
 void Texto::resaltar2(int opc){
     switch(opc){
         case 1:
-            gotoxy(coor.x+3, coor.y+1);
+            gotoxy(coor.x-3, coor.y+1);
             rlutil::setBackgroundColor(7);
             cout <<"AGREGAR";
             rlutil::setBackgroundColor(0);
             break;
         case 2:
-            gotoxy(coor.x+14, coor.y+1);
+            gotoxy(coor.x+8, coor.y+1);
             rlutil::setBackgroundColor(7);
             cout <<"MODIFICAR";
             rlutil::setBackgroundColor(0);
             break;
         case 3:
-            gotoxy(coor.x+3, coor.y+3);
+            gotoxy(coor.x-3, coor.y+3);
             rlutil::setBackgroundColor(7);
             cout <<"BUSCAR";
             rlutil::setBackgroundColor(0);
             break;
         case 4:
-            gotoxy(coor.x+15, coor.y+3);
+            gotoxy(coor.x+9, coor.y+3);
             rlutil::setBackgroundColor(7);
             cout <<"VOLVER";
             rlutil::setBackgroundColor(0);

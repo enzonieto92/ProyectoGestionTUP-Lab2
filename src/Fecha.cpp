@@ -18,33 +18,43 @@ Fecha::Fecha(){
 }
 
 bool Fecha::Cargar(){
-    cout << "DIA: ";
+    gotoxy(31, 21);
+    cout << "DIA:";
     cin >> dia;
     if(!setDia(dia)){
+        gotoxy(32, 23);
         cout << "EL DIA DEBE ESTAR ENTRE 1 Y 31" << endl;
         return false;
     }
-    cout << "MES: ";
+    gotoxy(38, 21);
+    cout << "MES:";
     cin >> mes;
     if(!setMes(mes)){
+        gotoxy(32, 23);
         cout << "EL MES DEBE ESTAR ENTRE 1 Y 12" << endl;
         return false;
     }
-    cout << "ANIO: ";
+    gotoxy(45, 21);
+    cout << "ANIO:";
     cin >> anio;
     if(!setAnio(anio)){
+        gotoxy(32, 23);
         cout << "EL AONIO DEBE SER POSTIVO" << endl;
         return false;
     }
-    cout << "HORA: ";
+    gotoxy(57, 21);
+    cout << "HR:";
     cin >> hora;
     if(!setHora(hora)){
+        gotoxy(32, 23);
         cout << "LA HORA DEBE ESTAR ENTRE 0 - 23" << endl;
         return false;
     }
-    cout << "MINUTO: ";
+    gotoxy(63, 21);
+    cout << "MIN:";
     cin >> minuto;
-    if(!setAnio(anio)){
+    if(!setMinuto(minuto)){
+        gotoxy(32, 23);
         cout << "EL MINUTO DEBE ESTAR ENTRE 0 - 59" << endl;
         return false;
     }
@@ -52,7 +62,11 @@ bool Fecha::Cargar(){
 }
 
 void Fecha::Mostrar(){
-    cout << dia << "/" << mes << "/" << anio << " " << hora << ":" << minuto << endl;
+    cout << dia << "/" << mes << "/" << anio << " ";
+    if(hora < 10) cout << "0";
+    cout << hora << ":";
+    if(minuto < 10) cout << "0";
+    cout << minuto;
 }
 
 /// SETS
@@ -113,28 +127,32 @@ bool Fecha::validarFechaTurno(Fecha f){
     tiempo = time(NULL);
     hoy = localtime(&tiempo);
     if(f.getAnio() < (1900 + hoy -> tm_year)){
-        cout << "EL ANIO DEBE SER MAYOR O IGUAL AL: " << (1900 + hoy -> tm_year) << endl;
+        gotoxy(31, 23);
+        cout << "EL ANIO DEBE SER MAYOR O IGUAL AL: " << (1900 + hoy -> tm_year);
         return false;
     }
     else{
         if(f.getMes() < (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
-        cout << "EL MES DEBE SER MAYOR O IGUAL AL " << (hoy -> tm_mon + 1) << " DEL CORRIENTE ANIO " << (1900 + hoy -> tm_year)<< endl;
+        gotoxy(31, 23);
+        cout << "MES DEBE SER MAYOR/IGUAL AL " << (hoy -> tm_mon + 1) << " DEL " << (1900 + hoy -> tm_year);
         return false;
         }
         else{
             if(f.getDia() < hoy -> tm_mday && f.getMes() == (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
-                cout << "EL DIA DEBE SER MAYOR O IGUAL A " << hoy -> tm_mday << " DEL MES ACTUAL " << (hoy -> tm_mon + 1) << endl;
+                gotoxy(31, 23);
+                cout << "EL DIA DEBE SER MAYOR/IGUAL A " << hoy -> tm_mday << " DEL " << (hoy -> tm_mon + 1);
                 return false;
             }
             else{
                 if(f.getHora() < hoy -> tm_hour && f.getDia() == hoy -> tm_mday && f.getMes() == (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
-                    cout << "LA HORA DEBE SER MAYOR O IGUAL A LA ACTUAL " << hoy -> tm_hour << endl;
+                    gotoxy(31, 23);
+                    cout << "LA HORA DEBE SER MAYOR/IGUAL A " << hoy -> tm_hour;
                     return false;
                 }
                 else{
                     if(f.getMinuto() < hoy -> tm_min && f.getHora() == hoy -> tm_hour && f.getDia() == hoy -> tm_mday && f.getMes() == (hoy -> tm_mon + 1) && f.getAnio() == (1900 + hoy -> tm_year)){
-                        cout << "LA HORA DEBE SER MAYOR O IGUAL A LA ACTUAL ";
-                        f.Mostrar();
+                        gotoxy(31, 23);
+                        cout << "LA HORA DEBE SER MAYOR/IGUAL A " << hoy -> tm_hour << ":" << hoy -> tm_min;
                         return false;
                     }
                 }
