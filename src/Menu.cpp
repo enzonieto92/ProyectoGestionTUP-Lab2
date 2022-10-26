@@ -64,11 +64,8 @@ void Menu::Turnos(){
         Archivo reg;
         Turno _turno;
         system("cls");
-<<<<<<< HEAD
-=======
         mostrart();
         getch();
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
             rlutil::hidecursor();
             while (opc != 0)
             {
@@ -152,28 +149,20 @@ void Menu::Turnos(){
 }
 
 void Menu::Clientes(){
-<<<<<<< HEAD
-=======
-    Archivo reg;
-    Cliente _cliente;
-    int pos = 0;
+
     int valorAgregarCliente;
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
             rlutil::hidecursor();
             while (opc != 0)
             {
                 system("cls");
-<<<<<<< HEAD
                 setCuadro({38, 10}, 24, 4, opc);
                 _cuadro.dibujar();
                 _cuadro.mostrar_texto3();
                 _cuadro.Resaltar3();
-=======
                 setCuadro({42, 10}, 25, 4, opc);
                 _cuadro.dibujar();
                 _cuadro.mostrar_texto3();
                 _cuadro.Resaltar2();
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
                         switch (rlutil::getkey()){
                             case 14:
                                     if (opc < 3){
@@ -213,7 +202,6 @@ void Menu::Clientes(){
                             case 1:
                                 ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
 
-<<<<<<< HEAD
                                         switch (opc){
                                         ///AGREGAR///
                                     case 1:
@@ -264,7 +252,6 @@ void Menu::Clientes(){
                                         return;
                                         }//SWITCH OPCION ELEGIDA//
                                 break;
-=======
                                 switch (opc){
                                 ///AGREGAR///
                             case 1: system("cls");
@@ -317,7 +304,6 @@ void Menu::Clientes(){
                                 return;
                                 }
                             break;
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
 
                             case 0:
                                 opc = 1;
@@ -334,11 +320,8 @@ void Menu::Persona(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto4();
-<<<<<<< HEAD
         _cuadro.Resaltar4();
-=======
         _cuadro.Resaltar3();
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -407,11 +390,8 @@ void Menu::Servicio(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
-<<<<<<< HEAD
         _cuadro.Resaltar5();
-=======
         _cuadro.Resaltar3();
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -479,11 +459,8 @@ void Menu::Cuentas(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
-<<<<<<< HEAD
         _cuadro.Resaltar6();
-=======
         _cuadro.Resaltar3();
->>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
