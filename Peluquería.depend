@@ -105,7 +105,7 @@
 	"../controller/funcionesServicios.h"
 	"../controller/funcionesCuentas.h"
 
-1666711042 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
+1666799675 c:\users\enzon\desktop\proyectogestiontup-lab2\include\menu.h
 	"Cuadro.h"
 	"Archivo.h"
 
@@ -349,7 +349,7 @@
 1664734852 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\archivos.cpp
 	"Archivos.h"
 
-1666711042 c:\users\enzon\desktop\proyectogestiontup-lab2\include\archivo.h
+1666799675 c:\users\enzon\desktop\proyectogestiontup-lab2\include\archivo.h
 	"Persona.h"
 	"Cliente.h"
 	"Turno.h"
@@ -441,14 +441,12 @@
 	<cstdio>
 	<ctime>
 
-1666711042 c:\users\enzon\desktop\proyectogestiontup-lab2\include\cliente.h
-	"Funciones.h"
+1666799675 c:\users\enzon\desktop\proyectogestiontup-lab2\include\cliente.h
 	"Funciones.h"
 
-1666711042 c:\users\enzon\desktop\proyectogestiontup-lab2\include\fecha.h
+1666799675 c:\users\enzon\desktop\proyectogestiontup-lab2\include\fecha.h
 
-1666711042 c:\users\enzon\desktop\proyectogestiontup-lab2\include\turno.h
-	"Fecha.h"
+1666799675 c:\users\enzon\desktop\proyectogestiontup-lab2\include\turno.h
 	"Fecha.h"
 
 1666711042 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\cliente.cpp

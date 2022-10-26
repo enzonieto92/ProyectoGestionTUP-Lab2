@@ -19,8 +19,8 @@
 
 bin
 obj
-.layout
-.depend
+*.layout
+*.depend
 
 
 # Fortran module files
