@@ -195,8 +195,8 @@ void Menu::Clientes(){
                             mostrarClientes();
                         break;
                         ///ELIMINAR///
-                    case 4: system("cls");
-                            cout << "opcion 4 ELIMINAR" << endl;
+                    case 4:
+                            eliminarCliente();
                         break;
                         ///BUSCAR//
                     case 5:
@@ -398,7 +398,7 @@ void Menu::Cuentas(){
             case 1:
                 switch (opc){
                     case 1:
-                        agregarRegistroCuenta();
+                        ///agregarCuentaCliente();
                     break;
                     case 2:
                         modificarCuenta();
@@ -407,7 +407,7 @@ void Menu::Cuentas(){
                         mostrarCuenta();
                     break;
                     case 4:
-                        eliminarCuenta();
+                        ///eliminarCuentaCliente();
                     break;
                     case 5:
                         buscarCuenta();

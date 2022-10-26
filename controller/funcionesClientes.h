@@ -18,6 +18,8 @@ void mostrarClientes(); // ESPERANDO SER USADA
     void cargarArchivoEnVector(Cliente *obj, int cantReg);
     void mostrarVectorClientes(Cliente *obj, int cantReg);
 
+void eliminarCliente();
+
 bool mostrarClientePorDNI();
 
 /// DEFINICIONES FUNCIONES GLOBALES CLIENTE
@@ -40,6 +42,7 @@ int agregarRegistroCliente(){
     if(archi.grabarEnDisco(usuario)){ // GRABO EN DISCO
         gotoxy(42, 26);
         cout << "CLIENTE CARGADO";
+        agregarCuentaCliente(usuario);
         return 0;
     }
     gotoxy(42, 26);
@@ -191,16 +194,54 @@ void mostrarVectorClientes(Cliente *obj, int cantReg){
             }
             posY = 0;
         }
-        gotoxy(22, 19 + posY * 2);
-        cout << obj[i].getDNI();
-        gotoxy(32, 19 + posY * 2);
-        cout << obj[i].getNombre();
-        gotoxy(52, 19 + posY * 2);
-        cout << obj[i].getApellido();
-        gotoxy(72, 19 + posY * 2);
-        cout << obj[i].getTelefono();
-        posY++;
+        if(obj[i].getEstado() == true){
+            gotoxy(22, 19 + posY * 2);
+            cout << obj[i].getDNI();
+            gotoxy(32, 19 + posY * 2);
+            cout << obj[i].getNombre();
+            gotoxy(52, 19 + posY * 2);
+            cout << obj[i].getApellido();
+            gotoxy(72, 19 + posY * 2);
+            cout << obj[i].getTelefono();
+            posY++;
+        }
     }
+}
+
+// 4 ELIMINAR CLIENTE
+void eliminarCliente(){
+    Archivo archi;
+    Cliente usuario;
+    int nD, pos;
+    /// buscar el cliente a eliminar
+    gotoxy(42, 18);
+    cout << "INGRESE EL DNI DEL CLIENTE DEL REGISTRO A DAR DE BAJA: ";
+    cin >> nD;
+    /// leer si existe el registro
+    pos = buscarDNICliente(nD);
+    if(pos == -1){
+        gotoxy(42, 20);
+        cout << "NO EXISTE EL DNI DEL CLIENTE EN EL ARCHIVO";
+        return;
+    }
+    archi.leerDeDisco(pos, usuario);
+    /// Validar cuenta corriente deuda o no
+    if(eliminarCuentaCliente(usuario.getIdCuenta()) == false){
+        gotoxy(42, 20);
+        cout << "NO SE PUEDE ELIMINAR TIENE DEUDA";
+    }
+    /// cambiar el estado del campo
+    usuario.setEstado(false);
+    /// sobreescribir el registro
+    archi.modificarEnDisco(pos, usuario);
+    gotoxy(42, 20);
+    cout << "CLIENTE BORRADO" << endl;
+    gotoxy(42, 21);
+    cout << usuario.getNombre();
+    gotoxy(42, 22);
+    cout << usuario.getApellido();
+    gotoxy(42, 23);
+    cout << usuario.getTelefono();
 }
 
 // 5 MUESTRAR POR DNI LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
