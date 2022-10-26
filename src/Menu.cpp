@@ -159,10 +159,6 @@ void Menu::Clientes(){
                 _cuadro.dibujar();
                 _cuadro.mostrar_texto3();
                 _cuadro.Resaltar3();
-                setCuadro({42, 10}, 25, 4, opc);
-                _cuadro.dibujar();
-                _cuadro.mostrar_texto3();
-                _cuadro.Resaltar2();
                         switch (rlutil::getkey()){
                             case 14:
                                     if (opc < 3){
@@ -321,7 +317,7 @@ void Menu::Persona(){
         _cuadro.dibujar();
         _cuadro.mostrar_texto4();
         _cuadro.Resaltar4();
-        _cuadro.Resaltar3();
+        _cuadro.Resaltar4();
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -391,7 +387,7 @@ void Menu::Servicio(){
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
         _cuadro.Resaltar5();
-        _cuadro.Resaltar3();
+        _cuadro.Resaltar5();
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -460,7 +456,7 @@ void Menu::Cuentas(){
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
         _cuadro.Resaltar6();
-        _cuadro.Resaltar3();
+        _cuadro.Resaltar6();
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){

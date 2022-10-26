@@ -53,17 +53,8 @@ gotoxy(coor.x-1, coor.y+3);
 cout <<"BUSCAR";
 gotoxy(coor.x+10, coor.y+3);
 cout <<"ELIMINAR";
-
-gotoxy(coor.x+20, coor.y+40);
+gotoxy(coor.x+20, coor.y+30);
 cout <<"Presione ESC para volver";
-gotoxy(coor.x+3, coor.y+1);
-cout <<"AGREGAR";
-gotoxy(coor.x+14, coor.y+1);
-cout <<"MODIFICAR";
-gotoxy(coor.x+3, coor.y+3);
-cout <<"BUSCAR";
-gotoxy(coor.x+15, coor.y+3);
-cout <<"VOLVER";
 }
 
 void Texto::mostrar_texto4(){
