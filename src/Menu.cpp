@@ -195,8 +195,8 @@ void Menu::Clientes(){
                             mostrarClientes();
                         break;
                         ///ELIMINAR///
-                    case 4: system("cls");
-                            cout << "opcion 4 ELIMINAR" << endl;
+                    case 4:
+                            eliminarCliente();
                         break;
                         ///BUSCAR//
                     case 5:

@@ -187,16 +187,13 @@
 	"Cuadro.h"
 	<iostream>
 
-1666239615 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+1666808037 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
 	"../controller/funcionesPersona.h"
 	"../controller/funcionesServicios.h"
 	"../controller/funcionesCuentas.h"
 	"../controller/funcionesClientes.h"
 	"../controller/funcionesTurnos.h"
-	"Menu.h"
-	"../controller/funcionesTurnos.h"
-	"../controller/funcionesClientes.h"
 
 1666546057 ller/funcionesTurnos.h"
 
@@ -514,11 +511,11 @@
 	<iostream>
 	<iostream>
 
-1666716235 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+1666800945 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
+	<ctime>
 
-1666672609 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
-	<iostream>
+1666820084 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
 	<iostream>
 
 1666480964 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\archivo.cpp
