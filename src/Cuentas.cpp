@@ -9,7 +9,7 @@ Cuenta::Cuenta(){
     ID = 0;
     strcpy(nombre, "SIN DATO");
     strcpy(apellido, "SIN DATO");
-    monto = 1;
+    monto = 0;
     estado = false;
 }
 
@@ -54,7 +54,7 @@ void Cuenta::setFechaEmision(Fecha fecha){fechaEmision = fecha;}
 void Cuenta::setNombre(const char *V){strcpy(nombre,V);}
 void Cuenta::setApellido(const char *V){strcpy(apellido,V);}
 bool Cuenta::setMonto(float var){
-    if(var >0){
+    if(var >=0){
         monto = var;
         return true;
     }

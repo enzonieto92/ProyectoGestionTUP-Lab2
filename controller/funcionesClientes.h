@@ -42,7 +42,7 @@ int agregarRegistroCliente(){
     if(archi.grabarEnDisco(usuario)){ // GRABO EN DISCO
         gotoxy(42, 26);
         cout << "CLIENTE CARGADO";
-        //agregarCuentaCliente(usuario);
+        agregarCuentaCliente(usuario);
         return 0;
     }
     gotoxy(42, 26);
@@ -226,10 +226,10 @@ void eliminarCliente(){
     }
     archi.leerDeDisco(pos, usuario);
     /// Validar cuenta corriente deuda o no
-    /*if(eliminarCuentaCliente(usuario.getIdCuenta()) == false){
+    if(eliminarCuentaCliente(usuario.getIdCuenta()) == false){
         gotoxy(42, 20);
         cout << "NO SE PUEDE ELIMINAR TIENE DEUDA";
-    }*/
+    }
     /// cambiar el estado del campo
     usuario.setEstado(false);
     /// sobreescribir el registro
