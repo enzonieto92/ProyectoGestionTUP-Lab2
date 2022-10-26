@@ -226,3 +226,123 @@ void Texto::resaltar3(int opc){
             break;
     }
 }
+void Texto::resaltar4(int opc){
+    switch(opc){
+        case 1:
+            gotoxy(coor.x-7, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"AGREGAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 2:
+            gotoxy(coor.x+5, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"MODIFICAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 3:
+            gotoxy(coor.x+18, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"MOSTRAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 4:
+            gotoxy(coor.x-7, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"ELIMINAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 5:
+            gotoxy(coor.x+6, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"BUSCAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 6:
+            gotoxy(coor.x+18, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"VOLVER";
+            rlutil::setBackgroundColor(0);
+            break;
+    }
+}
+void Texto::resaltar5(int opc){
+    switch(opc){
+        case 1:
+            gotoxy(coor.x-7, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"AGREGAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 2:
+            gotoxy(coor.x+5, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"MODIFICAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 3:
+            gotoxy(coor.x+18, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"MOSTRAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 4:
+            gotoxy(coor.x-7, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"ELIMINAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 5:
+            gotoxy(coor.x+6, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"BUSCAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 6:
+            gotoxy(coor.x+18, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"VOLVER";
+            rlutil::setBackgroundColor(0);
+            break;
+    }
+}
+void Texto::resaltar6(int opc){
+    switch(opc){
+        case 1:
+            gotoxy(coor.x-7, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"AGREGAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 2:
+            gotoxy(coor.x+5, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"MODIFICAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 3:
+            gotoxy(coor.x+18, coor.y+1);
+            rlutil::setBackgroundColor(7);
+            cout <<"MOSTRAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 4:
+            gotoxy(coor.x-7, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"ELIMINAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 5:
+            gotoxy(coor.x+6, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"BUSCAR";
+            rlutil::setBackgroundColor(0);
+            break;
+        case 6:
+            gotoxy(coor.x+18, coor.y+3);
+            rlutil::setBackgroundColor(7);
+            cout <<"VOLVER";
+            rlutil::setBackgroundColor(0);
+            break;
+    }
+}

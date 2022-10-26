@@ -18,6 +18,10 @@ class Texto
         void resaltar1(int);
         void resaltar2(int);
         void resaltar3(int);
+        void resaltar4(int);
+        void resaltar5(int);
+        void resaltar6(int);
+
 };
 
 #endif // TEXTO_H

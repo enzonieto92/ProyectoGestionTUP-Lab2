@@ -1,4 +1,5 @@
 #include "Menu.h"
+
 #include "../controller/funcionesPersona.h"
 #include "../controller/funcionesServicios.h"
 #include "../controller/funcionesCuentas.h"
@@ -220,7 +221,8 @@ void Menu::Persona(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto4();
-        _cuadro.Resaltar3();
+        _cuadro.Resaltar4();
+        _cuadro.Resaltar4();
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -289,7 +291,8 @@ void Menu::Servicio(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
-        _cuadro.Resaltar3();
+        _cuadro.Resaltar5();
+        _cuadro.Resaltar5();
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -357,7 +360,8 @@ void Menu::Cuentas(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
-        _cuadro.Resaltar3();
+        _cuadro.Resaltar6();
+        _cuadro.Resaltar6();
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){

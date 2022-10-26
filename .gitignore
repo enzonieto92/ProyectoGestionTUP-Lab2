@@ -16,6 +16,13 @@
 *.dylib
 *.dll
 
+
+bin
+obj
+.layout
+.depend
+
+
 # Fortran module files
 *.mod
 *.smod

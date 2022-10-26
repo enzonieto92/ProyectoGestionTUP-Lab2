@@ -34,6 +34,9 @@ class Cuadro
         void Resaltar1();
         void Resaltar2();
         void Resaltar3();
+        void Resaltar4();
+        void Resaltar5();
+        void Resaltar6();
         void setOpc(int&);
 };
 

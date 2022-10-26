@@ -2,6 +2,7 @@
 #define MENU_H
 #include "Cuadro.h"
 #include "Archivo.h"
+
 class Menu
 {
     private:
