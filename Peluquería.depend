@@ -93,11 +93,11 @@
 	"Cuadro.h"
 	<iostream>
 
-1666797763 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\texto.cpp
+1666798571 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\texto.cpp
 	"Texto.h"
 	<iostream>
 
-1666797809 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\menu.cpp
+1666798340 source:c:\users\enzon\desktop\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
 	"../controller/funcionesTurnos.h"
 	"../controller/funcionesClientes.h"
