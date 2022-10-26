@@ -33,10 +33,17 @@
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Funciones.h" />
 		<Unit filename="include/Menu.h" />
+<<<<<<< HEAD
+		<Unit filename="include/Servicio.h" />
+		<Unit filename="include/Texto.h" />
+		<Unit filename="include/Turno.h" />
+		<Unit filename="include/persona.h" />
+=======
 		<Unit filename="include/Persona.h" />
 		<Unit filename="include/Servicio.h" />
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/Turno.h" />
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/Cliente.cpp" />
@@ -45,10 +52,17 @@
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/Funciones.cpp" />
 		<Unit filename="src/Menu.cpp" />
+<<<<<<< HEAD
+		<Unit filename="src/Servicio.cpp" />
+		<Unit filename="src/Texto.cpp" />
+		<Unit filename="src/Turno.cpp" />
+		<Unit filename="src/persona.cpp" />
+=======
 		<Unit filename="src/Persona.cpp" />
 		<Unit filename="src/Servicio.cpp" />
 		<Unit filename="src/Texto.cpp" />
 		<Unit filename="src/Turno.cpp" />
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

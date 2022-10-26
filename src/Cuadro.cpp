@@ -122,6 +122,18 @@ _txt.resaltar2(opc);
 void Cuadro::Resaltar3(){
 _txt.resaltar3(opc);
 }
+<<<<<<< HEAD
+void Cuadro::Resaltar4(){
+_txt.resaltar4(opc);
+}
+void Cuadro::Resaltar5(){
+_txt.resaltar5(opc);
+}
+void Cuadro::Resaltar6(){
+_txt.resaltar6(opc);
+}
+=======
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
 void Cuadro::setOpc(int &_opc){
 opc = _opc;
 }

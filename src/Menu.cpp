@@ -64,8 +64,11 @@ void Menu::Turnos(){
         Archivo reg;
         Turno _turno;
         system("cls");
+<<<<<<< HEAD
+=======
         mostrart();
         getch();
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
             rlutil::hidecursor();
             while (opc != 0)
             {
@@ -149,18 +152,28 @@ void Menu::Turnos(){
 }
 
 void Menu::Clientes(){
+<<<<<<< HEAD
+=======
     Archivo reg;
     Cliente _cliente;
     int pos = 0;
     int valorAgregarCliente;
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
             rlutil::hidecursor();
             while (opc != 0)
             {
                 system("cls");
+<<<<<<< HEAD
+                setCuadro({38, 10}, 24, 4, opc);
+                _cuadro.dibujar();
+                _cuadro.mostrar_texto3();
+                _cuadro.Resaltar3();
+=======
                 setCuadro({42, 10}, 25, 4, opc);
                 _cuadro.dibujar();
                 _cuadro.mostrar_texto3();
                 _cuadro.Resaltar2();
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
                         switch (rlutil::getkey()){
                             case 14:
                                     if (opc < 3){
@@ -200,6 +213,58 @@ void Menu::Clientes(){
                             case 1:
                                 ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
 
+<<<<<<< HEAD
+                                        switch (opc){
+                                        ///AGREGAR///
+                                    case 1:
+                                        system("cls");
+                                        int valorAgregarCliente;
+                                        valorAgregarCliente = agregarRegistroCliente();
+                                            if(valorAgregarCliente == 0){
+                                                cout << "\nCLIENTE CARGADO" << endl;
+                                                system("pause");
+                                                break;
+                                            }
+                                            else if(valorAgregarCliente == -2){
+                                                cout << "\nFALLO AL GRABAR EN EL DISCO" << endl;
+                                                system("pause");
+                                                break;
+                                            }
+                                        cout << "\nDATOS INVALIDOS" << endl;
+                                        system("pause");
+                                        break;
+                                        ///MODIFICAR///
+                                    case 2: system("cls");
+                                            if(modificarTelefonoCliente() == false){
+                                                cout << "\nERROR EN LA MODIFICACION DEL CLIENTE" << endl;
+                                            }
+                                            else{
+                                                cout << "\nCLIENTE MODIFICADO" << endl;
+                                            }
+                                        system("pause");
+                                        break;
+                                        ///BUSCAR///
+                                    case 3: system("cls");
+                                            if(mostrarClientePorDNI() == false){
+                                                cout << "\nERROR EN LA BUSQUEDA DEL CLIENTE" << endl;
+                                                system("pause");
+                                                system("cls");
+                                                break;
+                                            }
+                                            cout << "\nCLIENTE LISTADO" << endl;
+                                            system("pause");
+                                            system("cls");
+                                        break;
+                                        ///VOLVER///
+                                    case 4:
+                                        cout << "opcion 4" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        opc = 1;
+                                        return;
+                                        }//SWITCH OPCION ELEGIDA//
+                                break;
+=======
                                 switch (opc){
                                 ///AGREGAR///
                             case 1: system("cls");
@@ -252,13 +317,13 @@ void Menu::Clientes(){
                                 return;
                                 }
                             break;
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
 
                             case 0:
+                                opc = 1;
                                 return;
-                                system("pause");
-
-                                        }
-                        }
+                        } //SWITCH TECLA//
+                    }//FIN DEL WHILE//
 
 }
 
@@ -269,7 +334,11 @@ void Menu::Persona(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto4();
+<<<<<<< HEAD
+        _cuadro.Resaltar4();
+=======
         _cuadro.Resaltar3();
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -338,7 +407,11 @@ void Menu::Servicio(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
+<<<<<<< HEAD
+        _cuadro.Resaltar5();
+=======
         _cuadro.Resaltar3();
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -406,7 +479,11 @@ void Menu::Cuentas(){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
+<<<<<<< HEAD
+        _cuadro.Resaltar6();
+=======
         _cuadro.Resaltar3();
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){

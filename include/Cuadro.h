@@ -34,6 +34,12 @@ class Cuadro
         void Resaltar1();
         void Resaltar2();
         void Resaltar3();
+<<<<<<< HEAD
+        void Resaltar4();
+        void Resaltar5();
+        void Resaltar6();
+=======
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
         void setOpc(int&);
 };
 
