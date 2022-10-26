@@ -18,7 +18,11 @@ bool Cuenta::cargar(int var){
     Fecha fecha;
     ID = var;
     gotoxy (42, 18);
+<<<<<<< HEAD
     cout << "NOMBRE: ";
+=======
+    cout << "NONMBRE: ";
+>>>>>>> aab545b4c42a989b842ddf4279293dff3faa5b35
     cargarCadena(nombre,29);
     gotoxy (42, 20);
     cout << "APELLIDO: ";
