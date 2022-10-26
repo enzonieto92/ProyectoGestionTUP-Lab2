@@ -7,7 +7,7 @@ using namespace std;
 
 /// DECLARACION DE FUNCIONES
 
-void agregarRegistroCuenta();
+void agregarCuentaCliente(Cliente);
 
 void mostrarCuenta();
 
@@ -17,33 +17,26 @@ void modificarCuenta();
 
 void buscarCuenta();
 
-void eliminarCuenta();
+bool eliminarCuentaCliente(int);
+
+void agregarMontoCuenta(Turno);
 
 ///////////// DEFINICION DE AGREGAR REGISTRO CUENTA
 
-void agregarRegistroCuenta(){
-    int var;
+void agregarCuentaCliente(Cliente cliente){
     Archivo archivo;
     Cuenta cuenta;
-    var = archivo.contarRegistro(cuenta);
-    if(var == -1){
-        gotoxy (38, 24);
-        cout << "FALLO AL ABRIR EL ARCHIVO" << endl;
-        return;
-    }
-    var += 1;
-    if(cuenta.cargar(var)==false){
-        gotoxy (36, 24);
-        cout << "EL MONTO NO PUEDE SER NEGATIVO" << endl;
-        return;
-    }
+    cuenta.setID(cliente.getIdCuenta());
+    cuenta.setNombre(cliente.getNombre());
+    cuenta.setApellido(cliente.getApellido());
+    cuenta.setEstado(true);
     if(archivo.grabarEnDisco(cuenta)==false){
-        gotoxy (38, 24);
-        cout << "FALLO AL GUARDAR EL REGISTRO" << endl;
+        gotoxy (42, 27);
+        cout << "FALLO AL GRABAR EN DISCO" << endl;
         return;
     }
-    gotoxy (41, 24);
-    cout << "REGISTRO GUARDADO" << endl;
+    gotoxy (42, 27);
+    cout << "CUENTA CREADA EXITOSAMENTE" << endl;
 }
 
 ///////////// DEFINICION DE MOSTRAR CUENTA
@@ -147,26 +140,32 @@ void buscarCuenta(){
 
 ///////////// DEFINICION DE ELIMINAR SERVICIO
 
-void eliminarCuenta(){
+bool eliminarCuentaCliente(int id){
     Archivo archivo;
     Cuenta cuenta;
-    int id, pos;
-    gotoxy (26, 18);
-    cout << "INGRESAR EL NUMERO DE ID DE LA CUENTA A ELIMINAR: ";
-    cin >> id;
-    pos = buscarCodigoCuenta(id,cuenta);
-    if(pos == -1){
-        gotoxy (24, 20);
-        cout << "NO EXISTE EL NUMERO DE ID DE LA CUENTA EN EL ARCHIVO" << endl;
-        return;
+    if(archivo.leerDeDisco(id-1,cuenta)==false){
+        return false;
     }
-    if(archivo.modificarEnDisco(pos,cuenta)==false){
-        gotoxy (32, 20);
-        cout << "ERROR AL BORRAR LA CUENTA" << endl;
-        return;
+    if(cuenta.getMonto()!=0){
+        return false;
     }
-    gotoxy (36, 20);
-    cout << "REGISTO BORRADO EXISTOSAMENTE" << endl;
+    cuenta.setEstado(false);
+    if(archivo.modificarEnDisco(id-1,cuenta)==false){
+        return false;
+    }
+    return true;
+}
+
+void agregarMontoCuenta(Turno turno){
+    float pre;
+    Archivo archivo;
+    Cuenta cuenta;
+    Servicio servicio;
+    archivo.leerDeDisco(turno.getTipoServicio()-1,servicio);
+  ///  archivo.leerDeDisco(turno.getIdCuenta()-1,cuenta);
+    pre = cuenta.getMonto() + servicio.getPrecio();
+    cuenta.setMonto(pre);
+   /// archivo.modificarEnDisco(turno.getIdCuenta()-1,cuenta);
 }
 
 #endif // FUNCIONESCUENTAS_H_INCLUDED

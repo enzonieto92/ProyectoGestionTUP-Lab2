@@ -57,7 +57,7 @@ void agregarRegistroTurno(){
     if(archi.grabarEnDisco(cita)){ // GRABO EN DISCO
         gotoxy(42, 25);
         cout << "TURNO CARGADO";
-        //agregarMontoCuenta(cita);
+        agregarMontoCuenta(cita);
         return;
     }
     gotoxy(42, 25);

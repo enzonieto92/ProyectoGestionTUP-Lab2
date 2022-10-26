@@ -398,7 +398,7 @@ void Menu::Cuentas(){
             case 1:
                 switch (opc){
                     case 1:
-                        agregarRegistroCuenta();
+                        ///agregarCuentaCliente();
                     break;
                     case 2:
                         modificarCuenta();
@@ -407,7 +407,7 @@ void Menu::Cuentas(){
                         mostrarCuenta();
                     break;
                     case 4:
-                        eliminarCuenta();
+                        ///eliminarCuentaCliente();
                     break;
                     case 5:
                         buscarCuenta();
