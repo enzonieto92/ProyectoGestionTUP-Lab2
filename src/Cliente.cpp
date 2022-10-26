@@ -8,27 +8,32 @@ Cliente::Cliente()
     strcpy(nombre, "SIN DATO");
     strcpy(apellido, "SIN DATO");
     strcpy(telefono, "SIN DATO");
+    idCuenta = 0;
     estado = false;
 }
 
 /// CARGAR
-bool Cliente::Cargar(int nD){
+bool Cliente::Cargar(int nD, int idC){
     if(!setDNI(nD)){
+        gotoxy(42, 20);
         cout << "EL DNI DEBE SER UN VALOR POSITIVO" << endl;
         return false;
     }
-
+    gotoxy(42, 20);
     cout << "NOMBRE: ";
     cargarCadena(nombre, 29);
     setNombre(nombre);
-
+    gotoxy(42, 22);
     cout << "APELLIDO: ";
     cargarCadena(apellido, 29);
     setApellido(apellido);
-
+    gotoxy(42, 24);
     cout << "TELEFONO: ";
     cargarCadena(telefono, 39);
     setTelefono(telefono);
+
+    setIdCuenta(idC);
+
     estado = 1;
     setEstado(estado);
     return true;
@@ -37,10 +42,16 @@ bool Cliente::Cargar(int nD){
 void Cliente::Mostrar()
 {
     if(estado){
-        cout << "DNI: " << DNI << endl;
-        cout << "NOMBRE: " << nombre << endl;
-        cout << "APELLIDO: " << apellido << endl;
-        cout << "TELEFONO: " << telefono << endl;
+        gotoxy(34, 20);
+        cout << "DNI: " << DNI;
+        gotoxy(34, 21);
+        cout << "NOMBRE: " << nombre;
+        gotoxy(34, 22);
+        cout << "APELLIDO: " << apellido;
+        gotoxy(34, 23);
+        cout << "TELEFONO: " << telefono;
+        gotoxy(34, 24);
+        cout << "ID CUENTA: " << idCuenta;
     }
 }
 
@@ -55,6 +66,7 @@ bool Cliente::setDNI(int nD){
 void Cliente::setNombre(const char *nom){strcpy(nombre, nom);}
 void Cliente::setApellido(const char *ape){strcpy(apellido, ape);}
 void Cliente::setTelefono(const char *tel){strcpy(telefono, tel);}
+void Cliente::setIdCuenta(int idC){idCuenta = idC;}
 void Cliente::setEstado(bool e){estado = e;}
 
 /// GETS
@@ -62,6 +74,7 @@ int Cliente::getDNI(){return DNI;}
 const char *Cliente::getNombre(){return nombre;}
 const char *Cliente::getApellido(){return apellido;}
 const char *Cliente::getTelefono(){return telefono;}
+int Cliente::getIdCuenta(){return idCuenta;}
 bool Cliente::getEstado(){return estado;}
 
 /// DESTRUCTOR
