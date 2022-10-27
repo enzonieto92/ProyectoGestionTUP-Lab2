@@ -23,11 +23,11 @@ bool Cliente::Cargar(int nD, int idC){
     cout << "NOMBRE: ";
     cargarCadena(nombre, 29);
     setNombre(nombre);
-    gotoxy(42, 22);
+    gotoxy(42, 21);
     cout << "APELLIDO: ";
     cargarCadena(apellido, 29);
     setApellido(apellido);
-    gotoxy(42, 24);
+    gotoxy(42, 22);
     cout << "TELEFONO: ";
     cargarCadena(telefono, 39);
     setTelefono(telefono);

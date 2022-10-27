@@ -13,7 +13,7 @@ void borrarLista();
 
 void agregarRegistroTurno();
     Turno cargarTurno();
-        //bool validarCliente(int nD){
+        bool validarClienteId(int idC);
         bool validarTipoServicio(int tS);
 
 void modificarFechaServicioTurno();
@@ -23,6 +23,7 @@ bool mostrarTurnoPorId();
 
 void mostrarTunoDelDia();
     bool turnoHoy(Fecha f);
+    int buscarIdCliente(int idC);
 
 void bajaFisicaTurnoAuto();
 
@@ -67,13 +68,13 @@ void agregarRegistroTurno(){
 
 Turno cargarTurno(){
     Turno cita;
-    int idT, nD, tS;
+    int idT, idC, tS;
     Fecha _fecha;
     Archivo archi;
     gotoxy(42, 18);
-    cout << "DNI CLIENTE: ";
-    cin >> nD;
-    if(validarCliente(nD) == false){
+    cout << "ID CLIENTE: ";
+    cin >> idC;
+    if(validarClienteId(idC) == false){
         gotoxy(32, 20);
         cout << "EL CLIENTE INGERSADO ES INVALIDO";
         cita.setEstado(false);
@@ -111,22 +112,22 @@ Turno cargarTurno(){
         return cita;
     }
     idT++;
-    cita.Cargar(idT, _fecha, nD, tS);
+    cita.Cargar(idT, _fecha, idC, tS);
     return cita;
 }
-/*
-bool validarCliente(int nD){
+
+bool validarClienteId(int idC){
     Cliente usuario;
     Archivo archi;
     int pos = 0;
     while(archi.leerDeDisco(pos, usuario)){
-        if(nD == usuario.getDNI()){
+        if(idC == usuario.getIdCuenta()){
             return usuario.getEstado();
         }
         pos++;
     }
     return false;
-}*/
+}
 
 bool validarTipoServicio(int tS){
     Servicio servicio;
@@ -254,9 +255,9 @@ void mostrarTunoDelDia(){
     cout << "PRECIO";
     while(archi.leerDeDisco(posT, _turno)){
         if(turnoHoy(_turno.getFechaServicio()) == true){
-            posC = buscarDNICliente(_turno.getDNI());
+            posC = buscarIdCliente(_turno.getIdCuenta());
             archi.leerDeDisco(posC, usuario);
-            if(_turno.getDNI() == usuario.getDNI() && usuario.getEstado()){
+            if(_turno.getIdCuenta() == usuario.getIdCuenta() && usuario.getEstado()){
                 posS = buscarCodigoServicio(_turno.getTipoServicio(), servicio);
                 archi.leerDeDisco(posS, servicio);
                 gotoxy(22, 19+(posY*2));
@@ -338,6 +339,21 @@ void bajaFisicaTurnoAuto(){
     }
     fclose(pBakT);
     fclose(pDatT);
+}
+
+int buscarIdCliente(int idC){
+    Archivo archi;
+    Cliente usuario;
+    int pos = 0;
+    while(archi.leerDeDisco(pos, usuario)){
+        if(idC == usuario.getIdCuenta()){
+            if(usuario.getEstado()){
+                return pos;
+            }
+        }
+        pos++;
+    }
+    return -1;
 }
 
 #endif // FUNCIONESTURNOS_H_INCLUDED

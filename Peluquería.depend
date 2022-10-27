@@ -449,15 +449,15 @@
 	"Turnos.h"
 	"Turnos.h"
 
-1666800945 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\turno.h
+1666826347 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\turno.h
 	"Fecha.h"
 
-1666800945 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turno.cpp
+1666826533 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\turno.cpp
 	"Turno.h"
 	<iostream>
 	"Funciones.h"
 
-1666800945 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
+1666826907 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
 	"Cliente.h"
 	<iostream>
 
@@ -511,11 +511,11 @@
 	<iostream>
 	<iostream>
 
-1666824873 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+1666827850 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
 	<ctime>
 
-1666824670 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
+1666828789 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
 	<iostream>
 
 1666480964 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\archivo.cpp
@@ -844,7 +844,7 @@
 1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesservicios.h
 	<iostream>
 
-1666824670 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionescuentas.h
+1666827136 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionescuentas.h
 	<iostream>
 
 1666553880 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionespersona.h
