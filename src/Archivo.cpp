@@ -15,7 +15,6 @@ bool Archivo::leerDeDisco(int pos, Cliente &obj){
     bool leyo = fread(&obj, sizeof(Cliente), 1, pCliente);
     fclose(pCliente);
     return leyo;
-
 }
 
 bool Archivo::grabarEnDisco(Cliente &obj){
@@ -60,7 +59,6 @@ bool Archivo::leerDeDisco(int pos, Turno &obj){
     bool leyo = fread(&obj, sizeof(Turno), 1, pTurno);
     fclose(pTurno);
     return leyo;
-
 }
 
 bool Archivo::grabarEnDisco(Turno &obj){
@@ -71,6 +69,27 @@ bool Archivo::grabarEnDisco(Turno &obj){
     bool escribio = fwrite(&obj, sizeof(Turno), 1, pTurno);
     fclose(pTurno);
     return escribio;
+}
+
+bool Archivo::modificarEnDisco(int pos, Turno &obj){
+    pTurno = fopen(TURNOS, "rb+");
+    if(pTurno == NULL) return false;
+    fseek(pTurno, sizeof(Turno) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Turno), 1, pTurno);
+    fclose(pTurno);
+    return escribio;
+}
+
+int Archivo::contarRegistro(Turno &obj){
+    int cant;
+    pTurno = fopen(TURNOS, "ab");
+    if(pTurno == NULL){
+        return -1;
+    }
+    fseek(pTurno, 0, 2);
+    cant = ftell(pTurno)/sizeof(Turno);
+    fclose(pTurno);
+    return cant;
 }
 
 /// ARCHIVOS PERSONA
@@ -216,4 +235,3 @@ int Archivo::contarRegistro(Cuenta &obj){
     fclose(pCuenta);
     return cant;
 }
-

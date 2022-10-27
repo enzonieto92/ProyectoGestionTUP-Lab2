@@ -26,6 +26,8 @@ class Archivo
         /// ARCHIVOS TRUNO
         bool leerDeDisco(int, Turno&);
         bool grabarEnDisco(Turno&);
+        bool modificarEnDisco(int, Turno&);
+        int contarRegistro(Turno&);
         /// ARCHIVOS PERSONA
         bool leerDeDisco(int, Persona &);
         bool grabarEnDisco(Persona);
