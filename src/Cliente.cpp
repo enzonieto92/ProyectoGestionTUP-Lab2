@@ -8,6 +8,7 @@ Cliente::Cliente()
     strcpy(nombre, "SIN DATO");
     strcpy(apellido, "SIN DATO");
     strcpy(telefono, "SIN DATO");
+    strcpy(email, "SIN DATO");
     idCuenta = 0;
     estado = false;
 }
@@ -31,6 +32,10 @@ bool Cliente::Cargar(int nD, int idC){
     cout << "TELEFONO: ";
     cargarCadena(telefono, 39);
     setTelefono(telefono);
+    gotoxy(42, 23);
+    cout << "EMAIL: ";
+    cargarCadena(email, 39);
+    setEmail(email);
 
     setIdCuenta(idC);
 
@@ -51,6 +56,8 @@ void Cliente::Mostrar()
         gotoxy(34, 23);
         cout << "TELEFONO: " << telefono;
         gotoxy(34, 24);
+        cout << "EMAIL: " << email;
+        gotoxy(34, 25);
         cout << "ID CUENTA: " << idCuenta;
     }
 }
@@ -66,6 +73,7 @@ bool Cliente::setDNI(int nD){
 void Cliente::setNombre(const char *nom){strcpy(nombre, nom);}
 void Cliente::setApellido(const char *ape){strcpy(apellido, ape);}
 void Cliente::setTelefono(const char *tel){strcpy(telefono, tel);}
+void Cliente::setEmail(const char *e){strcpy(email, e);}
 void Cliente::setIdCuenta(int idC){idCuenta = idC;}
 void Cliente::setEstado(bool e){estado = e;}
 
@@ -74,6 +82,7 @@ int Cliente::getDNI(){return DNI;}
 const char *Cliente::getNombre(){return nombre;}
 const char *Cliente::getApellido(){return apellido;}
 const char *Cliente::getTelefono(){return telefono;}
+const char *Cliente::getEmail(){return email;}
 int Cliente::getIdCuenta(){return idCuenta;}
 bool Cliente::getEstado(){return estado;}
 

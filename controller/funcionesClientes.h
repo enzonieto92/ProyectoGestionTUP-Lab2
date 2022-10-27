@@ -181,7 +181,7 @@ void mostrarVectorClientes(Cliente *obj, int cantReg){
     cout << "NOMBRE";
     gotoxy(52, 17);
     cout << "APELLIDO";
-    gotoxy(72, 17);
+    gotoxy(70, 17);
     cout << "TELEFONO";
     for(i = 0; i < cantReg; i++){
         if(posY > 18){
@@ -201,7 +201,7 @@ void mostrarVectorClientes(Cliente *obj, int cantReg){
             cout << obj[i].getNombre();
             gotoxy(52, 19 + posY * 2);
             cout << obj[i].getApellido();
-            gotoxy(72, 19 + posY * 2);
+            gotoxy(70, 19 + posY * 2);
             cout << obj[i].getTelefono();
             posY++;
         }
