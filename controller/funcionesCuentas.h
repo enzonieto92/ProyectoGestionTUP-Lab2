@@ -35,7 +35,7 @@ void agregarCuentaCliente(Cliente cliente){
         cout << "FALLO AL GRABAR EN DISCO" << endl;
         return;
     }
-    gotoxy (42, 27);
+    gotoxy (38, 26);
     cout << "CUENTA CREADA EXITOSAMENTE" << endl;
 }
 
@@ -162,10 +162,10 @@ void agregarMontoCuenta(Turno turno){
     Cuenta cuenta;
     Servicio servicio;
     archivo.leerDeDisco(turno.getTipoServicio()-1,servicio);
-  ///  archivo.leerDeDisco(turno.getIdCuenta()-1,cuenta);
+    archivo.leerDeDisco(turno.getIdCuenta()-1,cuenta);
     pre = cuenta.getMonto() + servicio.getPrecio();
     cuenta.setMonto(pre);
-   /// archivo.modificarEnDisco(turno.getIdCuenta()-1,cuenta);
+    archivo.modificarEnDisco(turno.getIdCuenta()-1,cuenta);
 }
 
 #endif // FUNCIONESCUENTAS_H_INCLUDED
