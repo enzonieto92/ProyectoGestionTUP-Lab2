@@ -7,7 +7,7 @@ class Turno
     private:
         int idTurno;
         Fecha fechaServicio;
-        int DNI;
+        int idCuenta;
         int tipoServicio;
         bool estado;
     public:
@@ -20,13 +20,13 @@ class Turno
         // SETS
         void setIdTurno(int);
         void setFechaServicio(Fecha);
-        void setDNI(int);
+        void setIdCuenta(int);
         void setTipoServicio(int);
         void setEstado(bool);
         // GETS
         int getIdTurno();
         Fecha getFechaServicio();
-        int getDNI();
+        int getIdCuenta();
         int getTipoServicio();
         bool getEstado();
         // DESTRUCTOR

@@ -9,6 +9,7 @@ class Cliente
         char nombre[30];
         char apellido[30];
         char telefono[40];
+        char email[40];
         int idCuenta;
         bool estado;
     public:
@@ -22,6 +23,7 @@ class Cliente
         void setNombre(const char *nom);
         void setApellido(const char *ape);
         void setTelefono(const char *tel);
+        void setEmail(const char *e);
         void setIdCuenta(int idC);
         void setEstado(bool e);
         ///GETS
@@ -29,6 +31,7 @@ class Cliente
         const char *getNombre();
         const char *getApellido();
         const char *getTelefono();
+        const char *getEmail();
         int getIdCuenta();
         bool getEstado();
         /// DESTRUCTOR

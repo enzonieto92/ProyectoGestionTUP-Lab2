@@ -15,10 +15,10 @@ Servicio::Servicio(){
 bool Servicio::cargar(int var){
     int pre;
     codigo = var;
-    gotoxy (42, 18);
+    gotoxy (38, 18);
     cout << "DESCRIPCION: ";
     cargarCadena(descripcion,29);
-    gotoxy (42, 20);
+    gotoxy (38, 20);
     cout << "PRECIO: ";
     cin >> pre;
     if(setPrecio(pre)==false){
@@ -28,10 +28,12 @@ bool Servicio::cargar(int var){
     return true;
 }
 
-void Servicio::mostrar(){
+bool Servicio::mostrar(){
     if(estado==true){
         cout << codigo << " " << descripcion << ": " << precio << endl;
+        return true;
     }
+    return false;
 }
 
 /// SETS
@@ -53,7 +55,3 @@ int Servicio::getCodigo(){return codigo;}
 float Servicio::getPrecio(){return precio;}
 const char *Servicio::getDescripcion(){return descripcion;}
 bool Servicio::getEstado(){return estado;}
-
-Servicio::~Servicio(){
-
-}

@@ -40,7 +40,7 @@ int agregarRegistroCliente(){
         return -1;
     }
     if(archi.grabarEnDisco(usuario)){ // GRABO EN DISCO
-        gotoxy(42, 26);
+        gotoxy(42, 25);
         cout << "CLIENTE CARGADO";
         agregarCuentaCliente(usuario);
         return 0;
@@ -176,12 +176,12 @@ void mostrarVectorClientes(Cliente *obj, int cantReg){
     listaCliente.dibujarLista();
     int i, posY = 0;
     gotoxy(22, 17);
-    cout << "DNI";
+    cout << "ID";
     gotoxy(32, 17);
     cout << "NOMBRE";
     gotoxy(52, 17);
     cout << "APELLIDO";
-    gotoxy(72, 17);
+    gotoxy(70, 17);
     cout << "TELEFONO";
     for(i = 0; i < cantReg; i++){
         if(posY > 18){
@@ -196,12 +196,12 @@ void mostrarVectorClientes(Cliente *obj, int cantReg){
         }
         if(obj[i].getEstado() == true){
             gotoxy(22, 19 + posY * 2);
-            cout << obj[i].getDNI();
+            cout << obj[i].getIdCuenta();
             gotoxy(32, 19 + posY * 2);
             cout << obj[i].getNombre();
             gotoxy(52, 19 + posY * 2);
             cout << obj[i].getApellido();
-            gotoxy(72, 19 + posY * 2);
+            gotoxy(70, 19 + posY * 2);
             cout << obj[i].getTelefono();
             posY++;
         }
@@ -212,23 +212,29 @@ void mostrarVectorClientes(Cliente *obj, int cantReg){
 void eliminarCliente(){
     Archivo archi;
     Cliente usuario;
+    Cuadro cuadroClienteBorrar;
+    cuadroClienteBorrar.setCoor({28,17});
+    cuadroClienteBorrar.setalto(10);
+    cuadroClienteBorrar.setlargo(44);
+    cuadroClienteBorrar.dibujar();
     int nD, pos;
     /// buscar el cliente a eliminar
-    gotoxy(42, 18);
-    cout << "INGRESE EL DNI DEL CLIENTE DEL REGISTRO A DAR DE BAJA: ";
+    gotoxy(34, 18);
+    cout << "DNI DEL CLIENTE A BORRAR: ";
     cin >> nD;
     /// leer si existe el registro
     pos = buscarDNICliente(nD);
     if(pos == -1){
-        gotoxy(42, 20);
+        gotoxy(30, 20);
         cout << "NO EXISTE EL DNI DEL CLIENTE EN EL ARCHIVO";
         return;
     }
     archi.leerDeDisco(pos, usuario);
     /// Validar cuenta corriente deuda o no
     if(eliminarCuentaCliente(usuario.getIdCuenta()) == false){
-        gotoxy(42, 20);
+        gotoxy(34, 20);
         cout << "NO SE PUEDE ELIMINAR TIENE DEUDA";
+        return;
     }
     /// cambiar el estado del campo
     usuario.setEstado(false);

@@ -13,7 +13,7 @@ class Servicio
         Servicio();
         /// METODOS
         bool cargar(int);
-        void mostrar();
+        bool mostrar();
         /// SETS
         void setCodigo(int);
         bool setPrecio(float);
@@ -24,8 +24,6 @@ class Servicio
         float getPrecio();
         const char *getDescripcion();
         bool getEstado();
-        /// DESTRUCTOR
-        ~Servicio();
 };
 
 #endif // SERVICIO_H
