@@ -17,45 +17,62 @@ Fecha::Fecha(){
     minuto = hoy -> tm_min;
 }
 
+bool Fecha::esBisiesto(int a){
+    bool bisiesto = false;
+    if(a % 4 == 0){
+        bisiesto = true;
+    }
+    if((a % 100 == 0) && (a % 400 != 0)){
+        bisiesto = false;
+    }
+    return bisiesto;
+}
+
 bool Fecha::Cargar(){
+    int diaFin;
     gotoxy(31, 21);
-    cout << "DIA:";
-    cin >> dia;
-    if(!setDia(dia)){
-        gotoxy(32, 23);
-        cout << "EL DIA DEBE ESTAR ENTRE 1 Y 31" << endl;
-        return false;
-    }
-    gotoxy(38, 21);
-    cout << "MES:";
-    cin >> mes;
-    if(!setMes(mes)){
-        gotoxy(32, 23);
-        cout << "EL MES DEBE ESTAR ENTRE 1 Y 12" << endl;
-        return false;
-    }
-    gotoxy(45, 21);
     cout << "ANIO:";
     cin >> anio;
     if(!setAnio(anio)){
+        rlutil::hidecursor();
         gotoxy(32, 23);
-        cout << "EL AONIO DEBE SER POSTIVO" << endl;
+        cout << "EL AONIO DEBE SER POSTIVO";
+        return false;
+    }
+    gotoxy(41, 21);
+    cout << "MES:";
+    cin >> mes;
+    if(!setMes(mes)){
+        rlutil::hidecursor();
+        gotoxy(32, 23);
+        cout << "EL MES DEBE ESTAR ENTRE 1 Y 12";
+        return false;
+    }
+    gotoxy(48, 21);
+    cout << "DIA:";
+    cin >> dia;
+    if(!setDia(dia, diaFin)){
+        rlutil::hidecursor();
+        gotoxy(32, 23);
+        cout << "EL DIA DEBE ESTAR ENTRE 1 Y " << diaFin;
         return false;
     }
     gotoxy(57, 21);
     cout << "HR:";
     cin >> hora;
     if(!setHora(hora)){
+        rlutil::hidecursor();
         gotoxy(32, 23);
-        cout << "LA HORA DEBE ESTAR ENTRE 0 - 23" << endl;
+        cout << "LA HORA DEBE ESTAR ENTRE 0 - 23";
         return false;
     }
     gotoxy(63, 21);
     cout << "MIN:";
     cin >> minuto;
     if(!setMinuto(minuto)){
+        rlutil::hidecursor();
         gotoxy(32, 23);
-        cout << "EL MINUTO DEBE ESTAR ENTRE 0 - 59" << endl;
+        cout << "EL MINUTO DEBE ESTAR ENTRE 0 - 59";
         return false;
     }
     return true;
@@ -70,8 +87,13 @@ void Fecha::Mostrar(){
 }
 
 /// SETS
-bool Fecha::setDia(int d){
-    if (d >= 1 && d <= 31){
+bool Fecha::setDia(int d, int &diaFin){
+    int vMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 31, 31};
+    if(esBisiesto(anio)){
+        vMes[1] = 29;
+    }
+    diaFin = vMes[mes - 1];
+    if (d >= 1 && d <= diaFin){
         dia = d;
         return true;
     }
@@ -112,6 +134,34 @@ int Fecha::getMes(){return mes;}
 int Fecha::getAnio(){return anio;}
 int Fecha::getHora(){return hora;}
 int Fecha::getMinuto(){return minuto;}
+
+/// SOBRECARGA OPERADOR FECHA < FECHA
+bool Fecha::operator < (Fecha aux){
+    if(anio < aux.getAnio()){
+        return true;
+    }
+    else{
+        if(mes < aux.getMes() && anio == aux.getAnio()){
+        return true;
+        }
+        else{
+            if(dia < aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
+                return true;
+            }
+            else{
+                if(hora < aux.getHora() && dia == aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
+                    return true;
+                }
+                else{
+                    if(minuto < aux.getMinuto() && hora == aux.getHora() && dia == aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
 
 /// DESTRUCTOR
 Fecha::~Fecha()

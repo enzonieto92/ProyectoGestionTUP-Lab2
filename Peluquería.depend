@@ -187,7 +187,7 @@
 	"Cuadro.h"
 	<iostream>
 
-1666824670 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
+1667061512 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\menu.cpp
 	"Menu.h"
 	"../controller/funcionesPersona.h"
 	"../controller/funcionesServicios.h"
@@ -457,17 +457,17 @@
 	<iostream>
 	"Funciones.h"
 
-1666878043 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
+1667062555 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\cliente.cpp
 	"Cliente.h"
 	<iostream>
 
 1666877891 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\cliente.h
 	"Funciones.h"
 
-1666800945 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
+1667067152 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\include\fecha.h
 	"rlutil.h"
 
-1666805277 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
+1667067152 source:c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\src\fecha.cpp
 	"Fecha.h"
 	<iostream>
 	<cstdio>
@@ -511,11 +511,11 @@
 	<iostream>
 	<iostream>
 
-1666827850 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
+1667069383 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesturnos.h
 	<iostream>
 	<ctime>
 
-1666878393 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
+1667069159 c:\users\esteban\desktop\escritorio\programas para programar\git\utn\proyectogestiontup-lab2\controller\funcionesclientes.h
 	<iostream>
 
 1666480964 source:c:\users\anthony\desktop\proyectogestiontup-lab2-desarrolladorjeorellano\src\archivo.cpp

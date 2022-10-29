@@ -5,7 +5,6 @@
 #include <ctime>
 
 using namespace std;
-//#include "Servicio.h"
 
 /// PROTOTIPOS FUNCIONES GLOBALES TURNO
 
@@ -23,7 +22,6 @@ bool mostrarTurnoPorId();
 
 void mostrarTunoDelDia();
     bool turnoHoy(Fecha f);
-    int buscarIdCliente(int idC);
 
 void bajaFisicaTurnoAuto();
 
@@ -71,10 +69,12 @@ Turno cargarTurno(){
     int idT, idC, tS;
     Fecha _fecha;
     Archivo archi;
+    rlutil::showcursor();
     gotoxy(42, 18);
     cout << "ID CLIENTE: ";
     cin >> idC;
     if(validarClienteId(idC) == false){
+        rlutil::hidecursor();
         gotoxy(32, 20);
         cout << "EL CLIENTE INGERSADO ES INVALIDO";
         cita.setEstado(false);
@@ -84,6 +84,7 @@ Turno cargarTurno(){
     cout << "TIPO SERVICIO: ";
     cin >> tS;
     if(validarTipoServicio(tS) == false){
+        rlutil::hidecursor();
         gotoxy(32, 21);
         cout << "EL SERVICIO INGERSADO ES INVALIDO";
         cita.setEstado(false);
@@ -92,6 +93,7 @@ Turno cargarTurno(){
     gotoxy(42, 20);
     cout << "INGRESE FECHA DE SERVICIO: ";
     if(_fecha.Cargar() == false){
+        rlutil::hidecursor();
         gotoxy(42, 24);
         cout << "FALLO CARGAR FECHA";
         cita.setEstado(false);
@@ -99,6 +101,7 @@ Turno cargarTurno(){
     }
 
     if(_fecha.validarFechaTurno(_fecha) == false){
+        rlutil::hidecursor();
         gotoxy(32, 24);
         cout << "LA FECHA INGRESADA ES INVALIDA";
         cita.setEstado(false);
@@ -106,6 +109,7 @@ Turno cargarTurno(){
     }
     idT = archi.contarRegistro(cita); // ESTE SERIA PK AUTOINCREMENTAL DE CLIENTE
     if(idT == -1){
+        rlutil::hidecursor();
         gotoxy(32, 24);
         cout << "FALLO APERTURA DEL ARCHIVO";
         cita.setEstado(false);
@@ -155,12 +159,14 @@ void modificarFechaServicioTurno(){
     cuadroTurnoModificar.setlargo(44);
     cuadroTurnoModificar.dibujar();
     // buscar el turno a modificar fecha de servicio
+    rlutil::showcursor();
     gotoxy(30, 18);
     cout << "ID TURNO A MODIFICAR FECHA DE SERVICIO: ";
     cin >> idT;
     // leer si existe el turno
     pos = buscarIdTurno(idT);
     if(pos == -1){
+        rlutil::hidecursor();
         gotoxy(30, 20);
         cout << "NO EXISTE EL ID DE TURNO EN EL ARCHIVO" << endl;
         return;
@@ -170,12 +176,14 @@ void modificarFechaServicioTurno(){
     gotoxy(32, 20);
     cout << "INGRESE LA NUEVA FECHA: " << endl;
     if(_fecha.Cargar() == false){
+        rlutil::hidecursor();
         gotoxy(42, 24);
         cout << "FALLO CARGAR FECHA" << endl;
         cita.setEstado(false);
         return;
     }
     if(_fecha.validarFechaTurno(_fecha) == false){
+        rlutil::hidecursor();
         gotoxy(32, 24);
         cout << "LA FECHA INGRESADA ES INVALIDA." << endl;
         return;
@@ -183,10 +191,12 @@ void modificarFechaServicioTurno(){
     cita.setFechaServicio(_fecha);
     /// sobreescribir el registro
     if(archi.modificarEnDisco(pos, cita) == false){
+        rlutil::hidecursor();
         gotoxy(34, 23);
         cout << "ERROR AL MODIFICAR TURNO" << endl;
         return;
     }
+    rlutil::hidecursor();
     gotoxy(34, 23);
     cout << "TURNO MODIFICADO EXITOSAMENTE" << endl;
     return;
@@ -219,10 +229,12 @@ bool mostrarTurnoPorId(){
     cuadroTurnoMostarId.setlargo(44);
     cuadroTurnoMostarId.dibujar();
     /// buscar el turno a mostrar
+    rlutil::showcursor();
     gotoxy(34, 18);
     cout << "ID DEL TURNO A MOSTRAR: ";
     cin >> idT;
     /// leer si existe el turno
+    rlutil::hidecursor();
     pos = buscarIdTurno(idT);
     if(pos == -1){
         gotoxy(30, 20);
@@ -238,7 +250,6 @@ bool mostrarTurnoPorId(){
 }
 
 // MOSTRAR TURNOS DEL DIA
-
 void mostrarTunoDelDia(){
     Archivo archi;
     Turno _turno;
@@ -339,21 +350,6 @@ void bajaFisicaTurnoAuto(){
     }
     fclose(pBakT);
     fclose(pDatT);
-}
-
-int buscarIdCliente(int idC){
-    Archivo archi;
-    Cliente usuario;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, usuario)){
-        if(idC == usuario.getIdCuenta()){
-            if(usuario.getEstado()){
-                return pos;
-            }
-        }
-        pos++;
-    }
-    return -1;
 }
 
 #endif // FUNCIONESTURNOS_H_INCLUDED
