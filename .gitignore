@@ -30,14 +30,9 @@
 *.dll
 
 
-
-
 bin
-
 obj
-
 .layout
-
 .depend
 Servicios.dat
 Clientes.dat
@@ -45,8 +40,6 @@ Cuentas.dat
 Contactos.dat
 Turnos.dat
 Turnos.bak
-
-
 
 
 # Fortran module files

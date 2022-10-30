@@ -200,10 +200,9 @@ void Menu::Clientes(){
                         break;
                         ///BUSCAR//
                     case 5:
-                            mostrarClientePorDNI();
+                            mostrarClientePorId();
                         break;
                     case 6:
-                            cout << "opcion 6" << endl;
                             opc = 1;
                             return;
                         break;
