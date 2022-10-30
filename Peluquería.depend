@@ -1349,3 +1349,9 @@
 	<iostream>
 	"Funciones.h"
 
+1667149926 source:c:\users\anthony\desktop\proyectogestiontup-lab2\proyectogestiontup-lab2-main\src\cuentas.cpp
+	"Cuentas.h"
+	"Archivo.h"
+	<iostream>
+	<cstdio>
+
