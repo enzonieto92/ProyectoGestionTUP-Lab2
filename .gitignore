@@ -16,7 +16,7 @@
 *.dylib
 *.dll
 
-
+.gitignore
 bin
 obj
 Servicios.dat
@@ -24,7 +24,7 @@ Turnos.bak
 Turnos.dat
 Clientes.dat
 Cuentas.dat
-Cuntactos.dat
+Contactos.dat
 Peluqueria.csope_file_list
 Peluqueria.depend
 Peluqueria.layout
