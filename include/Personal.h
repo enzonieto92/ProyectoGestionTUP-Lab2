@@ -8,27 +8,28 @@ class Personal
         char nombre[30];
         char apellido[30];
         char telefono[40];
+        float sueldo;
         bool estado;
     public:
         /// CONSTRUCTOR
         Personal();
         /// METODOS
-        void cargar(int);
-        void mostrar();
+        bool cargar(int);
+        bool mostrar();
         /// SETS
-        void setIDPersona(int);
+        void setIDPersonal(int);
         void setNombre(const char *);
         void setApellido(const char *);
         void setTelefono(const char *);
+        bool setSueldo(float);
         void setEstado(bool e);
         /// GETS
-        int getIDPersona();
+        int getIDPersonal();
         const char *getNombre();
         const char *getApellido();
         const char *getTelefono();
+        float getSueldo();
         bool getEstado();
-        /// DESTRUCTOR
-        ~Personal();
 };
 
 #endif // PERSONAL_H

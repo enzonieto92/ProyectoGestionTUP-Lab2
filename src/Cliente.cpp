@@ -16,6 +16,7 @@ Cliente::Cliente()
 /// CARGAR
 bool Cliente::Cargar(int nD, int idC){
     if(!setDNI(nD)){
+        rlutil::hidecursor();
         gotoxy(42, 20);
         cout << "EL DNI DEBE SER UN VALOR POSITIVO" << endl;
         return false;

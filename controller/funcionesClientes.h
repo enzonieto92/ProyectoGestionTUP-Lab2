@@ -9,10 +9,9 @@ using namespace std;
 
 int agregarRegistroCliente();
     Cliente cargarCliente();
-        bool validarCliente(int nD);
 
 bool modificarTelefonoCliente();
-    int buscarDNICliente(int nD);
+    int buscarIdCliente(int idC);
 
 void mostrarClientes(); // ESPERANDO SER USADA
     void cargarArchivoEnVector(Cliente *obj, int cantReg);
@@ -20,7 +19,7 @@ void mostrarClientes(); // ESPERANDO SER USADA
 
 void eliminarCliente();
 
-bool mostrarClientePorDNI();
+bool mostrarClientePorId();
 
 /// DEFINICIONES FUNCIONES GLOBALES CLIENTE
 
@@ -33,7 +32,9 @@ int agregarRegistroCliente(){
     cuadroClienteCarga.setalto(10);
     cuadroClienteCarga.setlargo(40);
     cuadroClienteCarga.dibujar();
+    rlutil::showcursor();
     usuario = cargarCliente();
+    rlutil::hidecursor();
     if(usuario.getEstado() == false){ // ERROR DNI O APERTURA DEL ARCHIVO
         gotoxy(42, 22);
         cout << "DATOS INVALIDOS";
@@ -58,12 +59,6 @@ Cliente cargarCliente(){
     gotoxy(42, 18);
     cout << "DNI CLIENTE: ";
     cin >> nD;
-    if(validarCliente(nD) == true){
-        gotoxy(32, 20);
-        cout << "EL CLIENTE INGRESADO ESTA REGISTRADO";
-        usuario.setEstado(false);
-        return usuario;
-    }
     idC = archi.contarRegistro(usuario); // ESTE SERIA PK AUTOINCREMENTAL DE CLIENTE
     if(idC == -1){
         gotoxy(42, 20);
@@ -76,24 +71,11 @@ Cliente cargarCliente(){
     return usuario;
 }
 
-bool validarCliente(int nD){
-    Cliente usuario;
-    Archivo archi;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, usuario)){
-        if(nD == usuario.getDNI()){
-            return usuario.getEstado();
-        }
-        pos++;
-    }
-    return false;
-}
-
 // 2 MODIFICA POR DNI LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
 bool modificarTelefonoCliente(){
     Archivo archi;
     Cliente usuario;
-    int nD, pos;
+    int idC, pos;
     char nT[40];
     Cuadro cuadroClienteModificar;
     cuadroClienteModificar.setCoor({28,17});
@@ -101,14 +83,16 @@ bool modificarTelefonoCliente(){
     cuadroClienteModificar.setlargo(44);
     cuadroClienteModificar.dibujar();
     /// buscar el cliente a modificar telefono
+    rlutil::showcursor();
     gotoxy(30, 18);
-    cout << "DNI CLIENTE A MODIFICAR TELEFONO: ";
-    cin >> nD;
+    cout << "ID CLIENTE A MODIFICAR TELEFONO: ";
+    cin >> idC;
     // leer si existe el cliente
-    pos = buscarDNICliente(nD);
+    pos = buscarIdCliente(idC);
     if(pos == -1){
+        rlutil::hidecursor();
         gotoxy(30, 20);
-        cout << "NO EXISTE EL DNI DE CLIENTE EN EL ARCHIVO";
+        cout << "NO EXISTE EL ID DE CLIENTE EN EL ARCHIVO";
         return false;
     }
     archi.leerDeDisco(pos, usuario);
@@ -118,17 +102,18 @@ bool modificarTelefonoCliente(){
     cargarCadena(nT, 39);
     usuario.setTelefono(nT);
     // sobrescribir el registro
+    rlutil::hidecursor();
     gotoxy(34, 22);
     cout << "CLIENTE MODIFICADO";
     return archi.modificarEnDisco(pos, usuario);
 }
 
-int buscarDNICliente(int nD){
+int buscarIdCliente(int idC){
     Archivo archi;
     Cliente usuario;
     int pos = 0;
     while(archi.leerDeDisco(pos, usuario)){
-        if(nD == usuario.getDNI()){
+        if(idC == usuario.getIdCuenta()){
             if(usuario.getEstado()){
                 return pos;
             }
@@ -152,6 +137,7 @@ void mostrarClientes(){
     }
     usuarioD = new Cliente[cant];
     if(usuarioD == NULL){
+        gotoxy(38, 20);
         cout << "ERROR DE ASIGNACION DE MEMORIA" << endl;
         return;
     }
@@ -217,16 +203,18 @@ void eliminarCliente(){
     cuadroClienteBorrar.setalto(10);
     cuadroClienteBorrar.setlargo(44);
     cuadroClienteBorrar.dibujar();
-    int nD, pos;
+    int idC, pos;
     /// buscar el cliente a eliminar
+    rlutil::showcursor();
     gotoxy(34, 18);
-    cout << "DNI DEL CLIENTE A BORRAR: ";
-    cin >> nD;
+    cout << "ID DEL CLIENTE A BORRAR: ";
+    cin >> idC;
     /// leer si existe el registro
-    pos = buscarDNICliente(nD);
+    rlutil::hidecursor();
+    pos = buscarIdCliente(idC);
     if(pos == -1){
         gotoxy(30, 20);
-        cout << "NO EXISTE EL DNI DEL CLIENTE EN EL ARCHIVO";
+        cout << "NO EXISTE EL ID DEL CLIENTE EN EL ARCHIVO";
         return;
     }
     archi.leerDeDisco(pos, usuario);
@@ -241,7 +229,7 @@ void eliminarCliente(){
     /// sobreescribir el registro
     archi.modificarEnDisco(pos, usuario);
     gotoxy(42, 20);
-    cout << "CLIENTE BORRADO" << endl;
+    cout << "CLIENTE BORRADO";
     gotoxy(42, 21);
     cout << usuario.getNombre();
     gotoxy(42, 22);
@@ -251,24 +239,26 @@ void eliminarCliente(){
 }
 
 // 5 MUESTRAR POR DNI LOS REGISTROS DE CLIENTES DEL ARCHIVO Clientes.dat
-bool mostrarClientePorDNI(){
+bool mostrarClientePorId(){
     Archivo archi;
     Cliente usuario;
-    int nD, pos;
-    Cuadro cuadroClienteMostarDNI;
-    cuadroClienteMostarDNI.setCoor({28,17});
-    cuadroClienteMostarDNI.setalto(10);
-    cuadroClienteMostarDNI.setlargo(44);
-    cuadroClienteMostarDNI.dibujar();
+    int idC, pos;
+    Cuadro cuadroClienteMostarId;
+    cuadroClienteMostarId.setCoor({28,17});
+    cuadroClienteMostarId.setalto(10);
+    cuadroClienteMostarId.setlargo(44);
+    cuadroClienteMostarId.dibujar();
     /// buscar el cliente a mostrar
+    rlutil::showcursor();
     gotoxy(34, 18);
-    cout << "DNI DEL CLIENTE A MOSTRAR: ";
-    cin >> nD;
+    cout << "ID DEL CLIENTE A MOSTRAR: ";
+    cin >> idC;
     /// leer si existe el cliente
-    pos = buscarDNICliente(nD);
+    rlutil::hidecursor();
+    pos = buscarIdCliente(idC);
     if(pos == -1){
         gotoxy(30, 20);
-        cout << "NO EXISTE EL DNI DE CLIENTE EN EL ARCHIVO";
+        cout << "NO EXISTE EL ID DE CLIENTE EN EL ARCHIVO";
         return false;
     }
     archi.leerDeDisco(pos, usuario);

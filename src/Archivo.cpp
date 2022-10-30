@@ -95,48 +95,48 @@ int Archivo::contarRegistro(Turno &obj){
 /// ARCHIVOS PERSONA
 
 bool Archivo::leerDeDisco(int pos, Personal &obj){
-    FILE *pPersona;
-    pPersona = fopen(PERSONA, "rb");
-    if(pPersona == NULL){
+    FILE *pPersonal;
+    pPersonal = fopen(PERSONAL, "rb");
+    if(pPersonal == NULL){
         return false;
     }
-    fseek(pPersona, sizeof(Personal) * pos, 0);
-    bool leyo = fread(&obj, sizeof(Personal), 1, pPersona);
-    fclose(pPersona);
+    fseek(pPersonal, sizeof(Personal) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Personal), 1, pPersonal);
+    fclose(pPersonal);
     return leyo;
 }
 
 bool Archivo::grabarEnDisco(Personal obj){
-    FILE *pPersona;
-    pPersona = fopen(PERSONA, "ab");
-    if(pPersona == NULL){
+    FILE *pPersonal;
+    pPersonal = fopen(PERSONAL, "ab");
+    if(pPersonal == NULL){
         return false;
     }
-    bool escribio = fwrite(&obj, sizeof(Personal), 1, pPersona);
-    fclose(pPersona);
+    bool escribio = fwrite(&obj, sizeof(Personal), 1, pPersonal);
+    fclose(pPersonal);
     return escribio;
 }
 
 bool Archivo::modificarEnDisco(int pos, Personal obj){
-    FILE *pPersona;
-    pPersona = fopen(PERSONA, "rb+");
-    if(pPersona == NULL) return false;
-    fseek(pPersona, sizeof(Personal) * pos, 0);
-    bool escribio = fwrite(&obj, sizeof(Personal), 1, pPersona);
-    fclose(pPersona);
+    FILE *pPersonal;
+    pPersonal = fopen(PERSONAL, "rb+");
+    if(pPersonal == NULL) return false;
+    fseek(pPersonal, sizeof(Personal) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Personal), 1, pPersonal);
+    fclose(pPersonal);
     return escribio;
 }
 
 int Archivo::contarRegistro(Personal &obj){
-    FILE *pPersona;
+    FILE *pPersonal;
     int cant;
-    pPersona = fopen(PERSONA, "ab");
-    if(pPersona == NULL){
+    pPersonal = fopen(PERSONAL, "ab");
+    if(pPersonal == NULL){
         return -1;
     }
-    fseek(pPersona, 0, 2);
-    cant = ftell(pPersona)/sizeof(Personal);
-    fclose(pPersona);
+    fseek(pPersonal, 0, 2);
+    cant = ftell(pPersonal)/sizeof(Personal);
+    fclose(pPersonal);
     return cant;
 }
 

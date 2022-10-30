@@ -25,8 +25,8 @@ void Menu::setLista(Origen coor, int largo, int alto){
 }
 
 int Menu::principal(){
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({42,10}, 15, 12, opc);
         rlutil::hidecursor();
         _cuadro.dibujar();
@@ -200,10 +200,9 @@ void Menu::Clientes(){
                         break;
                         ///BUSCAR//
                     case 5:
-                            mostrarClientePorDNI();
+                            mostrarClientePorId();
                         break;
                     case 6:
-                            cout << "opcion 6" << endl;
                             opc = 1;
                             return;
                         break;
@@ -216,8 +215,8 @@ void Menu::Clientes(){
 
 void Menu::Personal(){
     rlutil::hidecursor();
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto4();
@@ -259,19 +258,19 @@ void Menu::Personal(){
             case 1:
                 switch (opc){
                     case 1:
-                        agregarRegistroPersona();
+                        agregarRegistroPersonal();
                     break;
                     case 2:
-                        modificarPersona();
+                        modificarPersonal();
                     break;
                     case 3:
-                        mostrarPersona();
+                        mostrarPersonal();
                     break;
                     case 4:
-                        eliminarPersona();
+                        eliminarPersonal();
                     break;
                     case 5:
-                        buscarPersona();
+                        buscarPersonal();
                     break;
                     case 6:
                         opc = 1;
@@ -280,14 +279,15 @@ void Menu::Personal(){
 
                     }
             getch();
+            system("cls");
         }
     }
 }
 
 void Menu::Servicio(){
     rlutil::hidecursor();
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
@@ -349,14 +349,15 @@ void Menu::Servicio(){
                     break;
                     }
             getch();
+            system("cls");
         }
     }
 }
 
 void Menu::Cuentas(){
     rlutil::hidecursor();
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
@@ -418,6 +419,7 @@ void Menu::Cuentas(){
                     break;
                     }
             getch();
+            system("cls");
         }
     }
 }
