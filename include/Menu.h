@@ -16,7 +16,7 @@ class Menu
         int principal();
         void Turnos();
         void Clientes();
-        void Persona();
+        void Personal();
         void Servicio();
         void Cuentas();
 };

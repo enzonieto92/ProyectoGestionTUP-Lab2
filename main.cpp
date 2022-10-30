@@ -28,7 +28,7 @@ int main(){
                 Menu.Clientes();
             break;
             case 3:
-                Menu.Persona();
+                Menu.Personal();
             break;
             case 4:
                 Menu.Servicio();
