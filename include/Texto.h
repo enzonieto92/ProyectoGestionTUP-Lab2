@@ -1,14 +1,14 @@
 #ifndef TEXTO_H
 #define TEXTO_H
 #include "Funciones.h"
-
+#include "Origen.h"
 class Texto
 {
     private:
-        origen coor;
+        Origen coor;
         int opc;
     public:
-        Texto(origen&);
+        Texto(Origen&);
         void mostrar_texto1();
         void mostrar_texto2();
         void mostrar_texto3();

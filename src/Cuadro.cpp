@@ -4,14 +4,14 @@ using namespace std;
 Cuadro::Cuadro(): _txt(coor){
 
 }
-Cuadro::Cuadro(origen _coor, int _largo, int _alto, int &_opc): _txt(_coor){
+Cuadro::Cuadro(Origen _coor, int _largo, int _alto, int &_opc): _txt(_coor){
     coor = _coor;
     largo = _largo;
     alto = _alto;
     opc = _opc;
 }
 
-void Cuadro::setCoor(origen _coor){
+void Cuadro::setCoor(Origen _coor){
 coor = _coor;
 
 }

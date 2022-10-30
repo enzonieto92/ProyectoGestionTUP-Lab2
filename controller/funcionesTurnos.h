@@ -115,6 +115,7 @@ Turno cargarTurno(){
         cita.setEstado(false);
         return cita;
     }
+    rlutil::hidecursor();
     idT++;
     cita.Cargar(idT, _fecha, idC, tS);
     return cita;

@@ -1,6 +1,6 @@
 #ifndef ARCHIVO_H
 #define ARCHIVO_H
-#include "Persona.h"
+#include "Personal.h"
 #include "Cliente.h"
 #include "Turno.h"
 #include "Servicio.h"

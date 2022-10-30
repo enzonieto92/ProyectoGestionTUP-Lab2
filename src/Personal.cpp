@@ -1,4 +1,4 @@
-#include "Persona.h"
+#include "Personal.h"
 #include "Archivo.h"
 #include <iostream>
 #include <cstdio>

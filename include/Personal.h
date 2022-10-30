@@ -1,5 +1,5 @@
-#ifndef PERSONA_H
-#define PERSONA_H
+#ifndef PERSONAL_H
+#define PERSONAL_H
 
 class Personal
 {
@@ -32,4 +32,4 @@ class Personal
         bool getEstado();
 };
 
-#endif // PERSONA_H
+#endif // PERSONAL_H
