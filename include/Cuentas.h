@@ -2,7 +2,6 @@
 #define CUENTAS_H
 #include "Fecha.h"
 
-
 class Cuenta
 {
     private:
@@ -16,24 +15,17 @@ class Cuenta
         /// CONSRUCTOR
         Cuenta();
         /// METODOS
-        bool cargar(int);
-        void mostrar();
+        bool mostrar();
         /// SETS
         void setID(int);
         void setFechaEmision(Fecha);
-        void setNombre(const char *);
-        void setApellido(const char *);
         bool setMonto(float);
         void setEstado(bool);
         /// GETS
         int getID();
         Fecha getFechaEmision();
-        const char *getNombre();
-        const char *getApellido();
         float getMonto();
         bool getEstado();
-        /// DESTRUCTOR
-        ~Cuenta();
 };
 
 #endif // CUENTAS_H

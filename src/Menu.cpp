@@ -11,22 +11,22 @@ Menu::Menu(){
     _cuadro= {{42,10}, 15, 8, opc};
 }
 
-void Menu::setCuadro(origen coor, int largo, int alto, int opc){
+void Menu::setCuadro(Origen coor, int largo, int alto, int opc){
     _cuadro.setCoor(coor);
     _cuadro.setlargo(largo);
     _cuadro.setalto(alto);
     _cuadro.setOpc(opc);
 }
 
-void Menu::setLista(origen coor, int largo, int alto){
+void Menu::setLista(Origen coor, int largo, int alto){
     _lista.setCoor(coor);
     _lista.setlargo(largo);
     _lista.setalto(alto);
 }
 
 int Menu::principal(){
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({42,10}, 15, 12, opc);
         rlutil::hidecursor();
         _cuadro.dibujar();
@@ -110,7 +110,7 @@ void Menu::Turnos(){
             case 1:
                 ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
                 switch (opc){
-                    ///AGREGAR///
+                        ///AGREGAR///
                     case 1:
                             agregarRegistroTurno();
                         break;
@@ -203,7 +203,6 @@ void Menu::Clientes(){
                             mostrarClientePorId();
                         break;
                     case 6:
-                            cout << "opcion 6" << endl;
                             opc = 1;
                             return;
                         break;
@@ -214,10 +213,10 @@ void Menu::Clientes(){
     }
 }
 
-void Menu::Persona(){
+void Menu::Personal(){
     rlutil::hidecursor();
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto4();
@@ -259,19 +258,19 @@ void Menu::Persona(){
             case 1:
                 switch (opc){
                     case 1:
-                        agregarRegistroPersona();
+                        agregarRegistroPersonal();
                     break;
                     case 2:
-                        modificarPersona();
+                        modificarPersonal();
                     break;
                     case 3:
-                        mostrarPersona();
+                        mostrarPersonal();
                     break;
                     case 4:
-                        eliminarPersona();
+                        eliminarPersonal();
                     break;
                     case 5:
-                        buscarPersona();
+                        buscarPersonal();
                     break;
                     case 6:
                         opc = 1;
@@ -280,14 +279,15 @@ void Menu::Persona(){
 
                     }
             getch();
+            system("cls");
         }
     }
 }
 
 void Menu::Servicio(){
     rlutil::hidecursor();
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
@@ -349,14 +349,15 @@ void Menu::Servicio(){
                     break;
                     }
             getch();
+            system("cls");
         }
     }
 }
 
 void Menu::Cuentas(){
     rlutil::hidecursor();
+    system("cls");
     while (opc != 0){
-        system("cls");
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
@@ -418,6 +419,7 @@ void Menu::Cuentas(){
                     break;
                     }
             getch();
+            system("cls");
         }
     }
 }

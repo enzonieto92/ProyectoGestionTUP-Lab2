@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Texto::Texto(origen &_coor){
+Texto::Texto(Origen &_coor){
     coor = _coor;
     opc = 1;
 }
@@ -16,7 +16,7 @@ void Texto::mostrar_texto1(){
     gotoxy(coor.x+4, coor.y+3);
     cout <<"CLIENTES";
     gotoxy(coor.x+4, coor.y+5);
-    cout <<"CONTACTO";
+    cout <<"PERSONAL";
     gotoxy(coor.x+4, coor.y+7);
     cout <<"SERVICIO";
     gotoxy(coor.x+5, coor.y+9);
@@ -63,7 +63,7 @@ void Texto::mostrar_texto4(){
     gotoxy(coor.x-4, coor.y-7);
     cout <<"Peluqueria Erica Martinez";
     gotoxy(coor.x+2, coor.y-5);
-    cout << "MENU CONTACTOS";
+    cout << "MENU PERSONAL";
     gotoxy(coor.x-7, coor.y+1);
     cout <<"AGREGAR";
     gotoxy(coor.x+5, coor.y+1);
@@ -133,7 +133,7 @@ void Texto::resaltar1(int opc){
         case 3:
             gotoxy(coor.x+4, coor.y+5);
             rlutil::setBackgroundColor(7);
-            cout <<"CONTACTO";
+            cout <<"PERSONAL";
             rlutil::setBackgroundColor(0);
             break;
         case 4:
