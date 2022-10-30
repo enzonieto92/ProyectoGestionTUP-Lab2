@@ -15,7 +15,6 @@ class Cuenta
         /// CONSRUCTOR
         Cuenta();
         /// METODOS
-        bool cargar(int);
         bool mostrar();
         /// SETS
         void setID(int);

@@ -2,126 +2,34 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="include\persona.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="controller\funcionesClientes.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="323" topLine="1" />
+			<Cursor1 position="4685" topLine="166" />
 		</Cursor>
 	</File>
-	<File name="src\Texto.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="controller\funcionesCuentas.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3465" topLine="18" />
-		</Cursor>
-		<Folding>
-			<Collapse line="10" />
-			<Collapse line="27" />
-			<Collapse line="42" />
-			<Collapse line="61" />
-			<Collapse line="228" />
-		</Folding>
-	</File>
-	<File name="include\Turno.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="230" topLine="0" />
+			<Cursor1 position="2340" topLine="87" />
 		</Cursor>
 	</File>
-	<File name="controller\funcionesPersona.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Fecha.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1322" topLine="20" />
-		</Cursor>
-		<Folding>
-			<Collapse line="22" />
-			<Collapse line="85" />
-			<Collapse line="119" />
-			<Collapse line="135" />
-			<Collapse line="161" />
-		</Folding>
-	</File>
-	<File name="include\Servicio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="276" topLine="0" />
+			<Cursor1 position="2246" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\persona.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Archivo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="728" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-		</Folding>
-	</File>
-	<File name="src\Cuentas.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1027" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-			<Collapse line="13" />
-			<Collapse line="34" />
-		</Folding>
-	</File>
-	<File name="include\Cuadro.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="210" topLine="5" />
+			<Cursor1 position="5680" topLine="210" />
 		</Cursor>
 	</File>
-	<File name="src\Archivo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="include\Menu.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3334" topLine="118" />
+			<Cursor1 position="454" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include\Fecha.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Menu.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="273" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Fecha.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1653" topLine="96" />
-		</Cursor>
-		<Folding>
-			<Collapse line="122" />
-		</Folding>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="585" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="include\Cliente.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="224" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="controller\funcionesCuentas.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1284" topLine="8" />
-		</Cursor>
-		<Folding>
-			<Collapse line="24" />
-			<Collapse line="40" />
-			<Collapse line="66" />
-			<Collapse line="152" />
-			<Collapse line="166" />
-		</Folding>
-	</File>
-	<File name="include\Archivo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="288" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="include\Menu.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="380" topLine="2" />
-		</Cursor>
-	</File>
-	<File name="include\Funciones.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="85" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Menu.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1445" topLine="4" />
+			<Cursor1 position="1432" topLine="3" />
 		</Cursor>
 		<Folding>
 			<Collapse line="8" />
@@ -135,81 +43,14 @@
 			<Collapse line="357" />
 		</Folding>
 	</File>
-	<File name="controller\funcionesTurnos.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Cuentas.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="799" topLine="20" />
-		</Cursor>
-		<Folding>
-			<Collapse line="31" />
-			<Collapse line="42" />
-			<Collapse line="68" />
-			<Collapse line="118" />
-			<Collapse line="131" />
-			<Collapse line="145" />
-			<Collapse line="194" />
-			<Collapse line="210" />
-			<Collapse line="241" />
-			<Collapse line="280" />
-			<Collapse line="313" />
-			<Collapse line="343" />
-		</Folding>
-	</File>
-	<File name="src\Turno.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1427" topLine="24" />
+			<Cursor1 position="1137" topLine="42" />
 		</Cursor>
 	</File>
-	<File name="src\Cliente.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="src\Texto.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="102" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Servicio.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="294" topLine="3" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-			<Collapse line="30" />
-			<Collapse line="41" />
-		</Folding>
-	</File>
-	<File name="controller\funcionesClientes.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5965" topLine="56" />
-		</Cursor>
-		<Folding>
-			<Collapse line="27" />
-			<Collapse line="52" />
-			<Collapse line="78" />
-			<Collapse line="92" />
-			<Collapse line="125" />
-			<Collapse line="141" />
-			<Collapse line="162" />
-			<Collapse line="170" />
-			<Collapse line="253" />
-		</Folding>
-	</File>
-	<File name="include\Cuentas.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="343" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="controller\funcionesServicios.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3418" topLine="20" />
-		</Cursor>
-		<Folding>
-			<Collapse line="22" />
-			<Collapse line="54" />
-			<Collapse line="85" />
-			<Collapse line="123" />
-			<Collapse line="165" />
-		</Folding>
-	</File>
-	<File name="include\Texto.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="151" topLine="0" />
+			<Cursor1 position="7662" topLine="252" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
