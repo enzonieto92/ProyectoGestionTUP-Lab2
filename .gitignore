@@ -21,6 +21,12 @@ bin
 obj
 .layout
 .depend
+Clientes.dat
+Contactos.dat
+Cuentas.dat
+Servicios.dat
+Turnos.dat
+Turnos.bak
 
 
 # Fortran module files
