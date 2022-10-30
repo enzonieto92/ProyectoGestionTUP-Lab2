@@ -7,16 +7,16 @@ class Menu
 {
     private:
         int opc;
-        origen _coor;
+        Origen _coor;
         Cuadro _cuadro, _lista;
     public:
         Menu();
-        void setCuadro(origen, int, int, int);
-        void setLista (origen, int, int);
+        void setCuadro(Origen, int, int, int);
+        void setLista (Origen, int, int);
         int principal();
         void Turnos();
         void Clientes();
-        void Persona();
+        void Personal();
         void Servicio();
         void Cuentas();
 };

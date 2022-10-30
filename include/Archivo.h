@@ -1,6 +1,6 @@
 #ifndef ARCHIVO_H
 #define ARCHIVO_H
-#include "Persona.h"
+#include "Personal.h"
 #include "Cliente.h"
 #include "Turno.h"
 #include "Servicio.h"
@@ -29,10 +29,10 @@ class Archivo
         bool modificarEnDisco(int, Turno&);
         int contarRegistro(Turno&);
         /// ARCHIVOS PERSONA
-        bool leerDeDisco(int, Persona &);
-        bool grabarEnDisco(Persona);
-        bool modificarEnDisco(int, Persona);
-        int contarRegistro(Persona &);
+        bool leerDeDisco(int, Personal &);
+        bool grabarEnDisco(Personal);
+        bool modificarEnDisco(int, Personal);
+        int contarRegistro(Personal &);
         /// ARCHIVOS SERVICO
         bool leerDeDisco(int, Servicio &);
         bool grabarEnDisco(Servicio);

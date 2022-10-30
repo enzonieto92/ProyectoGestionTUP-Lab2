@@ -60,7 +60,7 @@ Cliente cargarCliente(){
     cin >> nD;
     if(validarCliente(nD) == true){
         gotoxy(32, 20);
-        cout << "EL CLIENTE INGERSADO ESTA REGISTRADO";
+        cout << "EL CLIENTE INGRESADO ESTA REGISTRADO";
         usuario.setEstado(false);
         return usuario;
     }

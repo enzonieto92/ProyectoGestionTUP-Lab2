@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Texto::Texto(origen &_coor){
+Texto::Texto(Origen &_coor){
     coor = _coor;
     opc = 1;
 }

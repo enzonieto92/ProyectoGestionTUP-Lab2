@@ -12,8 +12,8 @@ void agregarRegistroPersona();
 void mostrarPersona();
 
 void modificarPersona();
-    int buscarIdPersona(int, Persona);
-    Persona leerRegistroPersona(int, Persona);
+    int buscarIdPersona(int, Personal);
+    Personal leerRegistroPersona(int, Personal);
 
 void buscarPersona();
 
@@ -24,7 +24,7 @@ void eliminarContacto();
 void agregarRegistroPersona(){
     int var;
     Archivo archivo;
-    Persona persona;
+    Personal persona;
     var = archivo.contarRegistro(persona);
     if(var == -1){
         gotoxy (41, 24);
@@ -46,7 +46,7 @@ void agregarRegistroPersona(){
 
 void mostrarPersona(){
     Archivo archivo;
-    Persona persona;
+    Personal persona;
     int pos = 0;
     if(archivo.contarRegistro(persona)==0){
         gotoxy(38, 20);
@@ -65,7 +65,7 @@ void mostrarPersona(){
 
 void modificarPersona(){
     Archivo archivo;
-    Persona persona;
+    Personal persona;
     int id, pos;
     char var[40];
     gotoxy (32, 18);
@@ -91,7 +91,7 @@ void modificarPersona(){
     cout << "REGISTO MODIFICADO EXISTOSAMENTE" << endl;
 }
 
-int buscarIdPersona(int var, Persona obj){
+int buscarIdPersona(int var, Personal obj){
     Archivo archivo;
     int pos = 0;
     while(archivo.leerDeDisco(pos,obj)){
@@ -105,7 +105,7 @@ int buscarIdPersona(int var, Persona obj){
     return -1;
 }
 
-Persona leerRegistroPersona(int pos,Persona obj){
+Personal leerRegistroPersona(int pos,Personal obj){
     FILE *pPersona;
     pPersona = fopen("Contactos.dat","rb");
     if(pPersona == NULL){
@@ -121,7 +121,7 @@ Persona leerRegistroPersona(int pos,Persona obj){
 
 void buscarPersona(){
     Archivo archivo;
-    Persona persona;
+    Personal persona;
     int pos,id;
     gotoxy(31, 18);
     cout << "INGRESE EL NUMERO DE ID DEL PERSONAL: ";
@@ -142,7 +142,7 @@ void buscarPersona(){
 
 void eliminarPersona(){
     Archivo archivo;
-    Persona persona;
+    Personal persona;
     int id, pos;
     gotoxy (32, 18);
     cout << "INGRESAR NUMERO DE ID A ELIMINAR: ";

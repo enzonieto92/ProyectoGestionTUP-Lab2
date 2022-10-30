@@ -11,14 +11,14 @@ Menu::Menu(){
     _cuadro= {{42,10}, 15, 8, opc};
 }
 
-void Menu::setCuadro(origen coor, int largo, int alto, int opc){
+void Menu::setCuadro(Origen coor, int largo, int alto, int opc){
     _cuadro.setCoor(coor);
     _cuadro.setlargo(largo);
     _cuadro.setalto(alto);
     _cuadro.setOpc(opc);
 }
 
-void Menu::setLista(origen coor, int largo, int alto){
+void Menu::setLista(Origen coor, int largo, int alto){
     _lista.setCoor(coor);
     _lista.setlargo(largo);
     _lista.setalto(alto);
@@ -110,7 +110,7 @@ void Menu::Turnos(){
             case 1:
                 ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
                 switch (opc){
-                    ///AGREGAR///
+                        ///AGREGAR///
                     case 1:
                             agregarRegistroTurno();
                         break;
@@ -214,7 +214,7 @@ void Menu::Clientes(){
     }
 }
 
-void Menu::Persona(){
+void Menu::Personal(){
     rlutil::hidecursor();
     while (opc != 0){
         system("cls");

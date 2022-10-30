@@ -1,11 +1,11 @@
-#include "Persona.h"
+#include "Personal.h"
 #include "Archivo.h"
 #include <iostream>
 #include <cstdio>
 
 using namespace std;
 
-Persona::Persona(){
+Personal::Personal(){
     ID = 0;
     strcpy(nombre, "SIN DATO");
     strcpy(telefono, "SIN DATO");
@@ -15,7 +15,7 @@ Persona::Persona(){
 
 /// CARGAR
 
-void Persona::cargar(int var){
+void Personal::cargar(int var){
     ID = var;
     gotoxy (42, 18);
     cout << "NONMBRE: ";
@@ -31,7 +31,7 @@ void Persona::cargar(int var){
 
 /// MOSTRAR
 
-void Persona::mostrar(){
+void Personal::mostrar(){
     if(estado == true){
         cout << ID << " " << nombre << " " << apellido << ": "<< telefono;
     }
@@ -39,22 +39,22 @@ void Persona::mostrar(){
 
 /// SETS
 
-void Persona::setIDPersona(int var){ID = var;}
-void Persona::setNombre(const char *nom){strcpy(nombre, nom);}
-void Persona::setApellido(const char *ape){strcpy(apellido, ape);}
-void Persona::setTelefono(const char *tel){strcpy(telefono, tel);}
-void Persona::setEstado(bool e){estado = e;}
+void Personal::setIDPersona(int var){ID = var;}
+void Personal::setNombre(const char *nom){strcpy(nombre, nom);}
+void Personal::setApellido(const char *ape){strcpy(apellido, ape);}
+void Personal::setTelefono(const char *tel){strcpy(telefono, tel);}
+void Personal::setEstado(bool e){estado = e;}
 
 /// GETS
 
-int Persona::getIDPersona(){return ID;}
-const char *Persona::getNombre(){return nombre;}
-const char *Persona::getApellido(){return apellido;}
-const char *Persona::getTelefono(){return telefono;}
-bool Persona::getEstado(){return estado;}
+int Personal::getIDPersona(){return ID;}
+const char *Personal::getNombre(){return nombre;}
+const char *Personal::getApellido(){return apellido;}
+const char *Personal::getTelefono(){return telefono;}
+bool Personal::getEstado(){return estado;}
 
 /// DESTRUCTOR
-Persona::~Persona()
+Personal::~Personal()
 {
 
 }

@@ -1,7 +1,7 @@
-#ifndef PERSONA_H
-#define PERSONA_H
+#ifndef PERSONAL_H
+#define PERSONAL_H
 
-class Persona
+class Personal
 {
     protected:
         int ID;
@@ -11,7 +11,7 @@ class Persona
         bool estado;
     public:
         /// CONSTRUCTOR
-        Persona();
+        Personal();
         /// METODOS
         void cargar(int);
         void mostrar();
@@ -28,7 +28,7 @@ class Persona
         const char *getTelefono();
         bool getEstado();
         /// DESTRUCTOR
-        ~Persona();
+        ~Personal();
 };
 
-#endif // PERSONA_H
+#endif // PERSONAL_H
