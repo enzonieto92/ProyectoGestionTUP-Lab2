@@ -8,13 +8,15 @@ using namespace std;
 
 #include "Funciones.h"
 #include "Fecha.h"
-#include "Persona.h"
+#include "Personal.h"
 #include "Cliente.h"
 #include "Turno.h"
 #include "Cuentas.h"
 #include "Menu.h"
+#include "Origen.h"
 
 int main(){
+    AjustarVentana(100, 60);
     rlutil::setColor(12);
     Menu Menu;
     int opc = 1;

@@ -23,21 +23,26 @@ bool Cliente::Cargar(int nD, int idC){
     }
     gotoxy(42, 20);
     cout << "NOMBRE: ";
-    cargarCadena(nombre, 29);
-    setNombre(nombre);
     gotoxy(42, 21);
     cout << "APELLIDO: ";
-    cargarCadena(apellido, 29);
-    setApellido(apellido);
     gotoxy(42, 22);
     cout << "TELEFONO: ";
-    cargarCadena(telefono, 39);
-    setTelefono(telefono);
     gotoxy(42, 23);
     cout << "EMAIL: ";
+    gotoxy(50, 20);
+    rlutil::showcursor();
+    cargarCadena(nombre, 29);
+    setNombre(nombre);
+    gotoxy(52, 21);
+    cargarCadena(apellido, 29);
+    setApellido(apellido);
+    gotoxy(52, 22);
+    cargarCadena(telefono, 39);
+    setTelefono(telefono);
+    gotoxy(50, 23);
     cargarCadena(email, 39);
     setEmail(email);
-
+    rlutil::hidecursor();
     setIdCuenta(idC);
 
     estado = 1;

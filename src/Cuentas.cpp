@@ -11,16 +11,14 @@ Cuenta::Cuenta(){
     estado = false;
 }
 
-bool Cuenta::mostrar(){
+bool Cuenta::mostrar(int var){
     if(estado == true){
-        gotoxy(34, 20);
-        cout << "FECHA DE EMISION: " << endl;
-        gotoxy(52, 20);
-        fechaEmision.Mostrar();
-        gotoxy(44,21);
-        cout << "NUMERO DE ID: " << ID << endl;
-        gotoxy(46,22);
-        cout << "MONTO: " << monto << endl;
+        gotoxy(32, 20+var);
+        cout << ID;
+        gotoxy(43, 20+var);
+        fechaEmision.MostrarFecha();
+        gotoxy(63,20+var);
+        cout << monto;
         return true;
     }
     return false;
@@ -30,12 +28,10 @@ bool Cuenta::mostrar(){
 
 void Cuenta::setID(int var){ID = var;}
 void Cuenta::setFechaEmision(Fecha fecha){fechaEmision = fecha;}
-bool Cuenta::setMonto(float var){
+void Cuenta::setMonto(float var){
     if(var >=0){
-        monto = monto - var;
-        return true;
+        monto = var;
     }
-    return false;
 }
 void Cuenta::setEstado(bool ban){estado = ban;}
 

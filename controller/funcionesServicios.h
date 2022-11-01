@@ -36,6 +36,7 @@ void agregarRegistroServicio(){
         return;
     }
     var += 1;
+    rlutil::showcursor();
     if(servicio.cargar(var)==false){
         gotoxy (35, 22);
         cout << "EL PRECIO NO PUEDE SER NEGATIVO" << endl;
@@ -54,22 +55,24 @@ void agregarRegistroServicio(){
 
 void mostrarServicio(){
     Cuadro cuadro;
-    cuadro.setCoor({30,16});
-    cuadro.setalto(12);
-    cuadro.setlargo(40);
-    cuadro.dibujar();
+
     Archivo archivo;
     Servicio servicio;
     int pos = 0;
     int cont = 0;
     if(archivo.contarRegistro(servicio)==0){
         gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
+        cout << "NO HAY REGISTROS GUARDADOS" << endl;
         return;
     }
     while(archivo.leerDeDisco(pos, servicio)){
-        gotoxy(38, cont+18);
-        if(servicio.mostrar()==true){
+        gotoxy(30, 18);
+        cout << "CODIGO" << "        " << "DESCRIPCION" << "        " << "PRECIO" << endl;
+        if(servicio.mostrar(cont)==true){
+            cuadro.setCoor({25,17});
+            cuadro.setlargo(50);
+            cuadro.setalto(30);
+            cuadro.dibujar();
             cont++;
         }
         cout << endl;
@@ -77,7 +80,7 @@ void mostrarServicio(){
     }
     if(cont == 0){
         gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
+        cout << "NO HAY REGISTROS GUARDADOS" << endl;
     }
 }
 
@@ -94,11 +97,13 @@ void modificarServicio(){
     int cod, pos;
     float pre;
     gotoxy (27, 18);
+    rlutil::showcursor();
     cout << "INGRESAR EL CODIGO DEL SERVICIO A MODIFICAR: ";
     cin >> cod;
     pos = buscarCodigoServicio(cod,servicio);
     if(pos == -1){
         gotoxy (28, 21);
+        rlutil::hidecursor();
         cout << "NO EXISTE EL CODIGO DEL SERVICO EN EL ARCHIVO" << endl;
         return;
     }
@@ -109,14 +114,17 @@ void modificarServicio(){
     cin >> pre;
     if(servicio.setPrecio(pre)==false){
         gotoxy (34, 22);
+        rlutil::hidecursor();
         cout << "EL PRECIO NO PUEDE SER NEGATIVO" << endl;
         return;
     }
     if(archivo.modificarEnDisco(pos,servicio)==false){
         gotoxy (34, 22);
+        rlutil::hidecursor();
         cout << "ERROR AL MODIFICAR EL PERSONAL" << endl;
         return;
     }
+    rlutil::hidecursor();
     gotoxy (34, 22);
     cout << "REGISTO MODIFICADO EXISTOSAMENTE" << endl;
 }
@@ -147,8 +155,10 @@ void buscarServicio(){
     Servicio servicio;
     int pos,cod;
     gotoxy(29, 18);
+    rlutil::showcursor();
     cout << "INGRESE EL NUMERO CODIGO DEL SERVICIO: ";
     cin >> cod;
+    rlutil::hidecursor();
     pos = buscarCodigoServicio(cod,servicio);
     if(pos == -1){
         gotoxy(28, 21);
@@ -156,8 +166,10 @@ void buscarServicio(){
         return;
     }
     archivo.leerDeDisco(pos,servicio);
-    gotoxy(38, 21);
-    servicio.mostrar();
+    gotoxy(40, 21);
+    cout << servicio.getCodigo() << " ";
+    cout << servicio.getDescripcion() << ": ";
+    cout << servicio.getPrecio();
     cout << endl;
 }
 
@@ -173,8 +185,10 @@ void eliminarServicio(){
     Servicio servicio;
     int cod, pos;
     gotoxy (28, 18);
+    rlutil::showcursor();
     cout << "INGRESAR EL CODIGO DE SERVICIO A ELIMINAR: ";
     cin >> cod;
+    rlutil::hidecursor();
     pos = buscarCodigoServicio(cod,servicio);
     if(pos == -1){
         gotoxy (28, 21);

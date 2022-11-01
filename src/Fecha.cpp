@@ -78,12 +78,16 @@ bool Fecha::Cargar(){
     return true;
 }
 
-void Fecha::Mostrar(){
+void Fecha::MostrarHora(){
     cout << dia << "/" << mes << "/" << anio << " ";
     if(hora < 10) cout << "0";
     cout << hora << ":";
     if(minuto < 10) cout << "0";
     cout << minuto;
+}
+
+void Fecha::MostrarFecha(){
+     cout << dia << "/" << mes << "/" << anio << " ";
 }
 
 /// SETS

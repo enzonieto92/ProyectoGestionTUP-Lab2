@@ -13,7 +13,7 @@ class Servicio
         Servicio();
         /// METODOS
         bool cargar(int);
-        bool mostrar();
+        bool mostrar(int);
         /// SETS
         void setCodigo(int);
         bool setPrecio(float);

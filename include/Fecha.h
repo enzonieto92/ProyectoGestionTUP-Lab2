@@ -16,8 +16,8 @@ class Fecha{
         Fecha();
         /// METODOS
         bool Cargar();
-        void Mostrar();
-        void Mostrar_hora();
+        void MostrarFecha();
+        void MostrarHora();
         /// METODOS VALIDACION
         bool validarFechaTurno(Fecha);
         /// SETS

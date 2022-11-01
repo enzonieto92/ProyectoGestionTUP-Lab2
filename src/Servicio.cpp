@@ -17,10 +17,13 @@ bool Servicio::cargar(int var){
     codigo = var;
     gotoxy (38, 18);
     cout << "DESCRIPCION: ";
-    cargarCadena(descripcion,29);
-    gotoxy (38, 20);
+    gotoxy (40, 20);
     cout << "PRECIO: ";
+    gotoxy(51,18);
+    cargarCadena(descripcion,29);
+    gotoxy(48,20);
     cin >> pre;
+    rlutil::hidecursor();
     if(setPrecio(pre)==false){
         return false;
     }
@@ -28,9 +31,14 @@ bool Servicio::cargar(int var){
     return true;
 }
 
-bool Servicio::mostrar(){
+bool Servicio::mostrar(int var){
     if(estado==true){
-        cout << codigo << " " << descripcion << ": " << precio << endl;
+        gotoxy(32,20+var);
+        cout << codigo << endl;
+        gotoxy(44,20+var);
+        cout << descripcion << endl;
+        gotoxy(64,20+var);
+        cout << precio << endl;
         return true;
     }
     return false;

@@ -1,5 +1,5 @@
-#ifndef PERSONA_H
-#define PERSONA_H
+#ifndef PERSONAL_H
+#define PERSONAL_H
 
 class Personal
 {
@@ -7,7 +7,6 @@ class Personal
         int ID;
         char nombre[30];
         char apellido[30];
-        char telefono[40];
         float sueldo;
         bool estado;
     public:
@@ -15,21 +14,19 @@ class Personal
         Personal();
         /// METODOS
         bool cargar(int);
-        bool mostrar();
+        bool mostrar(int);
         /// SETS
         void setIDPersonal(int);
         void setNombre(const char *);
         void setApellido(const char *);
-        void setTelefono(const char *);
         bool setSueldo(float);
         void setEstado(bool e);
         /// GETS
         int getIDPersonal();
         const char *getNombre();
         const char *getApellido();
-        const char *getTelefono();
         float getSueldo();
         bool getEstado();
 };
 
-#endif // PERSONA_H
+#endif // PERSONAL_H

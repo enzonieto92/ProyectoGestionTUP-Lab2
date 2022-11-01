@@ -40,7 +40,7 @@ void Turno::Mostrar(){
     gotoxy(42, 21);
     cout << "FECHA DE TURNO: ";
     gotoxy(42, 22);
-    fechaServicio.Mostrar();
+    fechaServicio.MostrarHora();
     gotoxy(42, 23);
     cout << "ID CUENTA: " << idCuenta << endl;
     gotoxy(42, 24);
