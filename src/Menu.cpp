@@ -64,8 +64,8 @@ void Menu::Turnos(){
     rlutil::hidecursor();
     system("cls");
     while (opc != 0){
-        setLista({20, 16}, 60, 40);
-        setCuadro({36, 10}, 25, 4, opc);
+        setLista({19, 16}, 60, 40);
+        setCuadro({38, 10}, 24, 4, opc);
         _lista.dibujarLista();
         _cuadro.dibujar();
         _cuadro.mostrar_texto2();

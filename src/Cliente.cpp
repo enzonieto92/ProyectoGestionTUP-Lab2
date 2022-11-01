@@ -50,6 +50,30 @@ bool Cliente::Cargar(int nD, int idC){
     return true;
 }
 
+void Cliente::Cargar(){
+
+    gotoxy(42, 23);
+    cout << "NOMBRE: ";
+    gotoxy(42, 24);
+    cout << "APELLIDO: ";
+    gotoxy(42, 25);
+    cout << "TELEFONO: ";
+    gotoxy(50, 23);
+    rlutil::showcursor();
+    cargarCadena(nombre, 29);
+    setNombre(nombre);
+    gotoxy(52, 24);
+    cargarCadena(apellido, 29);
+    setApellido(apellido);
+    gotoxy(52, 25);
+    cargarCadena(telefono, 39);
+    setTelefono(telefono);
+    rlutil::hidecursor();
+
+
+    setEstado(true);
+}
+
 void Cliente::Mostrar()
 {
     if(estado){

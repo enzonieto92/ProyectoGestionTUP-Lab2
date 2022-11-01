@@ -16,6 +16,7 @@ class Cliente
         /// CONSTRUCTOR
         Cliente();
         /// METODOS
+        void Cargar();
         bool Cargar(int nD, int idC);
         void Mostrar();
         ///SETS

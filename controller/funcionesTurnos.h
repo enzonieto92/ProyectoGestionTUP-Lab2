@@ -31,7 +31,7 @@ void borrarLista(){
     int i, j;
     for(i = 0; i < 61; i++){
         for(j = 0; j < 41; j++){
-            gotoxy(20 + i, 16 + j);
+            gotoxy(19 + i, 16 + j);
             cout << " ";
         }
     }
@@ -41,12 +41,15 @@ void borrarLista(){
 void agregarRegistroTurno(){
     Turno cita;
     Archivo archi;
-    borrarLista();
+    rlutil::setColor(rlutil::WHITE);
     Cuadro cuadroTurnoCarga;
-    cuadroTurnoCarga.setCoor({30,17});
-    cuadroTurnoCarga.setalto(10);
-    cuadroTurnoCarga.setlargo(40);
+    cuadroTurnoCarga.setCuadro({30,17}, 40, 12);
+    cuadroTurnoCarga.limpiar();
     cuadroTurnoCarga.dibujar();
+    gotoxy(30, 19);
+    cuadroTurnoCarga.div();
+    gotoxy(30, 21);
+    cuadroTurnoCarga.div();
     cita = cargarTurno();
     if(cita.getEstado() == false){ // ERROR EN FECHA O APERTURA DEL ARCHIVO
         gotoxy(42, 25);
@@ -54,9 +57,9 @@ void agregarRegistroTurno(){
         return;
     }
     if(archi.grabarEnDisco(cita)){ // GRABO EN DISCO
-        gotoxy(42, 25);
+        gotoxy(44, 27);
         cout << "TURNO CARGADO";
-        agregarMontoCuenta(cita);
+        rlutil::setColor(12);
         return;
     }
     gotoxy(42, 25);
@@ -65,60 +68,19 @@ void agregarRegistroTurno(){
 }
 
 Turno cargarTurno(){
-    Turno cita;
-    int idT, idC, tS;
+    Turno _cita;
+    Cliente _cliente;
     Fecha _fecha;
-    Archivo archi;
+    Archivo _archi;
     rlutil::showcursor();
-    gotoxy(42, 18);
-    cout << "ID CLIENTE: ";
-    cin >> idC;
-    if(validarClienteId(idC) == false){
-        rlutil::hidecursor();
-        gotoxy(32, 20);
-        cout << "EL CLIENTE INGERSADO ES INVALIDO";
-        cita.setEstado(false);
-        return cita;
-    }
-    gotoxy(42, 19);
-    cout << "TIPO SERVICIO: ";
-    cin >> tS;
-    if(validarTipoServicio(tS) == false){
-        rlutil::hidecursor();
-        gotoxy(32, 21);
-        cout << "EL SERVICIO INGERSADO ES INVALIDO";
-        cita.setEstado(false);
-        return cita;
-    }
-    gotoxy(42, 20);
-    cout << "INGRESE FECHA DE SERVICIO: ";
-    if(_fecha.Cargar() == false){
-        rlutil::hidecursor();
-        gotoxy(42, 24);
-        cout << "FALLO CARGAR FECHA";
-        cita.setEstado(false);
-        return cita;
-    }
+    gotoxy(45, 18);
+    cout << "NUEVO TURNO";
+    _fecha.Cargar();
+    _cliente.Cargar();
+    _cita.setFechaServicio(_fecha);
+    _cita.setEstado(true);
+    return _cita;
 
-    if(_fecha.validarFechaTurno(_fecha) == false){
-        rlutil::hidecursor();
-        gotoxy(32, 24);
-        cout << "LA FECHA INGRESADA ES INVALIDA";
-        cita.setEstado(false);
-        return cita;
-    }
-    idT = archi.contarRegistro(cita); // ESTE SERIA PK AUTOINCREMENTAL DE CLIENTE
-    if(idT == -1){
-        rlutil::hidecursor();
-        gotoxy(32, 24);
-        cout << "FALLO APERTURA DEL ARCHIVO";
-        cita.setEstado(false);
-        return cita;
-    }
-    rlutil::hidecursor();
-    idT++;
-    cita.Cargar(idT, _fecha, idC, tS);
-    return cita;
 }
 
 bool validarClienteId(int idC){

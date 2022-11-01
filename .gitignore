@@ -16,7 +16,7 @@
 *.dylib
 *.dll
 
-.gitignore
+
 bin
 obj
 Servicios.dat

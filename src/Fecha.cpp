@@ -30,26 +30,18 @@ bool Fecha::esBisiesto(int a){
 
 bool Fecha::Cargar(){
     int diaFin;
-    gotoxy(31, 21);
-    cout << "ANIO:";
-    cin >> anio;
-    if(!setAnio(anio)){
-        rlutil::hidecursor();
-        gotoxy(32, 23);
-        cout << "EL AONIO DEBE SER POSTIVO";
-        return false;
-    }
-    gotoxy(41, 21);
-    cout << "MES:";
-    cin >> mes;
-    if(!setMes(mes)){
-        rlutil::hidecursor();
-        gotoxy(32, 23);
-        cout << "EL MES DEBE ESTAR ENTRE 1 Y 12";
-        return false;
-    }
-    gotoxy(48, 21);
+    rlutil::showcursor();
+    gotoxy(31, 20);
+    cout << "                                 ";
+    gotoxy(32, 20);
     cout << "DIA:";
+    gotoxy(39, 20);
+    cout << "/";
+    gotoxy(58, 20);
+    cout << "HR: ";
+    gotoxy(64, 20);
+    cout << ":";
+    gotoxy(37, 20);
     cin >> dia;
     if(!setDia(dia, diaFin)){
         rlutil::hidecursor();
@@ -57,8 +49,15 @@ bool Fecha::Cargar(){
         cout << "EL DIA DEBE ESTAR ENTRE 1 Y " << diaFin;
         return false;
     }
-    gotoxy(57, 21);
-    cout << "HR:";
+    gotoxy(40, 20);
+    cin >> mes;
+    if(!setMes(mes)){
+        rlutil::hidecursor();
+        gotoxy(32, 23);
+        cout << "EL MES DEBE ESTAR ENTRE 1 Y 12";
+        return false;
+    }
+    gotoxy(62, 20);
     cin >> hora;
     if(!setHora(hora)){
         rlutil::hidecursor();
@@ -66,8 +65,7 @@ bool Fecha::Cargar(){
         cout << "LA HORA DEBE ESTAR ENTRE 0 - 23";
         return false;
     }
-    gotoxy(63, 21);
-    cout << "MIN:";
+    gotoxy(65, 20);
     cin >> minuto;
     if(!setMinuto(minuto)){
         rlutil::hidecursor();
@@ -75,6 +73,7 @@ bool Fecha::Cargar(){
         cout << "EL MINUTO DEBE ESTAR ENTRE 0 - 59";
         return false;
     }
+    rlutil::hidecursor();
     return true;
 }
 
