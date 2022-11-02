@@ -39,6 +39,7 @@ void agregarCuentaCliente(Cliente cliente){
 ///////////// DEFINICION DE MOSTRAR CUENTA
 
 void mostrarCuenta(){
+    Cuadro cuadro;
     Archivo archivo;
     Cuenta cuenta;
     int pos = 0;
@@ -48,10 +49,16 @@ void mostrarCuenta(){
         cout << "NO HAY REGISTRO GUARDADOS" << endl;
         return;
     }
+    gotoxy(32, 18);
+    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "PRECIO" << endl;
     while(archivo.leerDeDisco(pos, cuenta)){
-        gotoxy(38, cont+18);
-        if(cuenta.mostrar()==true){
-            cont += 3;
+        gotoxy(38, cont+20);
+        if(cuenta.mostrar(cont)==true){
+            cuadro.setCoor({28,16});
+            cuadro.setalto(16);
+            cuadro.setlargo(42);
+            cuadro.dibujar();
+            cont++;
         }
         cout << endl;
         pos++;
@@ -75,11 +82,13 @@ void modificarCuenta(){
     int cod, pos;
     float pre;
     gotoxy (27, 18);
+    rlutil::showcursor();
     cout << "INGRESAR EL CODIGO DE LA CUENTA A MODIFICAR: ";
     cin >> cod;
     pos = buscarCodigoCuenta(cod,cuenta);
     if(pos == -1){
         gotoxy (28, 22);
+        rlutil::hidecursor();
         cout << "NO EXISTE EL CODIGO DE LA CUENTA EN EL ARCHIVO" << endl;
         return;
     }
@@ -90,21 +99,27 @@ void modificarCuenta(){
     cout << "INGRESAR MONTO A DESCONTAR: ";
     gotoxy(61, 22);
     cin >> pre;
-    if(cuenta.getMonto() < pre){
-        gotoxy(28, 24);
-        cout << "EL MONTO INGRESADO NO DEBE SER MAYOR AL ACTUAL" << endl;
-        return;
-    }
-    if(cuenta.setMonto(pre)==false){
+    if(pre < 0){
         gotoxy(36, 24);
+        rlutil::hidecursor();
         cout << "EL MONTO NO PUEDE SER NEGATIVO" << endl;
         return;
     }
+    if(cuenta.getMonto() < pre){
+        gotoxy(28, 24);
+        rlutil::hidecursor();
+        cout << "EL MONTO INGRESADO NO DEBE SER MAYOR AL ACTUAL" << endl;
+        return;
+    }
+    pre = cuenta.getMonto() - pre;
+    cuenta.setMonto(pre);
     if(archivo.modificarEnDisco(pos,cuenta)==false){
         gotoxy(34, 24);
+        rlutil::hidecursor();
         cout << "ERROR AL MODIFICAR LA CUENTA" << endl;
         return;
     }
+    rlutil::hidecursor();
     gotoxy (34, 24);
     cout << "REGISTO MODIFICADO EXISTOSAMENTE" << endl;
 }
@@ -135,8 +150,10 @@ void buscarCuenta(){
     Cuenta cuenta;
     int pos,id;
     gotoxy(31, 18);
+    rlutil::showcursor();
     cout << "INGRESE EL NUMERO DE ID DE LA CUENTA: ";
     cin >> id;
+    rlutil::hidecursor();
     pos = buscarCodigoCuenta(id,cuenta);
     if(pos == -1){
         gotoxy(25, 21);
@@ -144,7 +161,7 @@ void buscarCuenta(){
         return;
     }
     archivo.leerDeDisco(pos,cuenta);
-    cuenta.mostrar();
+    cuenta.mostrar(pos);
     cout << endl;
 }
 

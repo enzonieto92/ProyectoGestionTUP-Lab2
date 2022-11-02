@@ -155,7 +155,7 @@ void modificarFechaServicioTurno(){
     Fecha _fecha;
     borrarLista();
     Cuadro cuadroTurnoModificar;
-    cuadroTurnoModificar.setCoor({28,17});
+    cuadroTurnoModificar.setCoor({20,10});
     cuadroTurnoModificar.setalto(10);
     cuadroTurnoModificar.setlargo(44);
     cuadroTurnoModificar.dibujar();
