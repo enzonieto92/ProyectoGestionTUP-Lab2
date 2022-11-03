@@ -286,7 +286,8 @@ void mostrarTunoDelDia(){
     int posC, posS, posY = 0, posP;
     int cant;
     Turno *citasD;
-    if((cant = archi.contarRegistro(_turno)) == 0){
+    cant = archi.contarRegistro(_turno);
+    if(cant == 0){
         return;
     }
     citasD = new Turno[cant];
@@ -352,7 +353,7 @@ void cargarArchivoEnVector(Turno *obj, int cantReg){
 
 void ordenarCrecienteVector(Turno *v, int tam){
     int i, j, posMin;
-    Fecha aux;
+    Turno aux;
     for(i = 0; i < tam - 1; i++){
         posMin = i;
         for(j = i + 1; j < tam; j++){
@@ -360,9 +361,9 @@ void ordenarCrecienteVector(Turno *v, int tam){
                 posMin = j;
             }
         }
-        aux = v[i].getFechaServicio();
-        v[i].getFechaServicio() = v[posMin].getFechaServicio();
-        v[posMin].getFechaServicio() = aux;
+        aux = v[i];
+        v[i]= v[posMin];
+        v[posMin] = aux;
     }
 }
 
