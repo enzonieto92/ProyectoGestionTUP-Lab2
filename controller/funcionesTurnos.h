@@ -287,20 +287,14 @@ void mostrarTunoDelDia(){
     int cant;
     Turno *citasD;
     if((cant = archi.contarRegistro(_turno)) == 0){
-        gotoxy(40, 15);
-        cout << "NO HAY TURNOS REGISTRADOS";
         return;
     }
     citasD = new Turno[cant];
     if(citasD == NULL){
-        gotoxy(40, 15);
-        cout << "ERROR DE ASIGNACION DE MEMORIA" << endl;
         return;
     }
     cargarArchivoEnVector(citasD, cant);
     ordenarCrecienteVector(citasD, cant);
-    gotoxy(22, 15);
-    mostrar_fecha();
     gotoxy(22, 17);
     cout << "ID";
     gotoxy(26, 17);
