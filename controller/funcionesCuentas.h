@@ -50,19 +50,19 @@ void mostrarCuenta(){
         return;
     }
     gotoxy(32, 18);
-    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "PRECIO" << endl;
+    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "MONTO" << endl;
     while(archivo.leerDeDisco(pos, cuenta)){
         gotoxy(38, cont+20);
         if(cuenta.mostrar(cont)==true){
-            cuadro.setCoor({28,16});
-            cuadro.setalto(16);
-            cuadro.setlargo(42);
-            cuadro.dibujar();
             cont++;
         }
         cout << endl;
         pos++;
     }
+    cuadro.setCoor({28,16});
+    cuadro.setalto(cont+5);
+    cuadro.setlargo(42);
+    cuadro.dibujar();
     if(cont==0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS" << endl;
@@ -143,7 +143,7 @@ int buscarCodigoCuenta(int var, Cuenta obj){
 void buscarCuenta(){
     Cuadro cuadro;
     cuadro.setCoor({23,16});
-    cuadro.setalto(8);
+    cuadro.setalto(10);
     cuadro.setlargo(55);
     cuadro.dibujar();
     Archivo archivo;
@@ -161,7 +161,17 @@ void buscarCuenta(){
         return;
     }
     archivo.leerDeDisco(pos,cuenta);
-    cuenta.mostrar(pos);
+    gotoxy(32, 21);
+    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "MONTO" << endl;
+    cuenta.mostrar(3);
+    /*
+    gotoxy(42,21);
+    cout << cuenta.getID() << " ";
+    gotoxy(44,21);
+    cuenta.getFechaEmision();
+    gotoxy(54,21);
+    cout << cuenta.getMonto();
+    */
     cout << endl;
 }
 
@@ -179,7 +189,7 @@ bool eliminarCuentaCliente(int id){
     return true;
 }
 
-/////////////////////// SE LE AGREGA UN MONTO SEGUN EL TURNO Y SERVICIO QUE LA PERSONA ESCOJA
+/////////////////////// SE LE AGREGA UN MONTO SEGUN EL TURNO Y SERVICIO QUE SE LE HAYA ASIGNADO
 
 void agregarMontoCuenta(Turno turno){
     float pre;

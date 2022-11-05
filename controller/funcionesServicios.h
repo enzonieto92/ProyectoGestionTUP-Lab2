@@ -26,9 +26,9 @@ void agregarRegistroServicio(){
     cuadro.setalto(8);
     cuadro.setlargo(40);
     cuadro.dibujar();
-    int var;
     Archivo archivo;
     Servicio servicio;
+    int var;
     var = archivo.contarRegistro(servicio);
     if(var == -1){
         gotoxy (41, 22);
@@ -55,29 +55,28 @@ void agregarRegistroServicio(){
 
 void mostrarServicio(){
     Cuadro cuadro;
-
     Archivo archivo;
     Servicio servicio;
     int pos = 0;
     int cont = 0;
-    if(archivo.contarRegistro(servicio)==0){
+    if(archivo.contarRegistro(servicio) == 0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTROS GUARDADOS" << endl;
         return;
     }
     while(archivo.leerDeDisco(pos, servicio)){
-        gotoxy(30, 18);
+        gotoxy(30, 19);
         cout << "CODIGO" << "        " << "DESCRIPCION" << "        " << "PRECIO" << endl;
         if(servicio.mostrar(cont)==true){
-            cuadro.setCoor({25,17});
-            cuadro.setlargo(50);
-            cuadro.setalto(30);
-            cuadro.dibujar();
             cont++;
         }
         cout << endl;
         pos++;
     }
+    cuadro.setCoor({25,17});
+    cuadro.setlargo(50);
+    cuadro.setalto(cont+5);
+    cuadro.dibujar();
     if(cont == 0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTROS GUARDADOS" << endl;
@@ -148,13 +147,13 @@ int buscarCodigoServicio(int var, Servicio obj){
 void buscarServicio(){
     Cuadro cuadro;
     cuadro.setCoor({24,16});
-    cuadro.setalto(8);
+    cuadro.setalto(9);
     cuadro.setlargo(52);
     cuadro.dibujar();
     Archivo archivo;
     Servicio servicio;
     int pos,cod;
-    gotoxy(29, 18);
+    gotoxy(30, 18);
     rlutil::showcursor();
     cout << "INGRESE EL NUMERO CODIGO DEL SERVICIO: ";
     cin >> cod;
@@ -166,11 +165,14 @@ void buscarServicio(){
         return;
     }
     archivo.leerDeDisco(pos,servicio);
-    gotoxy(40, 21);
-    cout << servicio.getCodigo() << " ";
+    gotoxy(30, 21);
+    cout << "CODIGO" << "        " << "DESCRIPCION" << "        " << "PRECIO" << endl;
+    servicio.mostrar(2);
+    /*cout << servicio.getCodigo() << " ";
     cout << servicio.getDescripcion() << ": ";
     cout << servicio.getPrecio();
     cout << endl;
+    */
 }
 
 ///////////// DEFINICION DE ELIMINAR SERVICIO

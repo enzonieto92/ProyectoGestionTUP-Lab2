@@ -21,7 +21,7 @@ class Cuenta
         void setEstado(bool);
         /// GETS
         int getID();
-        Fecha getFechaEmision();
+        void getFechaEmision();
         float getMonto();
         bool getEstado();
 };

@@ -45,9 +45,9 @@ bool Personal::mostrar(int var){
         cout << ID << endl;
         gotoxy(38,20+var);
         cout << nombre << endl;
-        gotoxy(51,20+var);
+        gotoxy(50,20+var);
         cout << apellido << endl;
-        gotoxy(65,20+var);
+        gotoxy(64,20+var);
         cout << sueldo << endl;
         return true;
     }

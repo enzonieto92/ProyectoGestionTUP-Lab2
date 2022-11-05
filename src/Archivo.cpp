@@ -1,237 +1,221 @@
 #include "Archivo.h"
 
-Archivo::Archivo(){
- ///obj
-}
-
 /// CLIENTE
 
 bool Archivo::leerDeDisco(int pos, Cliente &obj){
-    pCliente = fopen(CLIENTES, "rb");
-    if(pCliente == NULL){
+    p = fopen(CLIENTES, "rb");
+    if(p == NULL){
         return false;
     }
-    fseek(pCliente, sizeof(Cliente) * pos, 0);
-    bool leyo = fread(&obj, sizeof(Cliente), 1, pCliente);
-    fclose(pCliente);
+    fseek(p, sizeof(Cliente) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Cliente), 1, p);
+    fclose(p);
     return leyo;
 }
 
 bool Archivo::grabarEnDisco(Cliente &obj){
-    pCliente = fopen(CLIENTES, "ab");
-    if(pCliente == NULL){
+    p = fopen(CLIENTES, "ab");
+    if(p == NULL){
         return false;
     }
-    bool escribio = fwrite(&obj, sizeof(Cliente), 1, pCliente);
-    fclose(pCliente);
+    bool escribio = fwrite(&obj, sizeof(Cliente), 1, p);
+    fclose(p);
     return escribio;
 }
 
 bool Archivo::modificarEnDisco(int pos, Cliente &obj){
-    pCliente = fopen(CLIENTES, "rb+");
-    if(pCliente == NULL) return false;
-    fseek(pCliente, sizeof(Cliente) * pos, 0);
-    bool escribio = fwrite(&obj, sizeof(Cliente), 1, pCliente);
-    fclose(pCliente);
+    p = fopen(CLIENTES, "rb+");
+    if(p == NULL) return false;
+    fseek(p, sizeof(Cliente) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Cliente), 1, p);
+    fclose(p);
     return escribio;
 }
 
 int Archivo::contarRegistro(Cliente &obj){
     int cant;
-    pCliente = fopen(CLIENTES, "ab");
-    if(pCliente == NULL){
+    p = fopen(CLIENTES, "ab");
+    if(p == NULL){
         return -1;
     }
-    fseek(pCliente, 0, 2);
-    cant = ftell(pCliente)/sizeof(Cliente);
-    fclose(pCliente);
+    fseek(p, 0, 2);
+    cant = ftell(p)/sizeof(Cliente);
+    fclose(p);
     return cant;
 }
 
 /// TURNO
 
 bool Archivo::leerDeDisco(int pos, Turno &obj){
-    pTurno = fopen(TURNOS, "rb");
-    if(pTurno == NULL){
+    p = fopen(TURNOS, "rb");
+    if(p == NULL){
         return false;
     }
-    fseek(pTurno, sizeof(Turno) * pos, 0);
-    bool leyo = fread(&obj, sizeof(Turno), 1, pTurno);
-    fclose(pTurno);
+    fseek(p, sizeof(Turno) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Turno), 1, p);
+    fclose(p);
     return leyo;
 }
 
 bool Archivo::grabarEnDisco(Turno &obj){
-    pTurno = fopen(TURNOS, "ab");
-    if(pTurno == NULL){
+    p = fopen(TURNOS, "ab");
+    if(p == NULL){
         return false;
     }
-    bool escribio = fwrite(&obj, sizeof(Turno), 1, pTurno);
-    fclose(pTurno);
+    bool escribio = fwrite(&obj, sizeof(Turno), 1, p);
+    fclose(p);
     return escribio;
 }
 
 bool Archivo::modificarEnDisco(int pos, Turno &obj){
-    pTurno = fopen(TURNOS, "rb+");
-    if(pTurno == NULL) return false;
-    fseek(pTurno, sizeof(Turno) * pos, 0);
-    bool escribio = fwrite(&obj, sizeof(Turno), 1, pTurno);
-    fclose(pTurno);
+    p = fopen(TURNOS, "rb+");
+    if(p == NULL) return false;
+    fseek(p, sizeof(Turno) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Turno), 1, p);
+    fclose(p);
     return escribio;
 }
 
 int Archivo::contarRegistro(Turno &obj){
     int cant;
-    pTurno = fopen(TURNOS, "ab");
-    if(pTurno == NULL){
+    p = fopen(TURNOS, "ab");
+    if(p == NULL){
         return -1;
     }
-    fseek(pTurno, 0, 2);
-    cant = ftell(pTurno)/sizeof(Turno);
-    fclose(pTurno);
+    fseek(p, 0, 2);
+    cant = ftell(p)/sizeof(Turno);
+    fclose(p);
     return cant;
 }
 
-/// ARCHIVOS PERSONA
+/// ARCHIVOS PERSONAL
 
 bool Archivo::leerDeDisco(int pos, Personal &obj){
-    FILE *pPersonal;
-    pPersonal = fopen(PERSONAL, "rb");
-    if(pPersonal == NULL){
+    p = fopen(PERSONAL, "rb");
+    if(p == NULL){
         return false;
     }
-    fseek(pPersonal, sizeof(Personal) * pos, 0);
-    bool leyo = fread(&obj, sizeof(Personal), 1, pPersonal);
-    fclose(pPersonal);
+    fseek(p, sizeof(Personal) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Personal), 1, p);
+    fclose(p);
     return leyo;
 }
 
 bool Archivo::grabarEnDisco(Personal obj){
-    FILE *pPersonal;
-    pPersonal = fopen(PERSONAL, "ab");
-    if(pPersonal == NULL){
+    p = fopen(PERSONAL, "ab");
+    if(p == NULL){
         return false;
     }
-    bool escribio = fwrite(&obj, sizeof(Personal), 1, pPersonal);
-    fclose(pPersonal);
+    bool escribio = fwrite(&obj, sizeof(Personal), 1, p);
+    fclose(p);
     return escribio;
 }
 
 bool Archivo::modificarEnDisco(int pos, Personal obj){
-    FILE *pPersonal;
-    pPersonal = fopen(PERSONAL, "rb+");
-    if(pPersonal == NULL) return false;
-    fseek(pPersonal, sizeof(Personal) * pos, 0);
-    bool escribio = fwrite(&obj, sizeof(Personal), 1, pPersonal);
-    fclose(pPersonal);
+    p = fopen(PERSONAL, "rb+");
+    if(p == NULL) return false;
+    fseek(p, sizeof(Personal) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Personal), 1, p);
+    fclose(p);
     return escribio;
 }
 
-int Archivo::contarRegistro(Personal &obj){
-    FILE *pPersonal;
+int Archivo::contarRegistro(Personal obj){
     int cant;
-    pPersonal = fopen(PERSONAL, "ab");
-    if(pPersonal == NULL){
+    p = fopen(PERSONAL, "ab");
+    if(p == NULL){
         return -1;
     }
-    fseek(pPersonal, 0, 2);
-    cant = ftell(pPersonal)/sizeof(Personal);
-    fclose(pPersonal);
+    fseek(p, 0, 2);
+    cant = ftell(p)/sizeof(Personal);
+    fclose(p);
     return cant;
 }
 
 /// ARCHIVOS SERVICIOS
 
 bool Archivo::leerDeDisco(int pos, Servicio &obj){
-    FILE *pServicio;
-    pServicio = fopen(SERVICIOS, "rb");
-    if(pServicio == NULL){
+    p = fopen(SERVICIOS, "rb");
+    if(p == NULL){
         return false;
     }
-    fseek(pServicio, sizeof(Servicio) * pos, 0);
-    bool leyo = fread(&obj, sizeof(Servicio), 1, pServicio);
-    fclose(pServicio);
+    fseek(p, sizeof(Servicio) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Servicio), 1, p);
+    fclose(p);
     return leyo;
 }
 
 bool Archivo::grabarEnDisco(Servicio obj){
-    FILE *pServicio;
-    pServicio = fopen(SERVICIOS, "ab");
-    if(pServicio == NULL){
+    p = fopen(SERVICIOS, "ab");
+    if(p == NULL){
         return false;
     }
-    bool escribio = fwrite(&obj, sizeof(Servicio), 1, pServicio);
-    fclose(pServicio);
+    bool escribio = fwrite(&obj, sizeof(Servicio), 1, p);
+    fclose(p);
     return escribio;
 }
 
 bool Archivo::modificarEnDisco(int pos, Servicio obj){
-    FILE *pServicio;
-    pServicio = fopen(SERVICIOS, "rb+");
-    if(pServicio == NULL) return false;
-    fseek(pServicio, sizeof(Servicio) * pos, 0);
-    bool escribio = fwrite(&obj, sizeof(Servicio), 1, pServicio);
-    fclose(pServicio);
+    p = fopen(SERVICIOS, "rb+");
+    if(p == NULL) return false;
+    fseek(p, sizeof(Servicio) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Servicio), 1, p);
+    fclose(p);
     return escribio;
 }
 
-int Archivo::contarRegistro(Servicio &obj){
-    FILE *pServicio;
+int Archivo::contarRegistro(Servicio obj){
     int cant;
-    pServicio = fopen(SERVICIOS, "ab");
-    if(pServicio == NULL){
+    p = fopen(SERVICIOS, "ab");
+    if(p == NULL){
         return -1;
     }
-    fseek(pServicio, 0, 2);
-    cant = ftell(pServicio)/sizeof(Servicio);
-    fclose(pServicio);
+    fseek(p, 0, 2);
+    cant = ftell(p)/sizeof(Servicio);
+    fclose(p);
     return cant;
 }
 
 /// ARCHIVOS CUENTAS
 
 bool Archivo::leerDeDisco(int pos, Cuenta &obj){
-    FILE *pCuenta;
-    pCuenta = fopen(CUENTAS, "rb");
-    if(pCuenta == NULL){
+    p = fopen(CUENTAS, "rb");
+    if(p == NULL){
         return false;
     }
-    fseek(pCuenta, sizeof(Cuenta) * pos, 0);
-    bool leyo = fread(&obj, sizeof(Cuenta), 1, pCuenta);
-    fclose(pCuenta);
+    fseek(p, sizeof(Cuenta) * pos, 0);
+    bool leyo = fread(&obj, sizeof(Cuenta), 1, p);
+    fclose(p);
     return leyo;
 }
 
 bool Archivo::grabarEnDisco(Cuenta obj){
-    FILE *pCuenta;
-    pCuenta = fopen(CUENTAS, "ab");
-    if(pCuenta == NULL){
+    p = fopen(CUENTAS, "ab");
+    if(p == NULL){
         return false;
     }
-    bool escribio = fwrite(&obj, sizeof(Cuenta), 1, pCuenta);
-    fclose(pCuenta);
+    bool escribio = fwrite(&obj, sizeof(Cuenta), 1, p);
+    fclose(p);
     return escribio;
 }
 
 bool Archivo::modificarEnDisco(int pos, Cuenta obj){
-    FILE *pCuenta;
-    pCuenta = fopen(CUENTAS, "rb+");
-    if(pCuenta == NULL) return false;
-    fseek(pCuenta, sizeof(Cuenta) * pos, 0);
-    bool escribio = fwrite(&obj, sizeof(Cuenta), 1, pCuenta);
-    fclose(pCuenta);
+    p = fopen(CUENTAS, "rb+");
+    if(p == NULL) return false;
+    fseek(p, sizeof(Cuenta) * pos, 0);
+    bool escribio = fwrite(&obj, sizeof(Cuenta), 1, p);
+    fclose(p);
     return escribio;
 }
 
-int Archivo::contarRegistro(Cuenta &obj){
-    FILE *pCuenta;
+int Archivo::contarRegistro(Cuenta obj){
     int cant;
-    pCuenta = fopen(CUENTAS, "ab");
-    if(pCuenta == NULL){
+    p = fopen(CUENTAS, "ab");
+    if(p == NULL){
         return -1;
     }
-    fseek(pCuenta, 0, 2);
-    cant = ftell(pCuenta)/sizeof(Cuenta);
-    fclose(pCuenta);
+    fseek(p, 0, 2);
+    cant = ftell(p)/sizeof(Cuenta);
+    fclose(p);
     return cant;
 }
