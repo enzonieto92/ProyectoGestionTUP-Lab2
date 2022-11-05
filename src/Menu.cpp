@@ -137,6 +137,7 @@ void Menu::Turnos(){
 void Menu::Clientes(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
@@ -216,6 +217,7 @@ void Menu::Clientes(){
 void Menu::Personal(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
@@ -287,6 +289,7 @@ void Menu::Personal(){
 void Menu::Servicio(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
@@ -357,6 +360,7 @@ void Menu::Servicio(){
 void Menu::Cuentas(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
         setCuadro({37, 10}, 25, 4, opc);
         _cuadro.dibujar();

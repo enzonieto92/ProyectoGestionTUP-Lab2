@@ -59,7 +59,7 @@ void mostrarPersonal(){
     Personal personal;
     int pos = 0;
     int cont = 0;
-    if(archivo.contarRegistro(personal)==0){
+    if(archivo.contarRegistro(personal) == 0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS" << endl;
         return;
@@ -68,15 +68,15 @@ void mostrarPersonal(){
         gotoxy(30, 18);
         cout << "ID" << "      " << "NOMBRE" << "      " << "APELLIDO" << "      " << "SUELDO" << endl;
         if(personal.mostrar(cont)==true){
-            cuadro.setCoor({26,16});
-            cuadro.setalto(12);
-            cuadro.setlargo(48);
-            cuadro.dibujar();
             cont++;
         }
         cout << endl;
         pos++;
     }
+    cuadro.setCoor({26,16});
+    cuadro.setalto(cont+5);
+    cuadro.setlargo(48);
+    cuadro.dibujar();
     if(cont == 0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS" << endl;
@@ -111,7 +111,12 @@ void modificarPersonal(){
     cout << "INGRESAR NUEVO SUELDO: " << endl;
     gotoxy(58, 22);
     cin >> var;
-    personal.setSueldo(var);
+    if(personal.setSueldo(var)==false){
+        gotoxy (34, 24);
+        rlutil::hidecursor();
+        cout << "EL SUELDO NO PUEDE SER NEGATIVO" << endl;
+        return;
+    }
     if(archivo.modificarEnDisco(pos,personal)==false){
         gotoxy (34, 24);
         rlutil::hidecursor();
@@ -142,7 +147,7 @@ int buscarIdPersonal(int var, Personal obj){
 void buscarPersonal(){
     Cuadro cuadro;
     cuadro.setCoor({23,16});
-    cuadro.setalto(8);
+    cuadro.setalto(10);
     cuadro.setlargo(55);
     cuadro.dibujar();
     Archivo archivo;
@@ -160,12 +165,16 @@ void buscarPersonal(){
         return;
     }
     archivo.leerDeDisco(pos,personal);
-    gotoxy(42, 21);
+    gotoxy(30, 21);
+    cout << "ID" << "      " << "NOMBRE" << "      " << "APELLIDO" << "      " << "SUELDO" << endl;
+    personal.mostrar(3);
+    /*
     cout << personal.getIDPersonal() << " ";
     cout << personal.getNombre() << " ";
     cout << personal.getApellido() << ": ";
     cout << personal.getSueldo();
     cout << endl;
+    */
 }
 
 ///////////// DEFINICION DE ELIMINAR CONTACTO
@@ -179,7 +188,7 @@ void eliminarPersonal(){
     Archivo archivo;
     Personal personal;
     int id, pos;
-    gotoxy (32, 18);
+    gotoxy (33, 18);
     rlutil::showcursor();
     cout << "INGRESAR NUMERO DE ID A ELIMINAR: ";
     cin >> id;

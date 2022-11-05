@@ -17,7 +17,7 @@ bool Cuenta::mostrar(int var){
         cout << ID;
         gotoxy(43, 20+var);
         fechaEmision.MostrarFecha();
-        gotoxy(63,20+var);
+        gotoxy(62,20+var);
         cout << monto;
         return true;
     }
@@ -38,6 +38,9 @@ void Cuenta::setEstado(bool ban){estado = ban;}
 /// GETS
 
 int Cuenta::getID(){return ID;}
-Fecha Cuenta::getFechaEmision(){return fechaEmision;}
+void Cuenta::getFechaEmision(){
+    Fecha fecha;
+    fechaEmision.MostrarFecha();
+}
 float Cuenta::getMonto(){return monto;}
 bool Cuenta::getEstado(){return estado;}
