@@ -5,9 +5,12 @@
 class Origen
 {
     public:
-        int x, y;
         Origen();
         Origen (int, int);
+        int getX();
+        int getY();
+    private:
+        int x, y;
 };
 
 #endif // ORIGEN_H

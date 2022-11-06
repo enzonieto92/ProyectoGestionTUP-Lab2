@@ -33,7 +33,7 @@ cout << char(196);
 void Cuadro::linea_ver (){
 for (int z = 0; z < 2; z++){
 for (int i = 0; i < (alto-1); i++){
-    gotoxy (coor.x+(z*largo), 1+coor.y+i);
+    gotoxy (coor.getX()+(z*largo), 1+coor.getY()+i);
     cout <<char(179);
 
 }
@@ -41,21 +41,21 @@ for (int i = 0; i < (alto-1); i++){
 }
 void Cuadro::linea_punteada_ver (int _coor){
 for (int i = 0; i < (alto-1); i+=2){
-    gotoxy (coor.x+_coor, 1+coor.y+i);
+    gotoxy (coor.getX()+_coor, 1+coor.getY()+i);
     cout <<char(179);
 
 }
 }
 void Cuadro::linea_ver(int _coor){
 for (int i = 0; i < (alto-1); i++){
-    gotoxy (coor.x+_coor, 1+coor.y+i);
+    gotoxy (coor.getX()+_coor, 1+coor.getY()+i);
     cout <<char(179);
 
 }
 
 }
 void Cuadro::esquina_inf(){
-gotoxy(coor.x, coor.y+alto);
+gotoxy(coor.getX(), coor.getY()+alto);
 cout <<char(200);
 linea_hor();
 cout <<char(188);
@@ -73,22 +73,22 @@ cout <<char(185);
 void Cuadro::dibujar(){
 
 
-gotoxy(coor.x, coor.y);
+gotoxy(coor.getX(), coor.getY());
 esquina_sup();
 
-gotoxy (coor.x, coor.y+alto+1);
+gotoxy (coor.getX(), coor.getY()+alto+1);
 
 linea_ver();
 esquina_inf();
 
 }
 void Cuadro::dibujarLista(){
-gotoxy(coor.x, coor.y);
+gotoxy(coor.getX(), coor.getY());
 esquina_sup();
-gotoxy (coor.x, coor.y+alto+1);
+gotoxy (coor.getX(), coor.getY()+alto+1);
 linea_ver();
 for (int i = 2; i < alto; i+=2){
-    gotoxy(coor.x+1, coor.y+i);
+    gotoxy(coor.getX()+1, coor.getY()+i);
     linea_hor();
 }
 
