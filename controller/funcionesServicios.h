@@ -59,28 +59,24 @@ void mostrarServicio(){
     Servicio servicio;
     int pos = 0;
     int cont = 0;
-    if(archivo.contarRegistro(servicio) == 0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTROS GUARDADOS" << endl;
-        return;
-    }
     while(archivo.leerDeDisco(pos, servicio)){
-        gotoxy(30, 19);
-        cout << "CODIGO" << "        " << "DESCRIPCION" << "        " << "PRECIO" << endl;
         if(servicio.mostrar(cont)==true){
             cont++;
         }
         cout << endl;
         pos++;
     }
+    if(cont == 0){
+        gotoxy(38, 20);
+        cout << "NO HAY REGISTROS GUARDADOS" << endl;
+        return;
+    }
+    gotoxy(30, 19);
+    cout << "CODIGO" << "        " << "DESCRIPCION" << "        " << "PRECIO" << endl;
     cuadro.setCoor({25,17});
     cuadro.setlargo(50);
     cuadro.setalto(cont+5);
     cuadro.dibujar();
-    if(cont == 0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTROS GUARDADOS" << endl;
-    }
 }
 
 ///////////// DEFINICION DE MODIFICAR SERVICIO

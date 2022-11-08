@@ -44,13 +44,6 @@ void mostrarCuenta(){
     Cuenta cuenta;
     int pos = 0;
     int cont = 0;
-    if(archivo.contarRegistro(cuenta)==0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
-        return;
-    }
-    gotoxy(32, 18);
-    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "MONTO" << endl;
     while(archivo.leerDeDisco(pos, cuenta)){
         gotoxy(38, cont+20);
         if(cuenta.mostrar(cont)==true){
@@ -59,14 +52,17 @@ void mostrarCuenta(){
         cout << endl;
         pos++;
     }
+    if(cont==0){
+        gotoxy(38, 20);
+        cout << "NO HAY REGISTRO GUARDADOS" << endl;
+        return;
+    }
+    gotoxy(32, 18);
+    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "MONTO" << endl;
     cuadro.setCoor({28,16});
     cuadro.setalto(cont+5);
     cuadro.setlargo(42);
     cuadro.dibujar();
-    if(cont==0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
-    }
 }
 
 ///////////// DEFINICION DE MODIFICAR CUENTA

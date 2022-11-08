@@ -59,28 +59,24 @@ void mostrarPersonal(){
     Personal personal;
     int pos = 0;
     int cont = 0;
-    if(archivo.contarRegistro(personal) == 0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
-        return;
-    }
     while(archivo.leerDeDisco(pos, personal)){
-        gotoxy(30, 18);
-        cout << "ID" << "      " << "NOMBRE" << "      " << "APELLIDO" << "      " << "SUELDO" << endl;
         if(personal.mostrar(cont)==true){
             cont++;
         }
         cout << endl;
         pos++;
     }
+    if(cont == 0){
+        gotoxy(38, 20);
+        cout << "NO HAY REGISTRO GUARDADOS" << endl;
+        return;
+    }
+    gotoxy(30, 18);
+    cout << "ID" << "      " << "NOMBRE" << "      " << "APELLIDO" << "      " << "SUELDO" << endl;
     cuadro.setCoor({26,16});
     cuadro.setalto(cont+5);
     cuadro.setlargo(48);
     cuadro.dibujar();
-    if(cont == 0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
-    }
 }
 
 ///////////// DEFINICION DE MODIFICAR CONTACTO
