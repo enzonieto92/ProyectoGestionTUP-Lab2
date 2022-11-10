@@ -1,7 +1,7 @@
 #ifndef ORIGEN_H
 #define ORIGEN_H
 
-
+//Clase Origen
 class Origen
 {
     private:
