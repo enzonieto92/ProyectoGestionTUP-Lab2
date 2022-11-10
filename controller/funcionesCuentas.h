@@ -169,11 +169,8 @@ void agregarMontoCuenta(Turno turno){
     Archivo archivo;
     Cuenta cuenta;
     Servicio servicio;
-    archivo.leerDeDisco(turno.getTipoServicio()-1,servicio);
-    archivo.leerDeDisco(turno.getIdCuenta()-1,cuenta);
     pre = cuenta.getMonto() + servicio.getPrecio();
     cuenta.setMonto(pre);
-    archivo.modificarEnDisco(turno.getIdCuenta()-1,cuenta);
 }
 
 #endif // FUNCIONESCUENTAS_H_INCLUDED

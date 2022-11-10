@@ -13,6 +13,7 @@ class Cuadro
     public:
         Cuadro();
         Cuadro(Origen, int, int, int&);
+        Cuadro(Origen, int, int);
         void setalto(int);
         void setlargo(int);
         void setCoor(Origen);

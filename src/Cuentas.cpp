@@ -15,8 +15,6 @@ bool Cuenta::mostrar(){
     if(estado == true){
         gotoxy(34, 20);
         cout << "FECHA DE EMISION: " << endl;
-        gotoxy(52, 20);
-        fechaEmision.Mostrar();
         gotoxy(44,21);
         cout << "NUMERO DE ID: " << ID << endl;
         gotoxy(46,22);

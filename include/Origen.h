@@ -4,11 +4,14 @@
 
 class Origen
 {
-    public:
+    private:
         int x, y;
+
+    public:
         Origen();
         Origen (int, int);
-
+        int getX(){return x;}
+        int getY(){return y;}
 };
 
 #endif // ORIGEN_H

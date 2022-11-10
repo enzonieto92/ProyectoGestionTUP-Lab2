@@ -1,34 +1,36 @@
 #ifndef TURNO_H
 #define TURNO_H
 #include "Fecha.h"
-
+#include "Cliente.h"
+#include "Servicio.h"
 class Turno
 {
     private:
-        int idTurno;
         Fecha fechaServicio;
-        int idCuenta;
-        int tipoServicio;
+        Cliente cliente;
+        Servicio servicio;
         bool estado;
     public:
         // CONSTRUCOR
         Turno();
-        Turno(int, int, int, bool);
-        // METODOS
-        bool Cargar(int, Fecha, int, int);
         void Mostrar();
         // SETS
         void setIdTurno(int);
-        void setFechaServicio(Fecha);
+        void setFecha(Fecha&);
         void setIdCuenta(int);
         void setTipoServicio(int);
         void setEstado(bool);
+        void setEstadoCliente(bool);
+        void setCliente(Cliente);
+        void setServicio(Servicio);
         // GETS
         int getIdTurno();
-        Fecha getFechaServicio();
         int getIdCuenta();
         int getTipoServicio();
+        Fecha getFechaServicio();
         bool getEstado();
+        Cliente getCliente();
+        Servicio getServicio();
         // DESTRUCTOR
         ~Turno();
 };

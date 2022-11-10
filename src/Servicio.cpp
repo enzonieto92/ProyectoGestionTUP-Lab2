@@ -6,39 +6,45 @@
 using namespace std;
 
 Servicio::Servicio(){
-    codigo = 0;
     precio = 1;
-    strcpy(descripcion, "SIN DATO");
-    estado = false;
+    strcpy(descripcion, "");
 }
 
-bool Servicio::cargar(int var){
-    int pre;
-    codigo = var;
-    gotoxy (38, 18);
+void Servicio::limpiarEspacios(int x, int y){
+for (int i = x; i < 62; i++){
+    for (int j = y; j < 20; j++){
+        gotoxy(i, j);
+        cout <<" ";
+    }
+}
+
+}
+
+void Servicio::cargar(int x, int y){
+
+    limpiarEspacios(x, y);
+    int _precio;
+    gotoxy (x, y);
     cout << "DESCRIPCION: ";
-    cargarCadena(descripcion,29);
-    gotoxy (38, 20);
+    gotoxy (x+5, y+1);
     cout << "PRECIO: ";
-    cin >> pre;
-    if(setPrecio(pre)==false){
-        return false;
-    }
-    estado = true;
-    return true;
-}
+    gotoxy(x+13,y);
+    rlutil::showcursor();
+    cargarCadena(descripcion, 29);
+    gotoxy(x+13,y+1);
+    cin >> _precio;
 
-bool Servicio::mostrar(){
-    if(estado==true){
-        cout << codigo << " " << descripcion << ": " << precio << endl;
-        return true;
+    precio = double(_precio);
+    fflush(stdin);
+    rlutil::hidecursor();
     }
-    return false;
+bool Servicio::mostrar(){
+        cout << descripcion << ": " << precio;
+        return true;
 }
 
 /// SETS
 
-void Servicio::setCodigo(int var){codigo = var;}
 bool Servicio::setPrecio(float var){
     if(var>0){
         precio = var;
@@ -47,11 +53,24 @@ bool Servicio::setPrecio(float var){
     return false;
 }
 void Servicio::setDescripcion(const char *V){strcpy(descripcion,V);}
-void Servicio::setEstado(bool ban){estado = ban;}
-
+void Servicio::setServicio(Servicio aux){
+*this = aux;
+}
 /// GETS
 
-int Servicio::getCodigo(){return codigo;}
 float Servicio::getPrecio(){return precio;}
 const char *Servicio::getDescripcion(){return descripcion;}
-bool Servicio::getEstado(){return estado;}
+
+void Servicio::operator = (Servicio aux){
+setDescripcion(aux.getDescripcion());
+setPrecio(aux.getPrecio());
+}
+bool Servicio::operator == (Servicio aux){
+if (strcmp(descripcion, aux.getDescripcion()) == 0
+&& precio == aux.getPrecio()){
+return true;
+}
+else{
+    return false;
+}
+}

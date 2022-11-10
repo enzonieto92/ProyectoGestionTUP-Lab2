@@ -4,26 +4,26 @@
 class Servicio
 {
     private:
-        int codigo;
-        float precio;
-        char descripcion[30];
-        bool estado;
+        int precio;
+        char descripcion[30]{};
     public:
         /// CONSTRUCTOR
         Servicio();
         /// METODOS
-        bool cargar(int);
+        void limpiarEspacios(int, int);
+        void cargar(int, int);
         bool mostrar();
         /// SETS
-        void setCodigo(int);
         bool setPrecio(float);
         void setDescripcion(const char *);
-        void setEstado(bool);
+        void setServicio(Servicio);
         /// GETS
         int getCodigo();
         float getPrecio();
         const char *getDescripcion();
         bool getEstado();
+        void operator =(Servicio);
+        bool operator ==(Servicio);
 };
 
 #endif // SERVICIO_H
