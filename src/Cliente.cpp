@@ -5,51 +5,66 @@ using namespace std;
 Cliente::Cliente()
 {
     DNI = 0;
-    strcpy(nombre, "SIN DATO");
-    strcpy(apellido, "SIN DATO");
-    strcpy(telefono, "SIN DATO");
-    strcpy(email, "SIN DATO");
+    strcpy(nombre, " ");
+    strcpy(apellido, " ");
+    strcpy(telefono, " ");
+    strcpy(email, " ");
     idCuenta = 0;
     estado = false;
 }
 
-/// CARGAR
-bool Cliente::Cargar(int nD, int idC){
-    if(!setDNI(nD)){
-        rlutil::hidecursor();
-        gotoxy(42, 20);
-        cout << "EL DNI DEBE SER UN VALOR POSITIVO" << endl;
-        return false;
+void Cliente::limpiarEspacios(){
+for (int i = 52; i < 62; i++){
+    for (int j = 24; j < 27; j++){
+        gotoxy(i, j);
+        cout <<" ";
     }
-    gotoxy(42, 20);
+}
+    gotoxy(40, 28);
+    cout <<"                           ";
+}
+void Cliente::Cargar(){
+
+
+
+    limpiarEspacios();
+    gotoxy(44, 24);
     cout << "NOMBRE: ";
-    gotoxy(42, 21);
+    gotoxy(42, 25);
     cout << "APELLIDO: ";
-    gotoxy(42, 22);
+    gotoxy(42, 26);
     cout << "TELEFONO: ";
-    gotoxy(42, 23);
-    cout << "EMAIL: ";
-    gotoxy(50, 20);
+    gotoxy(52, 24);
     rlutil::showcursor();
     cargarCadena(nombre, 29);
-    setNombre(nombre);
-    gotoxy(52, 21);
+       if (validarCadena(nombre)){
+        setNombre(nombre);
+       }
+       else {
+        gotoxy(40, 28);
+        cout <<"Ingrese un nombre valido!";
+        getch();
+        Cargar();
+       }
+
+    gotoxy(52, 25);
     cargarCadena(apellido, 29);
-    setApellido(apellido);
-    gotoxy(52, 22);
+        if (validarCadena(apellido)){
+        setApellido(apellido);
+        }
+       else {
+        gotoxy(40, 28);
+        cout <<"Ingrese un apellido valido!";
+        getch();
+        Cargar();
+       }
+    gotoxy(52, 26);
     cargarCadena(telefono, 39);
     setTelefono(telefono);
-    gotoxy(50, 23);
-    cargarCadena(email, 39);
-    setEmail(email);
     rlutil::hidecursor();
-    setIdCuenta(idC);
 
-    estado = 1;
-    setEstado(estado);
-    return true;
+
 }
-
 void Cliente::Mostrar()
 {
     if(estado){
@@ -92,6 +107,27 @@ const char *Cliente::getEmail(){return email;}
 int Cliente::getIdCuenta(){return idCuenta;}
 bool Cliente::getEstado(){return estado;}
 
+void Cliente::operator = (Cliente aux){
+setApellido(aux.getApellido());
+setNombre(aux.getNombre());
+setTelefono(aux.getTelefono());
+setDNI(aux.getDNI());
+setEmail(aux.getEmail());
+setEstado(aux.getEstado());
+}
+bool Cliente::operator ==(Cliente aux){
+    if(apellido == aux.getApellido()
+       && nombre == aux.getNombre()
+       && telefono == aux.getTelefono()
+       && email == aux.getEmail()
+       && DNI == aux.getDNI()
+       && idCuenta == aux.getIdCuenta()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 /// DESTRUCTOR
 Cliente::~Cliente()
 {

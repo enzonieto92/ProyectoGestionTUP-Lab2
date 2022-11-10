@@ -47,7 +47,21 @@ void cargarCadena(char *pal, int tam){  /// CARGA CADENAS DE CARACTERES
   for(i = 0; i < tam; i++){
       pal[i] = cin.get();
 	  if(pal[i] == '\n') break;
+        if (pal[i] == 'ñ') pal[i] = char(164);
 	  }
   pal[i] = '\0';
   fflush(stdin);
+}
+bool validarCadena(string x){
+    int i;
+    char c;
+    for(i=0;i<x.size();i++){
+        c=x[i];
+        if(isalpha(c)==0){
+            if(isspace(c)==0){
+                return false;
+            }
+        }
+    }
+    return true;
 }

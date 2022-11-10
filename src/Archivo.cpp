@@ -163,6 +163,14 @@ bool Archivo::modificarEnDisco(int pos, Servicio obj){
     fclose(p);
     return escribio;
 }
+bool Archivo::modificarEnDisco(Servicio *Vec, int tam){
+    FILE *pServicio;
+    pServicio = fopen(SERVICIOS, "wb");
+    if(pServicio == NULL) return false;
+    bool escribio = fwrite(Vec, sizeof (Servicio), tam, pServicio);
+    fclose(pServicio);
+    return escribio;
+}
 
 int Archivo::contarRegistro(Servicio obj){
     int cant;

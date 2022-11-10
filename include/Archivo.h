@@ -35,7 +35,8 @@ class Archivo
         bool leerDeDisco(int, Servicio &);
         bool grabarEnDisco(Servicio);
         bool modificarEnDisco(int, Servicio);
-        int contarRegistro(Servicio);
+        bool modificarEnDisco(Servicio *Vec, int tam);
+        int contarRegistro(Servicio &);
         /// ARCHIVOS CUENTA
         bool leerDeDisco(int, Cuenta &);
         bool grabarEnDisco(Cuenta);

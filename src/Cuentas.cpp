@@ -13,12 +13,12 @@ Cuenta::Cuenta(){
 
 bool Cuenta::mostrar(int var){
     if(estado == true){
-        gotoxy(32, 20+var);
-        cout << ID;
-        gotoxy(43, 20+var);
-        fechaEmision.MostrarFecha();
-        gotoxy(62,20+var);
-        cout << monto;
+        gotoxy(34, 20);
+        cout << "FECHA DE EMISION: " << endl;
+        gotoxy(44,21);
+        cout << "NUMERO DE ID: " << ID << endl;
+        gotoxy(46,22);
+        cout << "MONTO: " << monto << endl;
         return true;
     }
     return false;

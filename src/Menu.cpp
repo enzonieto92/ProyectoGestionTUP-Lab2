@@ -61,17 +61,18 @@ int Menu::principal(){
 }
 
 void Menu::Turnos(){
+    Fecha Lista;
     rlutil::hidecursor();
     system("cls");
     while (opc != 0){
-        setLista({20, 16}, 60, 40);
-        setCuadro({37, 10}, 25, 4, opc);
+        setLista({19, 16}, 60, 40);
+        setCuadro({38, 10}, 24, 4, opc);
         _lista.dibujarLista();
         _cuadro.dibujar();
         _cuadro.mostrar_texto2();
         _cuadro.Resaltar2();
-        bajaFisicaTurnoAuto();
-        mostrarTunoDelDia();
+        Lista.Mostrar(47, 15);
+        TurnosDelDia(Lista);
         switch (rlutil::getkey()){
             case 14:
                     if (opc < 3){
@@ -112,15 +113,15 @@ void Menu::Turnos(){
                 switch (opc){
                         ///AGREGAR///
                     case 1:
-                            agregarRegistroTurno();
+                        agregarRegistroTurno();
                         break;
                         ///MODIFICAR///
                     case 2:
-                            modificarFechaServicioTurno();
+
                         break;
                         ///MOSTRAR///
                     case 3:
-                            mostrarTurnoPorId();
+                        cambiarFecha(&Lista);
                         break;
                         ///VOLVER///
                     case 4:
@@ -128,7 +129,6 @@ void Menu::Turnos(){
                             return;
                         break;
                 }
-            getch();
             system("cls");
         }
     }
@@ -137,12 +137,13 @@ void Menu::Turnos(){
 void Menu::Clientes(){
     rlutil::hidecursor();
     system("cls");
-    opc = 1;
+    CargarClientesTurnos();
     while (opc != 0){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto3();
         _cuadro.Resaltar3();
+        mostrarClientes();
         switch (rlutil::getkey()){
             case 14:
                     if (opc < 4){
@@ -193,7 +194,6 @@ void Menu::Clientes(){
                         break;
                         ///MOSTRAR///
                     case 3:
-                            mostrarClientes();
                         break;
                         ///ELIMINAR///
                     case 4:
@@ -335,7 +335,6 @@ void Menu::Servicio(){
                         agregarRegistroServicio();
                     break;
                     case 2:
-                        modificarServicio();
                     break;
                     case 3:
                         mostrarServicio();
@@ -344,14 +343,12 @@ void Menu::Servicio(){
                         eliminarServicio();
                     break;
                     case 5:
-                        buscarServicio();
                     break;
                     case 6:
                         opc = 1;
                         return;
                     break;
                     }
-            getch();
             system("cls");
         }
     }

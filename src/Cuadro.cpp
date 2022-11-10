@@ -11,6 +11,11 @@ Cuadro::Cuadro(Origen _coor, int _largo, int _alto, int &_opc): _txt(_coor){
     opc = _opc;
 }
 
+Cuadro::Cuadro(Origen _coor, int _largo, int _alto): _txt(_coor){
+    coor = _coor;
+    largo = _largo;
+    alto = _alto;
+}
 void Cuadro::setCoor(Origen _coor){
 coor = _coor;
 
@@ -21,8 +26,17 @@ largo = _largo;
 void Cuadro::setalto(int _alto){
 alto = _alto;
 }
-
-
+void Cuadro::setCuadro(Origen _coor, int _largo, int _alto){
+coor = _coor;
+largo = _largo;
+alto = _alto;
+}
+int Cuadro::getLargo(){
+return largo;
+}
+int Cuadro::getAlto(){
+return alto;
+}
 void Cuadro::linea_hor (){
 for (int i = 0; i< largo-1; i++){
 
@@ -69,6 +83,16 @@ void Cuadro::div (){
 cout <<char(204);
 linea_hor();
 cout <<char(185);
+}
+
+void Cuadro::limpiar(){
+int i, j;
+    for( i = coor.getX(); i <= largo+coor.getX(); i++){
+        for(j = coor.getY(); j <= alto+coor.getY(); j++){
+            gotoxy(i, j);
+            cout << " ";
+        }
+    }
 }
 void Cuadro::dibujar(){
 
