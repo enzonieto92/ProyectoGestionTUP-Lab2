@@ -19,6 +19,7 @@ class Turno
         void setFecha(Fecha&);
         void setIdCuenta(int);
         void setTipoServicio(int);
+        void setIdPersonal(int);
         void setEstado(bool);
         void setEstadoCliente(bool);
         void setCliente(Cliente);

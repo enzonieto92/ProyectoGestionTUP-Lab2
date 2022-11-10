@@ -11,13 +11,11 @@ class Archivo
     private:
         const char *CLIENTES = "Clientes.dat";
         const char *TURNOS = "Turnos.dat";
-        const char *PERSONAL = "Contactos.dat";
+        const char *PERSONAL = "Personal.dat";
         const char *SERVICIOS = "Servicios.dat";
         const char *CUENTAS = "Cuentas.dat";
-        FILE *pCliente;
-        FILE *pTurno;
+        FILE *p;
     public:
-        Archivo();
         /// ARCHIVOS CLIENTE
         bool leerDeDisco(int, Cliente &);
         bool grabarEnDisco(Cliente &);
@@ -32,7 +30,7 @@ class Archivo
         bool leerDeDisco(int, Personal &);
         bool grabarEnDisco(Personal);
         bool modificarEnDisco(int, Personal);
-        int contarRegistro(Personal &);
+        int contarRegistro(Personal);
         /// ARCHIVOS SERVICO
         bool leerDeDisco(int, Servicio &);
         bool grabarEnDisco(Servicio);
@@ -43,6 +41,6 @@ class Archivo
         bool leerDeDisco(int, Cuenta &);
         bool grabarEnDisco(Cuenta);
         bool modificarEnDisco(int,Cuenta);
-        int contarRegistro(Cuenta &);
+        int contarRegistro(Cuenta);
 };
 #endif // ARCHIVO_H

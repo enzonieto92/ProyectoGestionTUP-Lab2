@@ -217,6 +217,7 @@ void Menu::Clientes(){
 void Menu::Personal(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
@@ -288,6 +289,7 @@ void Menu::Personal(){
 void Menu::Servicio(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
         setCuadro({30, 10}, 40, 4, opc);
         _cuadro.dibujar();
@@ -355,63 +357,59 @@ void Menu::Servicio(){
 void Menu::Cuentas(){
     rlutil::hidecursor();
     system("cls");
+    opc = 1;
     while (opc != 0){
-        setCuadro({30, 10}, 40, 4, opc);
+        setCuadro({37, 10}, 25, 4, opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto6();
         _cuadro.Resaltar6();
-        _cuadro.Resaltar6();
         switch (rlutil::getkey()){
             case 14:
-                if (opc < 4){
-                    opc += 3;
-                }
-                else{
-                    opc -=3;
-                }
-            break;
-            case 15:
-                    if (opc > 3){
-                        opc -= 3;
-                    }
-                    else{
-                        opc +=3;
-                    }
-            break;
-            case 16:
-                    if (opc == 1 || opc == 4){
+                    if (opc < 3){
                         opc += 2;
                     }
                     else{
-                        opc --;
+
+                    opc -=2;
                     }
-            break;
-            case 17:
-                if (opc == 3 || opc == 6){
+                    break;
+            case 15:
+                    if (opc > 2){
                         opc -= 2;
-                }
-                else{
+                    }
+                    else{
+
+                    opc +=2;
+                    }
+                    break;
+            case 16:
+                    if (opc == 1 || opc == 3){
+                        opc += 1;
+                    }
+                    else{
+                    opc --;
+                    }
+                    break;
+            case 17:
+                    if (opc == 2 || opc == 4){
+                        opc -= 1;
+                    }
+                    else{
                     opc ++;
-                }
-            break;
+                    }
+                    break;
             case 1:
                 switch (opc){
                     case 1:
-                        ///agregarCuentaCliente();
-                    break;
-                    case 2:
                         modificarCuenta();
                     break;
-                    case 3:
+                    case 2:
                         mostrarCuenta();
                     break;
-                    case 4:
-                        ///eliminarCuentaCliente();
-                    break;
-                    case 5:
+                    case 3:
                         buscarCuenta();
                     break;
-                    case 6:
+                    case 4:
                         opc = 1;
                         return;
                     break;

@@ -61,8 +61,7 @@ void mostrarServicio(){
 
     }
     while(archivo.leerDeDisco(pos, servicio)){
-        gotoxy(38, cont+18);
-        if(servicio.mostrar()==true){
+        if(servicio.mostrar(cont)==true){
             cont++;
         }
         cout << endl;
@@ -169,11 +168,13 @@ void eliminarServicio(){
     int cod, pos;
     float pre;
     gotoxy (27, 18);
+    rlutil::showcursor();
     cout << "INGRESAR EL CODIGO DEL SERVICIO A MODIFICAR: ";
     cin >> cod;
     pos = buscarCodigoServicio(cod,servicio);
     if(pos == -1){
         gotoxy (28, 21);
+        rlutil::hidecursor();
         cout << "NO EXISTE EL CODIGO DEL SERVICO EN EL ARCHIVO" << endl;
         return;
     }
@@ -184,14 +185,17 @@ void eliminarServicio(){
     cin >> pre;
     if(servicio.setPrecio(pre)==false){
         gotoxy (34, 22);
+        rlutil::hidecursor();
         cout << "EL PRECIO NO PUEDE SER NEGATIVO" << endl;
         return;
     }
     if(archivo.modificarEnDisco(pos,servicio)==false){
         gotoxy (34, 22);
+        rlutil::hidecursor();
         cout << "ERROR AL MODIFICAR EL PERSONAL" << endl;
         return;
     }
+    rlutil::hidecursor();
     gotoxy (34, 22);
     cout << "REGISTO MODIFICADO EXISTOSAMENTE" << endl;
 }
@@ -203,15 +207,17 @@ void eliminarServicio(){
 /*void buscarServicio(){
     Cuadro cuadro;
     cuadro.setCoor({24,16});
-    cuadro.setalto(8);
+    cuadro.setalto(9);
     cuadro.setlargo(52);
     cuadro.dibujar();
     Archivo archivo;
     Servicio servicio;
     int pos,cod;
-    gotoxy(29, 18);
+    gotoxy(30, 18);
+    rlutil::showcursor();
     cout << "INGRESE EL NUMERO CODIGO DEL SERVICIO: ";
     cin >> cod;
+    rlutil::hidecursor();
     pos = buscarCodigoServicio(cod,servicio);
     if(pos == -1){
         gotoxy(28, 21);
@@ -219,9 +225,14 @@ void eliminarServicio(){
         return;
     }
     archivo.leerDeDisco(pos,servicio);
-    gotoxy(38, 21);
-    servicio.mostrar();
+    gotoxy(30, 21);
+    cout << "CODIGO" << "        " << "DESCRIPCION" << "        " << "PRECIO" << endl;
+    servicio.mostrar(2);
+    /*cout << servicio.getCodigo() << " ";
+    cout << servicio.getDescripcion() << ": ";
+    cout << servicio.getPrecio();
     cout << endl;
+    */
 }
 
 ///////////// DEFINICION DE ELIMINAR SERVICIO

@@ -8,7 +8,7 @@ class Fecha{
         int dia; /// 1 - 31
         int diaFin;
         int mes; /// 1 - 12
-        int vMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};    //cantidad de días de los meses
+        int vMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};    //cantidad de dï¿½as de los meses
         int anio; /// menor o igual al actual
         int hora; /// 0 - 23
         int minuto; /// 0 - 59

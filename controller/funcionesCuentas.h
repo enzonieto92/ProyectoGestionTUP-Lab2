@@ -39,19 +39,15 @@ void agregarCuentaCliente(Cliente cliente){
 ///////////// DEFINICION DE MOSTRAR CUENTA
 
 void mostrarCuenta(){
+    Cuadro cuadro;
     Archivo archivo;
     Cuenta cuenta;
     int pos = 0;
     int cont = 0;
-    if(archivo.contarRegistro(cuenta)==0){
-        gotoxy(38, 20);
-        cout << "NO HAY REGISTRO GUARDADOS" << endl;
-        return;
-    }
     while(archivo.leerDeDisco(pos, cuenta)){
-        gotoxy(38, cont+18);
-        if(cuenta.mostrar()==true){
-            cont += 3;
+        gotoxy(38, cont+20);
+        if(cuenta.mostrar(cont)==true){
+            cont++;
         }
         cout << endl;
         pos++;
@@ -59,7 +55,14 @@ void mostrarCuenta(){
     if(cont==0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS" << endl;
+        return;
     }
+    gotoxy(32, 18);
+    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "MONTO" << endl;
+    cuadro.setCoor({28,16});
+    cuadro.setalto(cont+5);
+    cuadro.setlargo(42);
+    cuadro.dibujar();
 }
 
 ///////////// DEFINICION DE MODIFICAR CUENTA
@@ -75,11 +78,13 @@ void modificarCuenta(){
     int cod, pos;
     float pre;
     gotoxy (27, 18);
+    rlutil::showcursor();
     cout << "INGRESAR EL CODIGO DE LA CUENTA A MODIFICAR: ";
     cin >> cod;
     pos = buscarCodigoCuenta(cod,cuenta);
     if(pos == -1){
         gotoxy (28, 22);
+        rlutil::hidecursor();
         cout << "NO EXISTE EL CODIGO DE LA CUENTA EN EL ARCHIVO" << endl;
         return;
     }
@@ -90,21 +95,27 @@ void modificarCuenta(){
     cout << "INGRESAR MONTO A DESCONTAR: ";
     gotoxy(61, 22);
     cin >> pre;
-    if(cuenta.getMonto() < pre){
-        gotoxy(28, 24);
-        cout << "EL MONTO INGRESADO NO DEBE SER MAYOR AL ACTUAL" << endl;
-        return;
-    }
-    if(cuenta.setMonto(pre)==false){
+    if(pre < 0){
         gotoxy(36, 24);
+        rlutil::hidecursor();
         cout << "EL MONTO NO PUEDE SER NEGATIVO" << endl;
         return;
     }
+    if(cuenta.getMonto() < pre){
+        gotoxy(28, 24);
+        rlutil::hidecursor();
+        cout << "EL MONTO INGRESADO NO DEBE SER MAYOR AL ACTUAL" << endl;
+        return;
+    }
+    pre = cuenta.getMonto() - pre;
+    cuenta.setMonto(pre);
     if(archivo.modificarEnDisco(pos,cuenta)==false){
         gotoxy(34, 24);
+        rlutil::hidecursor();
         cout << "ERROR AL MODIFICAR LA CUENTA" << endl;
         return;
     }
+    rlutil::hidecursor();
     gotoxy (34, 24);
     cout << "REGISTO MODIFICADO EXISTOSAMENTE" << endl;
 }
@@ -128,15 +139,17 @@ int buscarCodigoCuenta(int var, Cuenta obj){
 void buscarCuenta(){
     Cuadro cuadro;
     cuadro.setCoor({23,16});
-    cuadro.setalto(8);
+    cuadro.setalto(10);
     cuadro.setlargo(55);
     cuadro.dibujar();
     Archivo archivo;
     Cuenta cuenta;
     int pos,id;
     gotoxy(31, 18);
+    rlutil::showcursor();
     cout << "INGRESE EL NUMERO DE ID DE LA CUENTA: ";
     cin >> id;
+    rlutil::hidecursor();
     pos = buscarCodigoCuenta(id,cuenta);
     if(pos == -1){
         gotoxy(25, 21);
@@ -144,7 +157,17 @@ void buscarCuenta(){
         return;
     }
     archivo.leerDeDisco(pos,cuenta);
-    cuenta.mostrar();
+    gotoxy(32, 21);
+    cout << "ID" << "      " << "FECHA DE EMISION" << "      " << "MONTO" << endl;
+    cuenta.mostrar(3);
+    /*
+    gotoxy(42,21);
+    cout << cuenta.getID() << " ";
+    gotoxy(44,21);
+    cuenta.getFechaEmision();
+    gotoxy(54,21);
+    cout << cuenta.getMonto();
+    */
     cout << endl;
 }
 
@@ -162,7 +185,7 @@ bool eliminarCuentaCliente(int id){
     return true;
 }
 
-/////////////////////// SE LE AGREGA UN MONTO SEGUN EL TURNO Y SERVICIO QUE LA PERSONA ESCOJA
+/////////////////////// SE LE AGREGA UN MONTO SEGUN EL TURNO Y SERVICIO QUE SE LE HAYA ASIGNADO
 
 void agregarMontoCuenta(Turno turno){
     float pre;

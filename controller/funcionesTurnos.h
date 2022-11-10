@@ -98,12 +98,18 @@ void TurnosDelDia(Fecha hoy){
     int posArchivo = 0;
     int posLista = 0;
     gotoxy(22, 17);
+    cout << "ID";
+    gotoxy(26, 17);
     cout << "HORA";
-    gotoxy(30, 17);
+    gotoxy(32, 17);
+    cout << "FECHA";
+    gotoxy(40, 17);
     cout << "NOMBRE";
     gotoxy(52, 17);
+    cout << "PERSONAL";
+    gotoxy(62, 17);
     cout << "SERVICIO";
-    gotoxy(72, 17);
+    gotoxy(73, 17);
     cout << "PRECIO";
     while(archi.leerDeDisco(posArchivo++, _turno)){
             if (_turno.getFechaServicio() == hoy){

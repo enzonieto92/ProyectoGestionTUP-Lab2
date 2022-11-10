@@ -11,3 +11,9 @@ Origen::Origen(int _x, int _y)
    x = _x;
    y = _y;
 }
+int Origen::getX(){
+return x;
+}
+int Origen::getY(){
+return y;
+}

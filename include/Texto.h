@@ -2,6 +2,7 @@
 #define TEXTO_H
 #include "Funciones.h"
 #include "Origen.h"
+
 class Texto
 {
     private:
