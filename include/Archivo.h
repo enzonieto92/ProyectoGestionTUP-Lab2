@@ -1,6 +1,6 @@
 #ifndef ARCHIVO_H
 #define ARCHIVO_H
-#include "Persona.h"
+#include "Personal.h"
 #include "Cliente.h"
 #include "Turno.h"
 #include "Servicio.h"
@@ -11,7 +11,7 @@ class Archivo
     private:
         const char *CLIENTES = "Clientes.dat";
         const char *TURNOS = "Turnos.dat";
-        const char *PERSONA = "Contactos.dat";
+        const char *PERSONAL = "Contactos.dat";
         const char *SERVICIOS = "Servicios.dat";
         const char *CUENTAS = "Cuentas.dat";
         FILE *pCliente;
@@ -28,15 +28,16 @@ class Archivo
         bool grabarEnDisco(Turno&);
         bool modificarEnDisco(int, Turno&);
         int contarRegistro(Turno&);
-        /// ARCHIVOS PERSONA
-        bool leerDeDisco(int, Persona &);
-        bool grabarEnDisco(Persona);
-        bool modificarEnDisco(int, Persona);
-        int contarRegistro(Persona &);
+        /// ARCHIVOS PERSONAL
+        bool leerDeDisco(int, Personal &);
+        bool grabarEnDisco(Personal);
+        bool modificarEnDisco(int, Personal);
+        int contarRegistro(Personal &);
         /// ARCHIVOS SERVICO
         bool leerDeDisco(int, Servicio &);
         bool grabarEnDisco(Servicio);
         bool modificarEnDisco(int, Servicio);
+        bool modificarEnDisco(Servicio *Vec, int tam);
         int contarRegistro(Servicio &);
         /// ARCHIVOS CUENTA
         bool leerDeDisco(int, Cuenta &);

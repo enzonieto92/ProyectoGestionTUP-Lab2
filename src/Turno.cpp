@@ -4,59 +4,32 @@
 using namespace std;
 
 // CONSTRUCTOR
-Turno::Turno(){
-    idTurno = 0;
-    idCuenta = 0;
-    tipoServicio = 0;
-    estado = false;
+Turno::Turno() {
+
+estado = true;
 }
 
-Turno::Turno(int id = 0, int d = 0, int ts = 0, bool e = false){
-    idTurno = id;
-    idCuenta = d;
-    tipoServicio = ts;
-    estado = e;
-}
+Turno::~Turno() {
 
-// DESTRUCTOR
-Turno::~Turno(){
-    // dtor
 }
-
-// METODOS
-bool Turno::Cargar(int idT, Fecha _fecha, int idC, int ts){
-    setIdTurno(idT);
-    setFechaServicio(_fecha);
-    setIdCuenta(idC);
-    setTipoServicio(ts);
-    estado = 1;
-    setEstado(estado);
-    return true;
-}
-
 void Turno::Mostrar(){
-    gotoxy(42, 20);
-    cout << "ID TURNO: " << idTurno << endl;
-    gotoxy(42, 21);
-    cout << "FECHA DE TURNO: ";
-    gotoxy(42, 22);
-    fechaServicio.Mostrar();
-    gotoxy(42, 23);
-    cout << "ID CUENTA: " << idCuenta << endl;
     gotoxy(42, 24);
-    cout << "TIPO DE SERVICIO: " << tipoServicio << endl;
+    cout << "TIPO DE SERVICIO: ";
 }
 
 // SETS
-void Turno::setIdTurno(int t){idTurno = t;}
-void Turno::setFechaServicio(Fecha f){fechaServicio = f;}
-void Turno::setIdCuenta(int d){idCuenta = d;}
-void Turno::setTipoServicio(int s){tipoServicio = s;}
+void Turno::setFecha(Fecha& f){fechaServicio = f;}
 void Turno::setEstado(bool e){estado = e;}
+void Turno::setEstadoCliente(bool e){cliente.setEstado(e);}
+void Turno::setCliente(Cliente aux){
+cliente = aux;
+}
+void Turno::setServicio(Servicio aux){
+servicio = aux;
+}
 
 // GETS
-int Turno::getIdTurno(){return idTurno;}
 Fecha Turno::getFechaServicio(){return fechaServicio;}
-int Turno::getIdCuenta(){return idCuenta;}
-int Turno::getTipoServicio(){return tipoServicio;}
 bool Turno::getEstado(){return estado;}
+Cliente Turno::getCliente(){return cliente;}
+Servicio Turno::getServicio(){return servicio;}

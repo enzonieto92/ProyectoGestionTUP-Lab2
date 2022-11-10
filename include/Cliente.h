@@ -16,6 +16,8 @@ class Cliente
         /// CONSTRUCTOR
         Cliente();
         /// METODOS
+        void limpiarEspacios();
+        void Cargar();
         bool Cargar(int nD, int idC);
         void Mostrar();
         ///SETS
@@ -34,6 +36,8 @@ class Cliente
         const char *getEmail();
         int getIdCuenta();
         bool getEstado();
+        void operator = (Cliente);
+        bool operator == (Cliente);
         /// DESTRUCTOR
         ~Cliente();
 };

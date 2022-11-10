@@ -5,35 +5,34 @@
 #include <ctime>
 
 using namespace std;
-//#include "Servicio.h"
 
 /// PROTOTIPOS FUNCIONES GLOBALES TURNO
 
 void borrarLista();
 
 void agregarRegistroTurno();
-    Turno cargarTurno();
-        bool validarClienteId(int idC);
-        bool validarTipoServicio(int tS);
-
-void modificarFechaServicioTurno();
-    int buscarIdTurno(int idT);
-
-bool mostrarTurnoPorId();
-
-void mostrarTunoDelDia();
-    bool turnoHoy(Fecha f);
-    int buscarIdCliente(int idC);
+Turno cargarTurno();
+void cambiarFecha(Fecha);
+void TurnosDelDia(Fecha);
+bool turnoHoy(Fecha);
 
 void bajaFisicaTurnoAuto();
 
 /// DEFINICIONES FUNCIONES GLOBALES TURNO
 
+/*            if (pos == cantidad){
+                gotoxy(coor.getX(), coor.getY());
+                cout << "                 ";
+                gotoxy(coor.getX(), coor.getY());
+                cout <<"Nuevo servicio";
+            }
+*/
+
 void borrarLista(){
     int i, j;
     for(i = 0; i < 61; i++){
         for(j = 0; j < 41; j++){
-            gotoxy(20 + i, 16 + j);
+            gotoxy(19 + i, 16 + j);
             cout << " ";
         }
     }
@@ -43,208 +42,61 @@ void borrarLista(){
 void agregarRegistroTurno(){
     Turno cita;
     Archivo archi;
-    borrarLista();
+    rlutil::setColor(rlutil::WHITE);
     Cuadro cuadroTurnoCarga;
-    cuadroTurnoCarga.setCoor({30,17});
-    cuadroTurnoCarga.setalto(10);
-    cuadroTurnoCarga.setlargo(40);
+    cuadroTurnoCarga.setCuadro({30,17}, 40, 12);
+    cuadroTurnoCarga.limpiar();
     cuadroTurnoCarga.dibujar();
+    gotoxy(30, 19);
+    cuadroTurnoCarga.div();
+    gotoxy(30, 21);
+    cuadroTurnoCarga.div();
     cita = cargarTurno();
-    if(cita.getEstado() == false){ // ERROR EN FECHA O APERTURA DEL ARCHIVO
-        gotoxy(42, 25);
-        cout << "DATOS INVALIDOS";
-        return;
-    }
     if(archi.grabarEnDisco(cita)){ // GRABO EN DISCO
-        gotoxy(42, 25);
+        gotoxy(44, 27);
         cout << "TURNO CARGADO";
-        agregarMontoCuenta(cita);
+        getch();
+        rlutil::setColor(12);
         return;
     }
-    gotoxy(42, 25);
-    cout << "FALLO AL GRABAR EN EL DISCO";
     return; // FALLO GRABAR EN DISCO
 }
 
 Turno cargarTurno(){
-    Turno cita;
-    int idT, idC, tS;
-    Fecha _fecha;
-    Archivo archi;
-    gotoxy(42, 18);
-    cout << "ID CLIENTE: ";
-    cin >> idC;
-    if(validarClienteId(idC) == false){
-        gotoxy(32, 20);
-        cout << "EL CLIENTE INGERSADO ES INVALIDO";
-        cita.setEstado(false);
-        return cita;
-    }
-    gotoxy(42, 19);
-    cout << "TIPO SERVICIO: ";
-    cin >> tS;
-    if(validarTipoServicio(tS) == false){
-        gotoxy(32, 21);
-        cout << "EL SERVICIO INGERSADO ES INVALIDO";
-        cita.setEstado(false);
-        return cita;
-    }
-    gotoxy(42, 20);
-    cout << "INGRESE FECHA DE SERVICIO: ";
-    if(_fecha.Cargar() == false){
-        gotoxy(42, 24);
-        cout << "FALLO CARGAR FECHA";
-        cita.setEstado(false);
-        return cita;
-    }
-
-    if(_fecha.validarFechaTurno(_fecha) == false){
-        gotoxy(32, 24);
-        cout << "LA FECHA INGRESADA ES INVALIDA";
-        cita.setEstado(false);
-        return cita;
-    }
-    idT = archi.contarRegistro(cita); // ESTE SERIA PK AUTOINCREMENTAL DE CLIENTE
-    if(idT == -1){
-        gotoxy(32, 24);
-        cout << "FALLO APERTURA DEL ARCHIVO";
-        cita.setEstado(false);
-        return cita;
-    }
-    idT++;
-    cita.Cargar(idT, _fecha, idC, tS);
-    return cita;
+    Turno _cita = {};
+    Cliente _cliente = {};
+    Fecha _fecha = {};
+    Servicio _servicio;
+    gotoxy(45, 18);
+    cout << "NUEVO TURNO";
+    _fecha.Cargar();
+    gotoxy (42, 22);
+    cout << "Servicio: ";
+    _servicio = scroll_servicio(Origen(52, 22));
+    _cliente.Cargar();
+    _cita.setCliente(_cliente);
+    _cita.setServicio(_servicio);
+    _cita.setFecha(_fecha);
+    _cita.setEstado(true);
+    return _cita;
 }
 
-bool validarClienteId(int idC){
-    Cliente usuario;
-    Archivo archi;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, usuario)){
-        if(idC == usuario.getIdCuenta()){
-            return usuario.getEstado();
-        }
-        pos++;
-    }
-    return false;
+void cambiarFecha(Fecha* aux){
+aux->setFecha();
 }
-
-bool validarTipoServicio(int tS){
-    Servicio servicio;
-    Archivo archi;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, servicio)){
-        if(tS == servicio.getCodigo()){
-            return servicio.getEstado();
-        }
-        pos++;
-    }
-    return false;
-}
-
 // 2 MODIFICA POR ID LOS REGISTROS DE TURNOS EN ARCHIVO Turnos.dat
-void modificarFechaServicioTurno(){
-    Archivo archi;
-    Turno cita;
-    int idT, pos;
-    Fecha _fecha;
-    borrarLista();
-    Cuadro cuadroTurnoModificar;
-    cuadroTurnoModificar.setCoor({28,17});
-    cuadroTurnoModificar.setalto(10);
-    cuadroTurnoModificar.setlargo(44);
-    cuadroTurnoModificar.dibujar();
-    // buscar el turno a modificar fecha de servicio
-    gotoxy(30, 18);
-    cout << "ID TURNO A MODIFICAR FECHA DE SERVICIO: ";
-    cin >> idT;
-    // leer si existe el turno
-    pos = buscarIdTurno(idT);
-    if(pos == -1){
-        gotoxy(30, 20);
-        cout << "NO EXISTE EL ID DE TURNO EN EL ARCHIVO" << endl;
-        return;
-    }
-    archi.leerDeDisco(pos, cita);
-    /// cambiar la fecha de servicio del turno
-    gotoxy(32, 20);
-    cout << "INGRESE LA NUEVA FECHA: " << endl;
-    if(_fecha.Cargar() == false){
-        gotoxy(42, 24);
-        cout << "FALLO CARGAR FECHA" << endl;
-        cita.setEstado(false);
-        return;
-    }
-    if(_fecha.validarFechaTurno(_fecha) == false){
-        gotoxy(32, 24);
-        cout << "LA FECHA INGRESADA ES INVALIDA." << endl;
-        return;
-    }
-    cita.setFechaServicio(_fecha);
-    /// sobreescribir el registro
-    if(archi.modificarEnDisco(pos, cita) == false){
-        gotoxy(34, 23);
-        cout << "ERROR AL MODIFICAR TURNO" << endl;
-        return;
-    }
-    gotoxy(34, 23);
-    cout << "TURNO MODIFICADO EXITOSAMENTE" << endl;
-    return;
-}
 
-int buscarIdTurno(int idT){
-    Archivo archi;
-    Turno cita;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, cita)){
-        if(idT == cita.getIdTurno()){
-            if(cita.getEstado()){
-                return pos;
-            }
-        }
-        pos++;
-    }
-    return -1;
-}
 
 // 3 MUESTRAR POR ID LOS REGISTROS DE TURNOS EN ARCHIVO Turnos.dat
-bool mostrarTurnoPorId(){
-    Archivo archi;
-    Turno cita;
-    int idT, pos;
-    borrarLista();
-    Cuadro cuadroTurnoMostarId;
-    cuadroTurnoMostarId.setCoor({28,17});
-    cuadroTurnoMostarId.setalto(10);
-    cuadroTurnoMostarId.setlargo(44);
-    cuadroTurnoMostarId.dibujar();
-    /// buscar el turno a mostrar
-    gotoxy(34, 18);
-    cout << "ID DEL TURNO A MOSTRAR: ";
-    cin >> idT;
-    /// leer si existe el turno
-    pos = buscarIdTurno(idT);
-    if(pos == -1){
-        gotoxy(30, 20);
-        cout << "NO EXISTE EL ID DE TURNO EN EL ARCHIVO";
-        return false;
-    }
-    archi.leerDeDisco(pos, cita);
-    /// LISTAR EL TURNO FILTRADO
-    cita.Mostrar();
-    gotoxy(42, 26);
-    cout << "TURNO LISTADO";
-    return true;
-}
 
 // MOSTRAR TURNOS DEL DIA
-
-void mostrarTunoDelDia(){
+void TurnosDelDia(Fecha hoy){
     Archivo archi;
     Turno _turno;
     Cliente usuario;
     Servicio servicio;
-    int posT = 0, posC, posS, posY = 0;
+    int posArchivo = 0;
+    int posLista = 0;
     gotoxy(22, 17);
     cout << "HORA";
     gotoxy(30, 17);
@@ -253,28 +105,23 @@ void mostrarTunoDelDia(){
     cout << "SERVICIO";
     gotoxy(72, 17);
     cout << "PRECIO";
-    while(archi.leerDeDisco(posT, _turno)){
-        if(turnoHoy(_turno.getFechaServicio()) == true){
-            posC = buscarIdCliente(_turno.getIdCuenta());
-            archi.leerDeDisco(posC, usuario);
-            if(_turno.getIdCuenta() == usuario.getIdCuenta() && usuario.getEstado()){
-                posS = buscarCodigoServicio(_turno.getTipoServicio(), servicio);
-                archi.leerDeDisco(posS, servicio);
-                gotoxy(22, 19+(posY*2));
-                if(_turno.getFechaServicio().getHora() < 10) cout << "0";
-                cout << _turno.getFechaServicio().getHora() << ":";
-                if(_turno.getFechaServicio().getMinuto() < 10) cout << "0" ;
-                cout << _turno.getFechaServicio().getMinuto();
-                gotoxy(30, 19+(posY*2));
-                cout << usuario.getNombre();
-                gotoxy(52, 19+(posY*2));
-                cout << servicio.getDescripcion();
-                gotoxy(72, 19+(posY*2));
-                cout << "$ " << servicio.getPrecio();
-                posY++;
+    while(archi.leerDeDisco(posArchivo++, _turno)){
+            if (_turno.getFechaServicio() == hoy){
+                    usuario = _turno.getCliente();
+                    servicio = _turno.getServicio();
+                     gotoxy(21, 19+(posLista*2));
+                    if(_turno.getFechaServicio().getHora() < 10) cout << "0";
+                    cout << _turno.getFechaServicio().getHora() << ":";
+                    if(_turno.getFechaServicio().getMinuto() < 10) cout << "0" ;
+                    cout << _turno.getFechaServicio().getMinuto();
+                    gotoxy(30, 19+(posLista*2));
+                    cout << usuario.getNombre()<<" "<<usuario.getApellido();
+                    gotoxy(52, 19+(posLista*2));
+                    cout << servicio.getDescripcion();
+                    gotoxy(72, 19+(posLista*2));
+                    cout << "$ " << servicio.getPrecio();
+            posLista++;
             }
-        }
-        posT++;
     }
 }
 
@@ -339,21 +186,6 @@ void bajaFisicaTurnoAuto(){
     }
     fclose(pBakT);
     fclose(pDatT);
-}
-
-int buscarIdCliente(int idC){
-    Archivo archi;
-    Cliente usuario;
-    int pos = 0;
-    while(archi.leerDeDisco(pos, usuario)){
-        if(idC == usuario.getIdCuenta()){
-            if(usuario.getEstado()){
-                return pos;
-            }
-        }
-        pos++;
-    }
-    return -1;
 }
 
 #endif // FUNCIONESTURNOS_H_INCLUDED

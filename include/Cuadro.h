@@ -5,17 +5,21 @@
 class Cuadro
 {
     private:
-        origen coor;
+        Origen coor;
         Texto _txt;
         int largo;
         int alto;
         int opc;
     public:
         Cuadro();
-        Cuadro(origen, int, int, int&);
+        Cuadro(Origen, int, int, int&);
+        Cuadro(Origen, int, int);
         void setalto(int);
         void setlargo(int);
-        void setCoor(origen);
+        void setCoor(Origen);
+        void setCuadro(Origen, int, int);
+        int getLargo();
+        int getAlto();
         void linea_hor();
         void linea_ver();
         void linea_ver(int);
@@ -24,6 +28,7 @@ class Cuadro
         void esquina_sup();
         void div();
         void dibujar();
+        void limpiar();
         void dibujarLista();
         void mostrar_texto1();
         void mostrar_texto2();
