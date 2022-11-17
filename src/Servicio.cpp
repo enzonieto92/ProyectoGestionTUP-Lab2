@@ -6,7 +6,7 @@
 using namespace std;
 
 Servicio::Servicio(){
-    precio = 1;
+    precio = 0;
     strcpy(descripcion, "");
 }
 
@@ -21,44 +21,62 @@ for (int i = x; i < 62; i++){
 }
 
 void Servicio::cargar(int x, int y){
-
+    char aux [30];
     limpiarEspacios(x, y);
-    int _precio;
     gotoxy (x, y);
     cout << "DESCRIPCION: ";
     gotoxy (x+5, y+1);
     cout << "PRECIO: ";
     gotoxy(x+13,y);
     rlutil::showcursor();
-    cargarCadena(descripcion, 29);
-    gotoxy(x+13,y+1);
-    cin >> _precio;
+    if (cargarCadena(descripcion, 29)){
 
-    precio = double(_precio);
-    fflush(stdin);
-    rlutil::hidecursor();
+        if (validarCadena(descripcion) == true){
+            gotoxy(x+13,y+1);
+            if (cargarCadena(aux, 30)){
+
+                if (isdigit(*aux)){
+                setPrecio(aux);
+                fflush(stdin);
+                rlutil::hidecursor();
+                }
+                else{
+                    cout <<"Ingrese un precio válido!";
+                }
+            }
+            else{
+                return;
+            }
+        }
+        else{
+            cout <<"Ingrese una descripción válida!";
+        }
     }
-bool Servicio::mostrar(){
-        cout << descripcion << ": " << precio;
+    else{
+        return;
+    }
+
+    }
+bool Servicio::mostrar(int x, int y){
+        gotoxy(x, y);
+        cout << descripcion<<": ";
+        gotoxy(x+28, y);
+        cout <<"$" << precio;
         return true;
 }
 
 /// SETS
-
-bool Servicio::setPrecio(float var){
-    if(var>0){
-        precio = var;
-        return true;
-    }
-    return false;
-}
-void Servicio::setDescripcion(const char *V){strcpy(descripcion,V);}
+void Servicio::setPrecio(int aux){precio = aux;}
+void Servicio::setPrecio(const char *P){
+    int aux = atoi(P);
+    precio = aux;}
+void Servicio::setDescripcion(const char *D){strcpy(descripcion,D);}
 void Servicio::setServicio(Servicio aux){
 *this = aux;
 }
 /// GETS
 
-float Servicio::getPrecio(){return precio;}
+int Servicio::getPrecio(){return precio;}
 const char *Servicio::getDescripcion(){return descripcion;}
 
 void Servicio::operator = (Servicio aux){
@@ -67,7 +85,7 @@ setPrecio(aux.getPrecio());
 }
 bool Servicio::operator == (Servicio aux){
 if (strcmp(descripcion, aux.getDescripcion()) == 0
-&& precio == aux.getPrecio()){
+    && precio == aux.getPrecio()){
 return true;
 }
 else{

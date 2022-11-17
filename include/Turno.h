@@ -33,6 +33,7 @@ class Turno
         Servicio getServicio();
         // DESTRUCTOR
         ~Turno();
+        bool operator ==(Turno);
 };
 
 #endif // TURNO_H

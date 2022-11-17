@@ -11,6 +11,7 @@ class Menu
         Cuadro _cuadro, _lista;
     public:
         Menu();
+        void setOpcion(int opcion);
         void setCuadro(Origen, int, int, int);
         void setLista (Origen, int, int);
         int principal();

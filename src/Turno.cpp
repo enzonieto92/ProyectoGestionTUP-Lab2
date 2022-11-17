@@ -33,3 +33,14 @@ Fecha Turno::getFechaServicio(){return fechaServicio;}
 bool Turno::getEstado(){return estado;}
 Cliente Turno::getCliente(){return cliente;}
 Servicio Turno::getServicio(){return servicio;}
+bool Turno::operator ==(Turno aux){
+if ((fechaServicio += aux.getFechaServicio())
+    && cliente == aux.getCliente()
+    && servicio == aux.getServicio()){
+        return true;
+    }
+else{
+    return false;
+}
+
+}

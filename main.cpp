@@ -8,16 +8,15 @@ using namespace std;
 
 #include "Funciones.h"
 #include "Fecha.h"
-#include "Personal.h"
 #include "Cliente.h"
 #include "Turno.h"
-#include "Cuentas.h"
 #include "Menu.h"
 #include "Origen.h"
 
 int main(){
+    setlocale(LC_ALL, "en_ES.utf8");
     AjustarVentana(100, 60);
-    rlutil::setColor(12);
+    rlutil::setColor(3);
     Menu Menu;
     int opc = 1;
     do{
@@ -30,13 +29,11 @@ int main(){
                 Menu.Clientes();
             break;
             case 3:
-                Menu.Personal();
-            break;
-            case 4:
                 Menu.Servicio();
             break;
-            case 5:
-                Menu.Cuentas();
+            case 4:
+                gotoxy(1, 40);
+                return 0;
             break;
         }
     }

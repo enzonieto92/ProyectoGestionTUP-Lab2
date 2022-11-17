@@ -40,6 +40,7 @@ class Fecha{
         bool operator < (Fecha);
         void operator = (Fecha);
         bool operator == (Fecha);
+        bool operator += (Fecha);
         /// DESTRUCTOR
         ~Fecha();
 };
