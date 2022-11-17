@@ -5,21 +5,18 @@
 class Cliente
 {
     private:
-        int DNI;
         char nombre[30];
         char apellido[30];
-        char telefono[40];
-        char email[40];
+        char telefono[30];
         int idCuenta;
         bool estado;
     public:
         /// CONSTRUCTOR
         Cliente();
         /// METODOS
-        void limpiarEspacios();
-        void Cargar();
-        bool Cargar(int nD, int idC);
-        void Mostrar();
+        void limpiarEspacios(int, int);
+        bool Cargar(int, int);
+        void Mostrar(int, int);
         ///SETS
         bool setDNI(int nD);
         void setNombre(const char *nom);

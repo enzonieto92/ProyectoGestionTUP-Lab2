@@ -1,48 +1,37 @@
 #ifndef ARCHIVO_H
 #define ARCHIVO_H
-#include "Personal.h"
 #include "Cliente.h"
 #include "Turno.h"
 #include "Servicio.h"
-#include "Cuentas.h"
 
 class Archivo
 {
     private:
         const char *CLIENTES = "Clientes.dat";
         const char *TURNOS = "Turnos.dat";
-        const char *PERSONAL = "Contactos.dat";
         const char *SERVICIOS = "Servicios.dat";
-        const char *CUENTAS = "Cuentas.dat";
         FILE *pCliente;
         FILE *pTurno;
+        FILE *pServicio;
     public:
         Archivo();
         /// ARCHIVOS CLIENTE
         bool leerDeDisco(int, Cliente &);
         bool grabarEnDisco(Cliente &);
         bool modificarEnDisco(int, Cliente &);
+        bool modificarEnDisco(Cliente*, int);
         int contarRegistro(Cliente &);
-        /// ARCHIVOS TRUNO
+        /// ARCHIVOS TURNO
         bool leerDeDisco(int, Turno&);
         bool grabarEnDisco(Turno&);
         bool modificarEnDisco(int, Turno&);
+        bool modificarEnDisco(Turno*, int);
         int contarRegistro(Turno&);
-        /// ARCHIVOS PERSONAL
-        bool leerDeDisco(int, Personal &);
-        bool grabarEnDisco(Personal);
-        bool modificarEnDisco(int, Personal);
-        int contarRegistro(Personal &);
         /// ARCHIVOS SERVICO
         bool leerDeDisco(int, Servicio &);
         bool grabarEnDisco(Servicio);
         bool modificarEnDisco(int, Servicio);
-        bool modificarEnDisco(Servicio *Vec, int tam);
+        bool modificarEnDisco(Servicio*, int);
         int contarRegistro(Servicio &);
-        /// ARCHIVOS CUENTA
-        bool leerDeDisco(int, Cuenta &);
-        bool grabarEnDisco(Cuenta);
-        bool modificarEnDisco(int,Cuenta);
-        int contarRegistro(Cuenta &);
 };
 #endif // ARCHIVO_H

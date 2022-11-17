@@ -16,6 +16,9 @@ Cuadro::Cuadro(Origen _coor, int _largo, int _alto): _txt(_coor){
     largo = _largo;
     alto = _alto;
 }
+void Cuadro::setOpcion(int opcion){
+opc = opcion;
+}
 void Cuadro::setCoor(Origen _coor){
 coor = _coor;
 

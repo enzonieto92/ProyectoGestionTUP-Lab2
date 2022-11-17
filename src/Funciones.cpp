@@ -41,23 +41,61 @@ bool AjustarVentana(int Ancho, int Alto) {
 }
 /// DEFINICION FUNCIONES GLOBALES
 
-void cargarCadena(char *pal, int tam){  /// CARGA CADENAS DE CARACTERES
-  int i;
+bool cargarCadena(char *pal, int tam){  /// CARGA CADENAS DE CARACTERES
+  int i = 0;
+  char aux;
+  bool control = true;
   fflush(stdin);
-  for(i = 0; i < tam; i++){
-      pal[i] = cin.get();
-	  if(pal[i] == '\n') break;
+while (control){
+        aux = getch();
+        switch (aux){
+
+    default:
+        pal[i] = aux;
+        cout <<aux;
+        if (pal[i] == 'á') pal[i] = char(160);
+        if (pal[i] == 'é') pal[i] = char(130);
+        if (pal[i] == 'í') pal[i] = char(161);
+        if (pal[i] == 'ó') pal[i] = char(162);
+        if (pal[i] == 'ú') pal[i] = char(163);
         if (pal[i] == 'ñ') pal[i] = char(164);
-	  }
-  pal[i] = '\0';
+        if (pal[i] == 'Ñ') pal[i] = char(165);
+        i++;
+        break;
+    case '\033':
+        i = 0;
+        return false;
+        break;
+    case '\010':
+        if (i < 1){
+            i = 0;
+        }
+        else{
+        cout << aux << " " << aux;
+        i --;
+        }
+        break;
+    case '\015':
+        pal[i] = '\0';
+        control = false;
+        break;
+    }
+
+}
   fflush(stdin);
+  return true;
 }
 bool validarCadena(string x){
-    int i;
+   int tam = x.size();
     char c;
-    for(i=0;i<x.size();i++){
-        c=x[i];
-        if(isalpha(c)==0){
+    if (x[0] == '\0'){
+        return false;
+    }
+    for(int i = 0; i < tam; i++){
+        c = x[i];
+        if (c == char(160) || c == char(130) || c == char(161) || c == char(162) || c == char(163) || c == char(164) || c == char(165)){
+        }
+        else if(isalpha(c)==0){
             if(isspace(c)==0){
                 return false;
             }

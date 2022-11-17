@@ -4,106 +4,121 @@ using namespace std;
 
 Cliente::Cliente()
 {
-    DNI = 0;
     strcpy(nombre, " ");
     strcpy(apellido, " ");
     strcpy(telefono, " ");
-    strcpy(email, " ");
     idCuenta = 0;
     estado = false;
 }
 
-void Cliente::limpiarEspacios(){
-for (int i = 52; i < 62; i++){
-    for (int j = 24; j < 27; j++){
+void Cliente::limpiarEspacios(int x, int y){
+for (int i = x+10; i < x+25; i++){
+    for (int j = y; j < 3+y; j++){
         gotoxy(i, j);
         cout <<" ";
     }
 }
-    gotoxy(40, 28);
-    cout <<"                           ";
+    gotoxy(x-4, y+4);
+    cout <<"                             ";
 }
-void Cliente::Cargar(){
+bool Cliente::Cargar(int x, int y){
 
 
 
-    limpiarEspacios();
-    gotoxy(44, 24);
+    limpiarEspacios(x, y);
+    gotoxy(x+2, y);
     cout << "NOMBRE: ";
-    gotoxy(42, 25);
+    gotoxy(x, y+1);
     cout << "APELLIDO: ";
-    gotoxy(42, 26);
+    gotoxy(x, y+2);
     cout << "TELEFONO: ";
-    gotoxy(52, 24);
+    gotoxy(x+10, y);
     rlutil::showcursor();
-    cargarCadena(nombre, 29);
+   if(cargarCadena(nombre, 30)){
+
        if (validarCadena(nombre)){
         setNombre(nombre);
        }
        else {
-        gotoxy(40, 28);
+        gotoxy(x-2, y+4);
         cout <<"Ingrese un nombre valido!";
         getch();
-        Cargar();
+        Cargar(x, y);
        }
+    }
+    else{
+        return false;
+    }
 
-    gotoxy(52, 25);
-    cargarCadena(apellido, 29);
+    gotoxy(x+10, y+1);
+
+    if(cargarCadena(apellido, 30)){
         if (validarCadena(apellido)){
         setApellido(apellido);
         }
        else {
-        gotoxy(40, 28);
+        gotoxy(x-2, y+4);
         cout <<"Ingrese un apellido valido!";
         getch();
-        Cargar();
-       }
-    gotoxy(52, 26);
-    cargarCadena(telefono, 39);
-    setTelefono(telefono);
+        Cargar(x, y);
+       };
+    }
+    else{
+        return false;
+    };
+    gotoxy(x+10, y+2);
+
+    if (cargarCadena(telefono, 40)){
+
+        if (isdigit(*telefono)){
+        setTelefono(telefono);
+        }
+        else{
+            gotoxy(x-2, y+4);
+            cout <<"Ingrese un telefono valido!";
+            getch();
+            Cargar(x, y);
+        }
+    }
+    else{
+        return false;
+    }
     rlutil::hidecursor();
 
+    return true;
 
 }
-void Cliente::Mostrar()
+void Cliente::Mostrar(int x,int y)
 {
-    if(estado){
-        gotoxy(34, 20);
-        cout << "DNI: " << DNI;
-        gotoxy(34, 21);
-        cout << "NOMBRE: " << nombre;
-        gotoxy(34, 22);
+
+        gotoxy(x, y+1);
+        cout << "                         " ;
+        gotoxy(x, y+2);
+        cout << "                          " ;
+        gotoxy(x, y+3);
+        cout << "                           " ;
+
+        gotoxy(x, y+1);
+        cout << "  NOMBRE: " << nombre;
+        gotoxy(x, y+2);
         cout << "APELLIDO: " << apellido;
-        gotoxy(34, 23);
+        gotoxy(x, y+3);
         cout << "TELEFONO: " << telefono;
-        gotoxy(34, 24);
-        cout << "EMAIL: " << email;
-        gotoxy(34, 25);
-        cout << "ID CUENTA: " << idCuenta;
-    }
+
 }
 
 /// SETS
-bool Cliente::setDNI(int nD){
-    if(nD > 0){
-        DNI = nD;
-        return true;
-    }
-    return false;
-}
+
 void Cliente::setNombre(const char *nom){strcpy(nombre, nom);}
 void Cliente::setApellido(const char *ape){strcpy(apellido, ape);}
 void Cliente::setTelefono(const char *tel){strcpy(telefono, tel);}
-void Cliente::setEmail(const char *e){strcpy(email, e);}
 void Cliente::setIdCuenta(int idC){idCuenta = idC;}
 void Cliente::setEstado(bool e){estado = e;}
 
 /// GETS
-int Cliente::getDNI(){return DNI;}
 const char *Cliente::getNombre(){return nombre;}
 const char *Cliente::getApellido(){return apellido;}
 const char *Cliente::getTelefono(){return telefono;}
-const char *Cliente::getEmail(){return email;}
 int Cliente::getIdCuenta(){return idCuenta;}
 bool Cliente::getEstado(){return estado;}
 
@@ -111,17 +126,12 @@ void Cliente::operator = (Cliente aux){
 setApellido(aux.getApellido());
 setNombre(aux.getNombre());
 setTelefono(aux.getTelefono());
-setDNI(aux.getDNI());
-setEmail(aux.getEmail());
 setEstado(aux.getEstado());
 }
 bool Cliente::operator ==(Cliente aux){
-    if(apellido == aux.getApellido()
-       && nombre == aux.getNombre()
-       && telefono == aux.getTelefono()
-       && email == aux.getEmail()
-       && DNI == aux.getDNI()
-       && idCuenta == aux.getIdCuenta()){
+    if(strcmp(apellido, aux.getApellido()) == 0
+       && strcmp(nombre, aux.getNombre()) == 0
+       && strcmp(telefono, aux.getTelefono()) == 0){
         return true;
     }
     else{

@@ -10,8 +10,8 @@ void limpiarEspacios();
 
 void agregarRegistroServicio();
 
-void mostrarServicio();
-Servicio scroll_servicio(Origen);
+void mostrarServicios();
+bool scroll_servicio(Origen, Servicio&);
 void modificarServicio();
     int buscarCodigoServicio(int, Servicio);
 
@@ -31,28 +31,37 @@ for (int i = x; i < 62; i++){
 
 }
 void agregarRegistroServicio(){
-    Cuadro cuadro(Origen(30,16), 40, 8);
+    rlutil::setColor(rlutil::WHITE);
+    Cuadro cuadro(Origen(30,16), 40, 9);
     cuadro.limpiar();
     cuadro.dibujar();
+    gotoxy(44, 17);
+    cout <<"NUEVO SERVICIO";
+    gotoxy(30, 18);
+    cuadro.div();
     Archivo archivo;
     Servicio servicio;
-    servicio.cargar(40, 18);
+    servicio.cargar(40, 20);
     archivo.grabarEnDisco(servicio);
-    gotoxy (42, 22);
+    gotoxy (42, 23);
     cout << "REGISTRO GUARDADO";
     getch();
+    rlutil::setColor(3);
 }
 
 ///////////// DEFINICION DE MOSTRAR SERVICIO
 
-void mostrarServicio(){
-    Cuadro cuadro(Origen(30,16), 40, 12);
-    cuadro.limpiar();
+void mostrarServicios(){
+    Cuadro cuadro(Origen(31,16), 38, 26);
     cuadro.dibujar();
     Archivo archivo;
     Servicio servicio;
     int pos = 0;
     int cont = 0;
+    gotoxy(42, 17);
+    cout <<"SERVICIOS ACTUALES";
+    gotoxy(31, 18);
+    cuadro.div();
     if(archivo.contarRegistro(servicio)==0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS";
@@ -61,43 +70,45 @@ void mostrarServicio(){
 
     }
     while(archivo.leerDeDisco(pos, servicio)){
-        gotoxy(38, cont+18);
-        if(servicio.mostrar()==true){
+
+        if(servicio.mostrar(34, 19+cont*2)==true){
             cont++;
         }
-        cout << endl;
+        gotoxy(32, cont*2+18);
+        cuadro.linea_hor();
         pos++;
+
     }
     if(cont == 0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS";
+        getch();
     }
-    getch();
 }
 
-Servicio scroll_servicio(Origen coor){
+bool scroll_servicio(Origen coor, Servicio &aux){
     Archivo reg;
-    Servicio aux;
     bool scroll_servicio = true;
     int pos = 0;
     int cantidad = reg.contarRegistro(aux);
     reg.leerDeDisco(pos, aux);
         while (scroll_servicio){
-        gotoxy (1, 1);
+            rlutil::hidecursor();
             if (reg.leerDeDisco(pos, aux)){
             gotoxy (coor.getX(), coor.getY());
-            cout << "                 ";
+            cout << "              ";
             gotoxy(coor.getX(), coor.getY());
             cout << aux.getDescripcion();
             }
+            rlutil::showcursor();
             switch (rlutil::getkey()){
-                case 14:
+                case 15:
                     if (pos == cantidad-1){
                             break;
                     }
                     pos++;
                     break;
-                case 15:
+                case 14:
                     if (pos == 0){
                     pos = 0;
                     break;
@@ -107,15 +118,21 @@ Servicio scroll_servicio(Origen coor){
                 case 1:
                     scroll_servicio = false;
                     break;
+                case 0:
+                    scroll_servicio = false;
+                    rlutil::hidecursor();
+                    rlutil::setColor(3);
+                    return false;
+                    break;
             }
         }
-    return aux;
+    return true;
 }
 
 void eliminarServicio(){
     rlutil::setColor(rlutil::WHITE);
 
-    Cuadro cuadro(Origen(30, 17), 40, 12);
+    Cuadro cuadro(Origen(32, 20), 36, 4);
     cuadro.limpiar();
     cuadro.dibujar();
     Archivo archivo;
@@ -133,7 +150,7 @@ void eliminarServicio(){
     gotoxy(35, 22);
     cout <<"Borrar Servicio: ";
     rlutil::showcursor();
-    victima = scroll_servicio(Origen(52, 22));
+    if(scroll_servicio(Origen(52, 22), victima) == false)return;
     /// BUSQUEDA DEL SERVICIO EN EL VECTOR
     for (int i = 0; i < cont; i++){
         if (victima == Vec[i]){
@@ -148,16 +165,65 @@ void eliminarServicio(){
         Vec2[k] = Vec[k];
     }
     archivo.modificarEnDisco(Vec2, cont-1);
+    rlutil::hidecursor();
+    gotoxy( 42, 23);
+    cout <<"SERVICIO BORRADO!";
+    getch();
 
 
 
-
-    rlutil::setColor(12);
+    rlutil::setColor(3);
     rlutil::hidecursor();
 
     }
 ///////////// DEFINICION DE MODIFICAR SERVICIO
 
+
+void modificarServicio(){
+    rlutil::setColor(rlutil::WHITE);
+
+    Cuadro cuadro(Origen(31, 20), 38, 7);
+    cuadro.limpiar();
+    cuadro.dibujar();
+    Archivo archivo;
+    Servicio servicio, victima;
+    int cont = archivo.contarRegistro(servicio);
+    Servicio *Vec = new Servicio[cont];
+    ///CARGA DEL VECTOR
+    int pos = 0;
+    char aux[30];
+    while(archivo.leerDeDisco(pos, servicio)){
+        Vec[pos] = servicio;
+        pos++;
+    }
+
+    gotoxy(34, 22);
+    cout <<"Modificar Servicio: ";
+    rlutil::showcursor();
+    if(scroll_servicio(Origen(54, 22), victima) == false)return;
+    /// BUSQUEDA DEL SERVICIO EN EL VECTOR
+    for (int i = 0; i < cont; i++){
+        if (victima == Vec[i]){
+
+            gotoxy(40, 23);
+            cout <<"Nuevo Precio: $";
+            cargarCadena(aux, 30);
+                if (isdigit(*aux)){
+                victima.setPrecio(aux);
+                Vec[i] = victima;
+                }
+
+            break;
+        }
+    }
+    rlutil::hidecursor();
+    if (archivo.modificarEnDisco(Vec, cont) == true){
+         gotoxy(41, 25);
+         cout <<"SERVICIO CARGADO";
+         getch();
+    };
+    rlutil::setColor(3);
+}
 /*void modificarServicio(){
     Cuadro cuadro;
     cuadro.setCoor({24,16});
@@ -198,33 +264,6 @@ void eliminarServicio(){
 
 */
 
-///////////// DEFINICION DE BUSCAR SERVICIO
 
-/*void buscarServicio(){
-    Cuadro cuadro;
-    cuadro.setCoor({24,16});
-    cuadro.setalto(8);
-    cuadro.setlargo(52);
-    cuadro.dibujar();
-    Archivo archivo;
-    Servicio servicio;
-    int pos,cod;
-    gotoxy(29, 18);
-    cout << "INGRESE EL NUMERO CODIGO DEL SERVICIO: ";
-    cin >> cod;
-    pos = buscarCodigoServicio(cod,servicio);
-    if(pos == -1){
-        gotoxy(28, 21);
-        cout << "NO EXISTE EL CODIGO DE SERVICIO EN EL ARCHIVO" << endl;
-        return;
-    }
-    archivo.leerDeDisco(pos,servicio);
-    gotoxy(38, 21);
-    servicio.mostrar();
-    cout << endl;
-}
-
-///////////// DEFINICION DE ELIMINAR SERVICIO
-*/
 
 #endif // FUNCIONESSERVICIOS_H_INCLUDED

@@ -1,8 +1,6 @@
 #include "Menu.h"
 
-#include "../controller/funcionesPersona.h"
 #include "../controller/funcionesServicios.h"
-#include "../controller/funcionesCuentas.h"
 #include "../controller/funcionesClientes.h"
 #include "../controller/funcionesTurnos.h"
 
@@ -11,6 +9,10 @@ Menu::Menu(){
     _cuadro= {{42,10}, 15, 8, opc};
 }
 
+void Menu::setOpcion(int opcion){
+opc = opcion;
+_cuadro.setOpc(opcion);
+}
 void Menu::setCuadro(Origen coor, int largo, int alto, int opc){
     _cuadro.setCoor(coor);
     _cuadro.setlargo(largo);
@@ -27,7 +29,7 @@ void Menu::setLista(Origen coor, int largo, int alto){
 int Menu::principal(){
     system("cls");
     while (opc != 0){
-        setCuadro({42,10}, 15, 12, opc);
+        setCuadro({42,20}, 15, 8, opc);
         rlutil::hidecursor();
         _cuadro.dibujar();
         _cuadro.mostrar_texto1();
@@ -42,7 +44,7 @@ int Menu::principal(){
                 }
             break;
             case 15:
-                if (opc == 6){
+                if (opc == 4){
                     opc = 1;
                 }
                 else{
@@ -61,12 +63,12 @@ int Menu::principal(){
 }
 
 void Menu::Turnos(){
-    Fecha Lista;
     rlutil::hidecursor();
+    Fecha Lista;
     system("cls");
     while (opc != 0){
-        setLista({19, 16}, 60, 40);
-        setCuadro({38, 10}, 24, 4, opc);
+        setLista({19, 16}, 61, 40);
+        setCuadro({30, 10}, 40, 4, opc);
         _lista.dibujarLista();
         _cuadro.dibujar();
         _cuadro.mostrar_texto2();
@@ -75,75 +77,83 @@ void Menu::Turnos(){
         TurnosDelDia(Lista);
         switch (rlutil::getkey()){
             case 14:
-                    if (opc < 3){
+                if (opc < 4){
+                    opc += 3;
+                }
+                else{
+                    opc -=3;
+                }
+            break;
+            case 15:
+                    if (opc > 3){
+                        opc -= 3;
+                    }
+                    else{
+                        opc +=3;
+                    }
+            break;
+            case 16:
+                    if (opc == 1 || opc == 4){
                         opc += 2;
                     }
                     else{
-
-                    opc -=2;
+                        opc --;
                     }
-                    break;
-            case 15:
-                    if (opc > 2){
-                        opc -= 2;
-                    }
-                    else{
-
-                    opc +=2;
-                    }
-                    break;
-            case 16:
-                    if (opc == 1 || opc == 3){
-                        opc += 1;
-                    }
-                    else{
-                    opc --;
-                    }
-                    break;
+            break;
             case 17:
-                    if (opc == 2 || opc == 4){
-                        opc -= 1;
-                    }
-                    else{
+                if (opc == 3 || opc == 6){
+                        opc -= 2;
+                }
+                else{
                     opc ++;
-                    }
-                    break;
+                }
+            break;
             case 1:
-                ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
                 switch (opc){
-                        ///AGREGAR///
                     case 1:
+                        ///AGREGAR///
                         agregarRegistroTurno();
                         break;
-                        ///MODIFICAR///
                     case 2:
-
+                        ///MODIFICAR///
+                        ModificarTurno(Lista);
                         break;
-                        ///MOSTRAR///
                     case 3:
+                        ///MOSTRAR///
+                        //mostrarRegistroTurno();
+                        break;
+                    case 4:
+                        ///ELIMINAR///
+                        eliminarRegitroTurno(Lista);
+                        break;
+                    case 5:
+                        ///BUSCAR///
                         cambiarFecha(&Lista);
                         break;
+                    case 6:
                         ///VOLVER///
-                    case 4:
-                            opc = 1;
-                            return;
+                        opc = 1;
+                        return;
                         break;
                 }
             system("cls");
+            break;
         }
     }
 }
 
 void Menu::Clientes(){
     rlutil::hidecursor();
+    setCuadro({30, 10}, 40, 4, opc);
     system("cls");
+    int posVector = 0;
     CargarClientesTurnos();
     while (opc != 0){
-        setCuadro({30, 10}, 40, 4, opc);
+        setOpcion(opc);
         _cuadro.dibujar();
         _cuadro.mostrar_texto3();
         _cuadro.Resaltar3();
-        mostrarClientes();
+        mostrarClientes(posVector);
         switch (rlutil::getkey()){
             case 14:
                     if (opc < 4){
@@ -184,102 +194,37 @@ void Menu::Clientes(){
                 switch (opc){
                     ///AGREGAR///
                     case 1:
-                            agregarRegistroCliente();
-
-                        break;
+                            if(agregarRegistroCliente()){
+                            gotoxy(42, 25);
+                            cout << "CLIENTE CARGADO";
+                            getch();
+                            //agregarCuentaCliente(usuario);
+                            rlutil::setColor(3);
+                            }
+                            break;
                         ///MODIFICAR///
                     case 2:
-                            modificarTelefonoCliente();
+                            modificarCliente();
 
                         break;
                         ///MOSTRAR///
                     case 3:
+                        recorrerVector(posVector);
+
                         break;
+
                         ///ELIMINAR///
                     case 4:
-                            eliminarCliente();
+                            eliminarRegitroCliente(posVector);
                         break;
                         ///BUSCAR//
                     case 5:
-                            mostrarClientePorId();
                         break;
                     case 6:
                             opc = 1;
                             return;
                         break;
                 }
-            getch();
-            system("cls");
-        }
-    }
-}
-
-void Menu::Personal(){
-    rlutil::hidecursor();
-    system("cls");
-    while (opc != 0){
-        setCuadro({30, 10}, 40, 4, opc);
-        _cuadro.dibujar();
-        _cuadro.mostrar_texto4();
-        _cuadro.Resaltar4();
-        _cuadro.Resaltar4();
-        switch (rlutil::getkey()){
-            case 14:
-                if (opc < 4){
-                    opc += 3;
-                }
-                else{
-                    opc -=3;
-                }
-            break;
-            case 15:
-                    if (opc > 3){
-                        opc -= 3;
-                    }
-                    else{
-                        opc +=3;
-                    }
-            break;
-            case 16:
-                    if (opc == 1 || opc == 4){
-                        opc += 2;
-                    }
-                    else{
-                        opc --;
-                    }
-            break;
-            case 17:
-                if (opc == 3 || opc == 6){
-                        opc -= 2;
-                }
-                else{
-                    opc ++;
-                }
-            break;
-            case 1:
-                switch (opc){
-                    case 1:
-                        agregarRegistroPersonal();
-                    break;
-                    case 2:
-                        modificarPersonal();
-                    break;
-                    case 3:
-                        mostrarPersonal();
-                    break;
-                    case 4:
-                        eliminarPersonal();
-                    break;
-                    case 5:
-                        buscarPersonal();
-                    break;
-                    case 6:
-                        opc = 1;
-                        return;
-                    break;
-
-                    }
-            getch();
             system("cls");
         }
     }
@@ -289,136 +234,69 @@ void Menu::Servicio(){
     rlutil::hidecursor();
     system("cls");
     while (opc != 0){
-        setCuadro({30, 10}, 40, 4, opc);
+        setCuadro({36, 10}, 28, 4, opc);
+        mostrarServicios();
         _cuadro.dibujar();
         _cuadro.mostrar_texto5();
         _cuadro.Resaltar5();
-        _cuadro.Resaltar5();
-        switch (rlutil::getkey()){
+ switch (rlutil::getkey()){
             case 14:
-                if (opc < 4){
-                    opc += 3;
-                }
-                else{
-                    opc -=3;
-                }
-            break;
-            case 15:
-                    if (opc > 3){
-                        opc -= 3;
-                    }
-                    else{
-                        opc +=3;
-                    }
-            break;
-            case 16:
-                    if (opc == 1 || opc == 4){
+                    if (opc < 3){
                         opc += 2;
                     }
                     else{
-                        opc --;
+
+                    opc -=2;
                     }
-            break;
-            case 17:
-                if (opc == 3 || opc == 6){
+                    break;
+            case 15:
+                    if (opc > 2){
                         opc -= 2;
-                }
-                else{
+                    }
+                    else{
+
+                    opc +=2;
+                    }
+                    break;
+            case 16:
+                    if (opc == 1 || opc == 3){
+                        opc += 1;
+                    }
+                    else{
+                    opc --;
+                    }
+                    break;
+            case 17:
+                    if (opc == 2 || opc == 4){
+                        opc -= 1;
+                    }
+                    else{
                     opc ++;
-                }
-            break;
+                    }
+                    break;
             case 1:
+                ///ACA VAN LAS OPCIONES SEGUN DONDE SE PRESIONE ENTER
                 switch (opc){
+                        ///AGREGAR///
                     case 1:
                         agregarRegistroServicio();
-                    break;
+                        break;
+                        ///MODIFICAR///
                     case 2:
-                    break;
+                        modificarServicio();
+                        break;
+                        ///ELIMIINAR///
                     case 3:
-                        mostrarServicio();
-                    break;
-                    case 4:
                         eliminarServicio();
-                    break;
-                    case 5:
-                    break;
-                    case 6:
-                        opc = 1;
-                        return;
-                    break;
-                    }
-            system("cls");
-        }
-    }
-}
-
-void Menu::Cuentas(){
-    rlutil::hidecursor();
-    system("cls");
-    while (opc != 0){
-        setCuadro({30, 10}, 40, 4, opc);
-        _cuadro.dibujar();
-        _cuadro.mostrar_texto6();
-        _cuadro.Resaltar6();
-        _cuadro.Resaltar6();
-        switch (rlutil::getkey()){
-            case 14:
-                if (opc < 4){
-                    opc += 3;
-                }
-                else{
-                    opc -=3;
-                }
-            break;
-            case 15:
-                    if (opc > 3){
-                        opc -= 3;
-                    }
-                    else{
-                        opc +=3;
-                    }
-            break;
-            case 16:
-                    if (opc == 1 || opc == 4){
-                        opc += 2;
-                    }
-                    else{
-                        opc --;
-                    }
-            break;
-            case 17:
-                if (opc == 3 || opc == 6){
-                        opc -= 2;
-                }
-                else{
-                    opc ++;
-                }
-            break;
-            case 1:
-                switch (opc){
-                    case 1:
-                        ///agregarCuentaCliente();
-                    break;
-                    case 2:
-                        modificarCuenta();
-                    break;
-                    case 3:
-                        mostrarCuenta();
-                    break;
+                        break;
+                        ///VOLVER///
                     case 4:
-                        ///eliminarCuentaCliente();
-                    break;
-                    case 5:
-                        buscarCuenta();
-                    break;
-                    case 6:
-                        opc = 1;
-                        return;
-                    break;
-                    }
-            getch();
-            system("cls");
+                            opc = 1;
+                            return;
+                        break;
+
+                }
+                system("cls");
         }
     }
 }
-

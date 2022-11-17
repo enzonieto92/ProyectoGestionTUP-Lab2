@@ -125,8 +125,13 @@ bool Fecha::Cargar(){
     case 1: //TECLA ENTER
 
         scroll_fecha = false;
+        scroll_hora = true;
         break;
-
+    case 0:
+        rlutil::hidecursor();
+        rlutil::setColor(3);
+        return false;
+        break;
 
         }
 
@@ -177,11 +182,16 @@ bool Fecha::Cargar(){
                     break;
                 case 1:
                     scroll_hora = false;
-
+                    return true;
+                    break;
+                case 0:
+                    scroll_hora = false;
+                    scroll_fecha = true;
+                    break;
             }
 
     }
-        return true;
+
 }
 
 void Fecha::Mostrar(int x,int y){
@@ -353,6 +363,16 @@ minuto = aux.getMinuto();
 }
 bool Fecha::operator == (Fecha aux){
     if (anio == aux.getAnio() && mes == aux.getMes() && dia == aux.getDia()){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+bool Fecha::operator += (Fecha aux){
+    if (anio == aux.getAnio() && mes == aux.getMes() && dia == aux.getDia()
+        && hora == aux.getHora() && minuto == aux.getMinuto()){
         return true;
     }
     else{
