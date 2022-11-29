@@ -64,6 +64,7 @@ while (control){
         break;
     case '\033':
         i = 0;
+        control = false;
         return false;
         break;
     case '\010':

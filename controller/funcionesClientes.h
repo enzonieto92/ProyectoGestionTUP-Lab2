@@ -81,11 +81,12 @@ bool agregarRegistroCliente(){
     cuadroClienteCarga.div();
     gotoxy(44, 18);
     cout <<"NUEVO CLIENTE";
+
     if(usuario.Cargar(40, 21)){
     usuario.setEstado(true);
     }
     else{
-        return false;
+    return false;
     }
     if(archi.grabarEnDisco(usuario)){ // GRABO EN DISCO
         return true;
@@ -187,7 +188,6 @@ void mostrarClientes(int pos){
         cout << "NO HAY CLIENTES REGISTRADOS";
         return;
     }
-
     usuarioD = new Cliente[cant];
     cargarArchivoEnVector(usuarioD, cant);
     ordenarClientes(usuarioD, cant);
@@ -253,6 +253,8 @@ void recorrerVector(int &pos){
 
         gotoxy(43, 8);
     cout <<"Elija la Pagina";
+    gotoxy(47, 9);
+    cout << "<-" << 1 + pos/19 <<"/"<<cantReg/19 + 1  << "->";
         switch (rlutil::getkey ()){
     case 16:
         pos -=19;
@@ -272,12 +274,9 @@ void recorrerVector(int &pos){
         mostrarClientes(pos);
         break;
     case 1:
-        recorrer = false;
-        break;
     case 0:
         recorrer = false;
         break;
-
         }
 
     }

@@ -328,31 +328,36 @@ int Fecha::getHora(){return hora;}
 int Fecha::getMinuto(){return minuto;}
 
 /// SOBRECARGA OPERADOR FECHA < FECHA
+//gracias especiales a Juan Gonzalez por la optimización//
 bool Fecha::operator < (Fecha aux){
     if(anio < aux.getAnio()){
         return true;
     }
-    else{
-        if(mes < aux.getMes() && anio == aux.getAnio()){
+    if(mes < aux.getMes() && anio == aux.getAnio()){
+    return true;
+    }
+    if(dia < aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
         return true;
-        }
-        else{
-            if(dia < aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
-                return true;
-            }
-            else{
-                if(hora < aux.getHora() && dia == aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
-                    return true;
-                }
-                else{
-                    if(minuto < aux.getMinuto() && hora == aux.getHora() && dia == aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
-                        return true;
-                    }
-                }
-            }
-        }
+    }
+    if(hora < aux.getHora() && dia == aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
+        return true;
+    }
+    if(minuto < aux.getMinuto() && hora == aux.getHora() && dia == aux.getDia() && mes == aux.getMes() && anio == aux.getAnio()){
+        return true;
     }
     return false;
+}
+bool Fecha::operator >= (Fecha aux){
+
+        if(hora > aux.getHora()){
+                return true;
+        }
+        else if(minuto > aux.getMinuto() && hora == aux.getHora()){
+                return true;
+        }
+        else{
+        return false;
+        }
 }
 void Fecha::operator = (Fecha aux){
 dia = aux.getDia();
@@ -368,7 +373,6 @@ bool Fecha::operator == (Fecha aux){
     else{
         return false;
     }
-
 }
 bool Fecha::operator += (Fecha aux){
     if (anio == aux.getAnio() && mes == aux.getMes() && dia == aux.getDia()

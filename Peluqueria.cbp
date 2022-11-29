@@ -22,19 +22,15 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="controller/funcionesClientes.h" />
-		<Unit filename="controller/funcionesCuentas.h" />
-		<Unit filename="controller/funcionesPersona.h" />
 		<Unit filename="controller/funcionesServicios.h" />
 		<Unit filename="controller/funcionesTurnos.h" />
 		<Unit filename="include/Archivo.h" />
 		<Unit filename="include/Cliente.h" />
 		<Unit filename="include/Cuadro.h" />
-		<Unit filename="include/Cuentas.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="include/Funciones.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Origen.h" />
-		<Unit filename="include/Personal.h" />
 		<Unit filename="include/Servicio.h" />
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/Turno.h" />
@@ -42,12 +38,10 @@
 		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/Cliente.cpp" />
 		<Unit filename="src/Cuadro.cpp" />
-		<Unit filename="src/Cuentas.cpp" />
 		<Unit filename="src/Fecha.cpp" />
 		<Unit filename="src/Funciones.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Origen.cpp" />
-		<Unit filename="src/Personal.cpp" />
 		<Unit filename="src/Servicio.cpp" />
 		<Unit filename="src/Texto.cpp" />
 		<Unit filename="src/Turno.cpp" />

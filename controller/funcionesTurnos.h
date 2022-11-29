@@ -13,8 +13,10 @@ void borrarLista();
 void agregarRegistroTurno();
 void eliminarRegitroTurno(Fecha&);
 bool cargarTurno(Turno&);
-void cambiarFecha(Fecha);
-void TurnosDelDia(Fecha);
+void cambiarFecha(Fecha&);
+Turno* TurnosDelDia(Fecha);
+void mostrarTurnosLista(Turno*, int);
+void ordenarTurnos(Turno*, int);
 bool turnoHoy(Fecha);
 void BorrarTurno(Turno);
 bool ConfirmarSeleccion(int, int);
@@ -103,6 +105,8 @@ cout <<"Elija el Turno";
         pos++;
     }
             while (buscar == true){
+                    gotoxy(2, 2);
+            cout <<seleccion<<endl<<tam;
                 gotoxy(15, 2*seleccion+19);
                 cout << char (175) << char(196) << char (62) ;
                 switch (rlutil::getkey()){
@@ -202,13 +206,11 @@ while (reg.leerDeDisco(pos, _turno)){
 if (_turno == aux){
     pos++;
 }
-    else
-    {
+else{
         Lista[indice] = _turno;
         pos++;
         indice++;
     }
-
 }
 
  reg.modificarEnDisco(Lista, tam-1);
@@ -291,25 +293,18 @@ int pos = 0;
         while (reg.leerDeDisco(pos, aux)){
             if (obj == aux){
                 if(cargarTurno(aux)){
-
-                if (ConfirmarSeleccion(30, 29)){
-
-                    reg.modificarEnDisco(pos, aux);
-                    break;
-                    return false;
-                }
-                else{
-                    return true;
-                }
-
+                    if (ConfirmarSeleccion(40, 20)){
+                        reg.modificarEnDisco(pos, aux);
+                        break;
                     }
+                    else{
+                        return false;
+                    }
+                }
             }
-            pos++;
+        pos++;
         }
-
-
-
-
+    return true;
 }
 //CARGAR TURNO: inicializa los objetos vacíos, recibe un objeto "Turno" como referencia para cargarlo, devuelve falso si no se completó la carga
 bool cargarTurno(Turno &_cita){
@@ -336,19 +331,19 @@ bool cargarTurno(Turno &_cita){
 }
 
 // CAMBIAR LA FECHA DEL OBJETO QUE RECIBE, EN ESTE CASO ES LA FECHA QUE SE USA PARA MOSTRAR LA LISTA DE TURNOS
-void cambiarFecha(Fecha* aux){
-aux->setFecha();
+void cambiarFecha(Fecha& aux){
+aux.setFecha();
 }
 
 
 // MOSTRAR TURNOS DEL DIA
-void TurnosDelDia(Fecha hoy){
+Turno* TurnosDelDia(Fecha aux){
     Archivo archi;
     Turno _turno;
-    Cliente usuario;
-    Servicio servicio;
+    int tam = contarRegistrosxFecha(aux);
+    Turno* Vec = new Turno[tam];
     int posArchivo = 0;
-    int posLista = 0;
+    int indice = 0;
     gotoxy(22, 17);
     cout << "HORA";
     gotoxy(30, 17);
@@ -357,25 +352,47 @@ void TurnosDelDia(Fecha hoy){
     cout << "SERVICIO";
     gotoxy(72, 17);
     cout << "PRECIO";
-    while(archi.leerDeDisco(posArchivo++, _turno)){
-            if (_turno.getFechaServicio() == hoy){
-                    usuario = _turno.getCliente();
-                    servicio = _turno.getServicio();
-                     gotoxy(21, 19+(posLista*2));
-                    if(_turno.getFechaServicio().getHora() < 10) cout << "0";
-                    cout << _turno.getFechaServicio().getHora() << ":";
-                    if(_turno.getFechaServicio().getMinuto() < 10) cout << "0" ;
-                    cout << _turno.getFechaServicio().getMinuto();
-                    gotoxy(30, 19+(posLista*2));
-                    cout << usuario.getNombre()<<" "<<usuario.getApellido();
-                    gotoxy(52, 19+(posLista*2));
-                    cout << servicio.getDescripcion();
-                    gotoxy(72, 19+(posLista*2));
-                    cout << "$ " << servicio.getPrecio();
-            posLista++;
+    while(archi.leerDeDisco(posArchivo, _turno)){
+            if (_turno.getFechaServicio() == aux){
+                Vec[indice] = _turno;
+                indice++;
             }
+            posArchivo++;
     }
+    return Vec;
 }
 
+void ordenarTurnos(Turno* obj, int cantReg){
+Turno aux;
+    for(int i = 0; i < cantReg; i++){
+        for (int j = 0; j < cantReg-1; j++){
+            if (obj[j].getFechaServicio() >= obj[j+1].getFechaServicio()){
+                aux = obj[j];
+                obj[j] = obj[j+1];
+                obj[j+1] = aux;
+            }
+        }
+    }
+}
+void mostrarTurnosLista(Turno *VecTurnos, int tam){
+    int indice = 0;
+    ordenarTurnos(VecTurnos, tam);
+
+    while (indice < tam){
+                     gotoxy(21, 19+(indice*2));
+                    if(VecTurnos[indice].getFechaServicio().getHora() < 10) cout << "0";
+                    cout << VecTurnos[indice].getFechaServicio().getHora() << ":";
+                    if(VecTurnos[indice].getFechaServicio().getMinuto() < 10) cout << "0" ;
+                    cout << VecTurnos[indice].getFechaServicio().getMinuto();
+                    gotoxy(30, 19+(indice*2));
+                    cout << VecTurnos[indice].getCliente().getNombre()<<" "<<VecTurnos[indice].getCliente().getApellido();
+                    gotoxy(52, 19+(indice*2));
+                    cout << VecTurnos[indice].getServicio().getDescripcion();
+                    gotoxy(72, 19+(indice*2));
+                    cout << "$ " << VecTurnos[indice].getServicio().getPrecio();
+            indice++;
+    }
+    delete[]VecTurnos;
+}
 
 #endif // FUNCIONESTURNOS_H_INCLUDED
