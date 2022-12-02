@@ -38,6 +38,7 @@ class Fecha{
         int getMinuto();
         /// SOBRECARGA OPERADOR
         bool operator < (Fecha);
+        bool operator >= (Fecha);
         void operator = (Fecha);
         bool operator == (Fecha);
         bool operator += (Fecha);

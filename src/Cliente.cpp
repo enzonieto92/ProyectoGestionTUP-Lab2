@@ -24,6 +24,9 @@ for (int i = x+10; i < x+25; i++){
 bool Cliente::Cargar(int x, int y){
 
 
+bool cargando = true;
+while (cargando){
+
 
     limpiarEspacios(x, y);
     gotoxy(x+2, y);
@@ -43,7 +46,6 @@ bool Cliente::Cargar(int x, int y){
         gotoxy(x-2, y+4);
         cout <<"Ingrese un nombre valido!";
         getch();
-        Cargar(x, y);
        }
     }
     else{
@@ -60,7 +62,8 @@ bool Cliente::Cargar(int x, int y){
         gotoxy(x-2, y+4);
         cout <<"Ingrese un apellido valido!";
         getch();
-        Cargar(x, y);
+        break;
+
        };
     }
     else{
@@ -77,14 +80,16 @@ bool Cliente::Cargar(int x, int y){
             gotoxy(x-2, y+4);
             cout <<"Ingrese un telefono valido!";
             getch();
-            Cargar(x, y);
+            fflush(stdin);
+            break;
         }
     }
     else{
         return false;
     }
+}
     rlutil::hidecursor();
-
+    cargando = false;
     return true;
 
 }

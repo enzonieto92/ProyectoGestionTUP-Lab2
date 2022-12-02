@@ -64,7 +64,8 @@ int Menu::principal(){
 
 void Menu::Turnos(){
     rlutil::hidecursor();
-    Fecha Lista;
+    Fecha _fecha;
+    int tam = 0;
     system("cls");
     while (opc != 0){
         setLista({19, 16}, 61, 40);
@@ -73,8 +74,9 @@ void Menu::Turnos(){
         _cuadro.dibujar();
         _cuadro.mostrar_texto2();
         _cuadro.Resaltar2();
-        Lista.Mostrar(47, 15);
-        TurnosDelDia(Lista);
+        _fecha.Mostrar(47, 15);
+        tam = contarRegistrosxFecha(_fecha);
+        mostrarTurnosLista(TurnosDelDia(_fecha), tam);
         switch (rlutil::getkey()){
             case 14:
                 if (opc < 4){
@@ -116,7 +118,7 @@ void Menu::Turnos(){
                         break;
                     case 2:
                         ///MODIFICAR///
-                        ModificarTurno(Lista);
+                        ModificarTurno(_fecha);
                         break;
                     case 3:
                         ///MOSTRAR///
@@ -124,11 +126,11 @@ void Menu::Turnos(){
                         break;
                     case 4:
                         ///ELIMINAR///
-                        eliminarRegitroTurno(Lista);
+                        eliminarRegitroTurno(_fecha);
                         break;
                     case 5:
                         ///BUSCAR///
-                        cambiarFecha(&Lista);
+                        cambiarFecha(_fecha);
                         break;
                     case 6:
                         ///VOLVER///
@@ -199,6 +201,9 @@ void Menu::Clientes(){
                             cout << "CLIENTE CARGADO";
                             getch();
                             //agregarCuentaCliente(usuario);
+                            rlutil::setColor(3);
+                            }
+                            else{
                             rlutil::setColor(3);
                             }
                             break;
