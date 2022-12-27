@@ -65,7 +65,6 @@ void mostrarServicios(){
     if(archivo.contarRegistro(servicio)==0){
         gotoxy(38, 20);
         cout << "NO HAY REGISTRO GUARDADOS";
-        getch();
         return;
 
     }
